@@ -1,0 +1,21 @@
+services:
+
+  python:
+    build:
+      context: .
+      dockerfile: docker/python.Dockerfile
+    volumes:
+      - .:/workspace
+    working_dir: /workspace
+    stdin_open: true
+    tty: true
+
+  node:
+    build:
+      context: .
+      dockerfile: docker/node.Dockerfile
+    volumes:
+      - .:/workspace
+    working_dir: /workspace
+    stdin_open: true
+    tty: true
