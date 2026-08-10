@@ -2,15 +2,11 @@ FROM python:3.12-slim
 
 WORKDIR /workspace
 
+COPY model-export/requirements.txt /tmp/requirements.txt
+
+RUN pip install --upgrade pip \
+    && pip install --no-cache-dir -r /tmp/requirements.txt
+
 COPY . .
-
-RUN pip install --upgrade pip
-
-RUN pip install \
-    pgmpy \
-    pandas \
-    numpy \
-    networkx \
-    scipy
 
 CMD ["bash"]
