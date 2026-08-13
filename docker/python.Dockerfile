@@ -1,11 +1,10 @@
-FROM python:3.12-slim
+FROM python:3.12.13-slim
 
 WORKDIR /workspace
 
-COPY model-export/requirements.txt /tmp/requirements.txt
+COPY model-export/requirements.lock.txt /tmp/requirements.lock.txt
 
-RUN pip install --upgrade pip \
-    && pip install --no-cache-dir -r /tmp/requirements.txt
+RUN python -m pip install --no-cache-dir pip==26.2.1 && python -m pip install --no-cache-dir -r /tmp/requirements.lock.txt
 
 COPY . .
 
