@@ -223,23 +223,29 @@ Arquitectura inicial y planificación del proyecto.
 
 Infraestructura Docker reproducible.
 
-Hasta el momento se ha validado:
+Se ha validado:
 
 - Docker Desktop;
 - Docker Engine;
 - Docker Compose;
-- construcción de la imagen Python;
-- construcción de la imagen Node;
-- ejecución de Python dentro del contenedor;
-- ejecución de Node.js dentro del contenedor;
-- ejecución de npm;
-- importación de dependencias Python;
+- construcción limpia de las imágenes Python y Node con `--no-cache`;
+- Python 3.12.13;
+- pip 26.2.1;
+- pgmpy 1.1.2;
+- Node.js 24.19.0;
+- npm 11.17.0;
+- versiones directas de Python fijadas en `requirements.txt`;
+- 35 dependencias Python bloqueadas en `requirements.lock.txt`;
+- equivalencia entre `pip freeze` y `requirements.lock.txt`;
 - montaje del repositorio en `/workspace`;
-- integración de `requirements.txt` con el Dockerfile Python;
 - configuración de `.dockerignore`;
+- documentación del entorno en `docs/docker-setup.md`;
+- validación final documentada en `docs/seccion-1-validacion.md`;
 - sincronización del repositorio local con GitHub.
 
-**Estado:** En proceso de cierre y documentación.
+La reproducibilidad validada en esta sección corresponde al entorno de ingeniería actual. La equivalencia científica con el entorno original utilizado para desarrollar la Red Bayesiana deberá comprobarse posteriormente cuando el modelo fuente esté disponible en el repositorio.
+
+**Estado:** Completada.
 
 ### Sección 2
 
