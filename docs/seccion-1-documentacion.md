@@ -13,9 +13,9 @@
 
 ## 1. Objetivo de la Sección 1
 
-La Sección 1 tuvo como objetivo construir y validar una infraestructura Docker reproducible para Proyecto Tenate.
+En la Sección (Sprint) 1, su objetivo fue construir y validar una infraestructura Docker que fuera reproducible, sin tener en cuenta las limitaciones de los diferentes sistemas operativos.
 
-El entorno debía permitir trabajar con los componentes Python y Node.js del proyecto sin depender de instalaciones locales específicas de cada sistema operativo y debía servir como base para las siguientes secciones del desarrollo.
+El entorno debía permitir trabajar con los componentes de Python y Node.js del proyecto sin depender de instalaciones locales y debía servir como base para las siguientes secciones del desarrollo.
 
 Los objetivos principales fueron:
 
