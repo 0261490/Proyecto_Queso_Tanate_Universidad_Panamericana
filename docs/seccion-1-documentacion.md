@@ -4,9 +4,9 @@
 
 ### Ecosistema Edge-AI de Inferencia Bayesiana
 
-**Estado de la Sección 1:** Completada  
-**Etiqueta de cierre:** `seccion-1`  
-**Commit de cierre:** `3eed65f`  
+**Estado de la Sección 1:** Completada
+**Etiqueta de cierre:** `seccion-1`
+**Commit de cierre:** `3eed65f`
 **Repositorio oficial:** https://github.com/0261490/Proyecto_Queso_Tanate_Universidad_Panamericana
 
 ---
