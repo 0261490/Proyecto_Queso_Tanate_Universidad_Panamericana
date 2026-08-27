@@ -5,7 +5,7 @@
 ### Apartado 1 — Recuperación y auditoría del modelo científico
 
 **Fecha de documentación:** 17 de agosto de 2026
-**Estado:** En proceso — pendiente de recibir el modelo científico original
+**Estado:** Apartado 1 completado — CSV confirmado como única fuente científica digital disponible
 
 ---
 
@@ -273,32 +273,29 @@ DAG serializado                        NO LOCALIZADO
 CSV original                           NO LOCALIZADO
 Script de entrenamiento                NO LOCALIZADO
 Notebook de entrenamiento              NO LOCALIZADO
-Versión científica original            PENDIENTE DE RECUPERAR
+Versión científica original            NO DISPONIBLE
 ```
 
 El artículo científico permite conocer parte de la estructura conceptual y resultados de referencia, pero no contiene todas las CPT necesarias para reconstruir exactamente la Red Bayesiana original.
 
 Por lo tanto:
 
-> No se reconstruirá el modelo manualmente ni se inventarán probabilidades a partir del artículo.
+> Se confirmó posteriormente que el modelo serializado original no será entregado. Por lo tanto, su ausencia se registra como una limitación conocida y no como una recuperación pendiente.
 
 ---
 
 # 10. Responsable identificado
 
-Se confirmó que la Red Bayesiana original fue realizada por la doctora/profesora responsable del modelo científico.
+Se solicitó información y archivos relacionados con la versión utilizada para obtener los resultados publicados.
 
-Se decidió solicitarle el archivo original correspondiente a la versión utilizada para obtener los resultados publicados.
+Posteriormente se confirmó que el único activo científico digital que será entregado a Proyecto Tenate es la base de datos CSV auditada en este documento.
 
-La referencia principal para identificar la versión correcta es:
-
-```text
-P(Q2 = Yes | Q8 = Yes) = 62.6%
+No se recibirá un archivo serializado del modelo Bayesiano original.
 ```
 
 ---
 
-# 11. Archivos solicitados
+# 11. Archivos solicitados — registro histórico
 
 ## Prioridad 1 — Modelo final
 
@@ -344,11 +341,15 @@ Solicitar capturas, tablas, salidas de Python, archivos de validación o cualqui
 
 ---
 
-# 12. Protocolo de recepción del modelo
+# 12. Protocolo de recepción originalmente previsto
 
-Cuando se reciba el archivo científico, no se modificará inmediatamente.
+Durante la fase inicial se preparó el siguiente protocolo para el caso de que se recibiera un archivo serializado del modelo científico.
 
-Se seguirá este procedimiento:
+Posteriormente se confirmó que dicho archivo no estará disponible.
+
+Por lo tanto, este protocolo se conserva únicamente como registro metodológico y no constituye una dependencia pendiente del Apartado 1.
+
+El protocolo originalmente previsto era:
 
 - [ ] Registrar el nombre original del archivo.
 - [ ] Registrar su extensión y tamaño.
@@ -432,8 +433,7 @@ P(Q2 = No  | Q8 = Yes) ≈ 37.4%
 
 ## 13.8 Herramientas de auditoría preparadas
 
-Mientras se espera la recepción del modelo científico original, se desarrolló una herramienta de inspección de solo lectura:
-
+Durante la fase de recuperación, antes de confirmarse que el modelo serializado original no estaría disponible, se desarrolló una herramienta de inspección de solo lectura:
 ```text
 model-export/inspect_model.py
 ```
@@ -521,9 +521,11 @@ Esta prueba valida el funcionamiento técnico del inspector.
 
 ## 13.9 Auditoría de la base de datos recibida
 
-Se recibió una copia de la base de datos asociada al estudio en formato CSV.
+La equivalencia exacta entre el CSV recibido y la versión de los datos utilizada para generar el modelo publicado no puede confirmarse con los archivos disponibles.
 
-El archivo original fue conservado fuera del repositorio durante esta etapa y se auditó mediante un montaje Docker de solo lectura (`:ro`) para evitar modificaciones accidentales.
+Se ha confirmado que el CSV constituye la única fuente científica digital que será entregada al proyecto. No se recibirá un archivo serializado del modelo Bayesiano original.
+
+Por lo tanto, cualquier modelo utilizado posteriormente por Proyecto Tenate deberá generarse de manera reproducible a partir de esta base de datos y deberá identificarse explícitamente como un modelo derivado del CSV recibido, no como una recuperación exacta del modelo original publicado.
 
 ### Identificación del archivo
 
@@ -674,13 +676,15 @@ Por lo tanto, actualmente se puede afirmar:
 Integridad estructural del CSV                 VALIDADA
 Identidad criptográfica del archivo            REGISTRADA
 Compatibilidad con el esquema general          VALIDADA
-Equivalencia con la base científica publicada  PENDIENTE
-Equivalencia con el modelo final                PENDIENTE
+Equivalencia con la base científica publicada  NO VERIFICABLE
+Equivalencia con el modelo original publicado  NO VERIFICABLE
 ```
 
 No se modificarán datos para intentar hacer coincidir artificialmente estas distribuciones.
 
-La equivalencia científica deberá resolverse cuando se reciba el modelo original y se pueda determinar qué versión de los datos fue utilizada para entrenarlo.
+La equivalencia científica exacta con el modelo publicado no puede resolverse con los archivos disponibles, ya que el modelo serializado original no será entregado.
+
+Esta limitación queda documentada y no impide continuar con la construcción de un modelo reproducible derivado del CSV recibido.
 
 ### Herramienta utilizada
 
@@ -707,6 +711,61 @@ El script fue validado dentro del entorno Docker antes de utilizarlo sobre la ba
 
 ---
 
+## 13.10 Decisión sobre la fuente científica disponible
+
+Se confirmó que la única fuente científica digital que será proporcionada para el desarrollo de Proyecto Tenate es la base de datos CSV auditada en este documento.
+
+No se dispone ni se dispondrá de:
+
+```text
+model.pkl
+modelo BIF
+modelo XDSL
+modelo XMLBIF
+notebook original de entrenamiento
+script original de entrenamiento
+archivo nativo de GeNIe
+CPT originales completas
+```
+
+Por lo tanto, se establece formalmente:
+
+```text
+CSV recibido                         FUENTE CIENTÍFICA DISPONIBLE
+Modelo serializado original          NO DISPONIBLE
+Recuperación exacta del modelo       NO VERIFICABLE
+Reconstrucción reproducible          VIABLE
+```
+
+La ausencia del modelo serializado original no se considerará una tarea pendiente del Apartado 1, ya que se ha confirmado que dicho archivo no será entregado.
+
+La consecuencia metodológica es que Proyecto Tenate deberá construir posteriormente un nuevo modelo Bayesiano reproducible a partir del CSV recibido.
+
+Este modelo deberá:
+
+- conservar sin alteración el CSV original como evidencia de entrada;
+- documentar todas las transformaciones aplicadas a los datos;
+- documentar las variables utilizadas;
+- documentar los estados de cada variable;
+- documentar el algoritmo de aprendizaje estructural;
+- documentar la función de puntuación;
+- documentar el método de estimación de CPT;
+- controlar cualquier fuente de no determinismo;
+- registrar las versiones de software;
+- validar estructuralmente el modelo resultante;
+- comparar sus resultados con las referencias científicas publicadas disponibles.
+
+La comparación con:
+
+```text
+P(Q2 = Yes | Q8 = Yes) ≈ 62.6%
+```
+
+se utilizará como una referencia científica de validación.
+
+No se modificarán datos, estructura ni probabilidades únicamente con el propósito de forzar dicha coincidencia.
+
+---
 # 14. Protección del modelo científico
 
 Durante toda la Sección 2 se mantendrá la siguiente regla:
@@ -731,7 +790,7 @@ Cualquier diferencia científica deberá detener el avance y ser documentada.
 
 # 15. Criterios para completar el Apartado 1 al 100 %
 
-El Apartado 1 se considerará completado únicamente cuando:
+El Apartado 1 se considerará completado cuando:
 
 - [x] se haya revisado `model-source/`;
 - [x] se haya revisado el repositorio actual;
@@ -739,94 +798,93 @@ El Apartado 1 se considerará completado únicamente cuando:
 - [x] se hayan revisado ubicaciones locales relevantes;
 - [x] se haya revisado el historial de PowerShell;
 - [x] se haya identificado al responsable del modelo original;
-- [x] se haya preparado una herramienta de inspección de solo lectura;
-- [x] se hayan creado pruebas automáticas para dicha herramienta;
-- [x] las pruebas automáticas hayan sido ejecutadas satisfactoriamente dentro de Docker;
-- [x] se haya recibido una base de datos asociada al estudio;
+- [x] se haya determinado que el modelo serializado original no está disponible;
+- [x] se haya confirmado cuál será la única fuente científica digital disponible;
+- [x] se haya recibido la base de datos asociada al estudio;
+- [x] se haya preservado el CSV original sin modificaciones;
 - [x] se haya calculado y registrado su SHA-256;
 - [x] se haya auditado la integridad estructural de la base;
 - [x] se hayan validado los estados `Yes/No` de Q1-Q8;
 - [x] se haya calculado la frecuencia condicional empírica Q2/Q8;
-- [ ] se haya confirmado que el CSV recibido corresponde exactamente a la versión utilizada para entrenar el modelo publicado;
-- [ ] se haya recibido el archivo científico;
-- [ ] se haya preservado una copia original;
-- [ ] se haya calculado su hash;
-- [ ] se hayan identificado nodos;
-- [ ] se hayan identificado estados;
-- [ ] se haya identificado el DAG;
-- [ ] se hayan identificado las CPT;
-- [ ] se haya validado la estructura;
-- [ ] se haya ejecutado la inferencia de referencia;
-- [ ] se haya comprobado el resultado de aproximadamente `62.6%`;
-- [ ] se haya documentado la compatibilidad de versiones;
-- [ ] se haya autorizado formalmente avanzar al Apartado 2.
+- [x] se hayan documentado las diferencias preliminares frente a la publicación;
+- [x] se haya documentado que la equivalencia exacta con la base utilizada para el modelo publicado no es verificable con los archivos disponibles;
+- [x] se haya preparado una herramienta de inspección de modelos;
+- [x] se hayan creado pruebas automáticas para dicha herramienta;
+- [x] las pruebas automáticas hayan sido ejecutadas satisfactoriamente dentro de Docker;
+- [x] se haya definido que cualquier modelo posterior será una reconstrucción reproducible derivada del CSV;
+- [x] se haya establecido que no se alterarán datos o probabilidades para forzar coincidencias con el artículo.
 
----
+ESTADO:
+
+```text
+APARTADO 1 — COMPLETADO AL 100 %
 
 # 16. Estado actual
 
 ```text
 SECCIÓN 2 — EXPORTADOR DEL MODELO BAYESIANO
 
-Apartado 1 — Recuperación y auditoría del modelo científico
+Apartado 1 — Recuperación y auditoría de fuentes científicas
 
-Búsqueda local                          COMPLETADA
-Auditoría del repositorio               COMPLETADA
-Auditoría del historial Git             COMPLETADA
-Auditoría de PowerShell                 COMPLETADA
-Responsable científico identificado     COMPLETADO
-Documentación de auditoría              COMPLETADA
-Inspector de modelo                     COMPLETADO
-Pruebas automáticas del inspector       4/4 COMPLETADAS
-Validación técnica en Docker            COMPLETADA
-Base de datos recibida                  COMPLETADA
-Hash SHA-256 de la base                 COMPLETADO
-Auditoría estructural del CSV           COMPLETADA
-Estados Q1-Q8                           VALIDADOS
-Frecuencia empírica Q2/Q8               CALCULADA
-Equivalencia CSV ↔ artículo             PENDIENTE
-Solicitud del modelo                    EN ESPERA
-Recepción del modelo                    PENDIENTE
-Auditoría del modelo científico real    PENDIENTE
-Equivalencia CSV ↔ modelo final         PENDIENTE
+Búsqueda local                              COMPLETADA
+Auditoría del repositorio                   COMPLETADA
+Auditoría del historial Git                 COMPLETADA
+Auditoría de PowerShell                     COMPLETADA
+Responsable científico identificado         COMPLETADO
+
+Base de datos recibida                      COMPLETADA
+Hash SHA-256 de la base                     COMPLETADO
+Auditoría estructural del CSV               COMPLETADA
+Estados Q1-Q8                               VALIDADOS
+Frecuencia empírica Q2/Q8                   CALCULADA
+
+Inspector de modelos                        COMPLETADO
+Pruebas automáticas del inspector           4/4 COMPLETADAS
+Validación técnica en Docker                COMPLETADA
+
+Modelo Bayesiano original serializado       NO DISPONIBLE
+CSV como única fuente científica            CONFIRMADO
+Equivalencia exacta CSV ↔ artículo          NO VERIFICABLE
+Recuperación exacta del modelo publicado    NO VERIFICABLE
 
 ESTADO GENERAL DEL APARTADO 1:
-EN PROCESO
-```
+COMPLETADO AL 100 %
 
----
+## 17. Próximo paso
 
-# 17. Próximo paso
+El Apartado 1 queda cerrado con la identificación, preservación y auditoría de la única fuente científica disponible.
 
-La infraestructura de auditoría necesaria para recibir el modelo científico ya se encuentra preparada y validada.
+El siguiente trabajo consistirá en definir de manera reproducible cómo generar una Red Bayesiana a partir del CSV recibido.
 
-El siguiente paso depende de la recepción del archivo original proporcionado por la responsable científica.
+Antes de implementar el exportador definitivo será necesario definir y validar:
 
-Cuando se reciba el modelo se deberá:
+1. variables que participarán en la Red Bayesiana;
+2. estados de cada variable;
+3. tratamiento de `Judge_ID`;
+4. tratamiento de variables demográficas;
+5. preprocesamiento requerido;
+6. algoritmo de aprendizaje estructural;
+7. función de puntuación;
+8. método de estimación de CPT;
+9. determinismo y semillas cuando apliquen;
+10. versiones exactas de las dependencias;
+11. validaciones estructurales;
+12. comparación con las referencias científicas publicadas.
 
-1. preservar el archivo original;
-2. calcular su SHA-256;
-3. identificar el formato;
-4. cargarlo mediante `inspect_model.py`;
-5. auditar nodos, estados, DAG y CPT;
-6. ejecutar la inferencia de referencia;
-7. comparar el resultado con:
+El modelo resultante será identificado como un modelo reproducible derivado del CSV recibido.
 
-```text
-P(Q2 = Yes | Q8 = Yes) ≈ 62.6%
-```
-
-No se deberá considerar definitivo el contrato `model.json` ni iniciar la implementación completa de `export_model.py` hasta terminar esta auditoría.
+No se presentará como una recuperación exacta del archivo Bayesiano original.
 
 ---
 # 18. Resultado de esta fase
 
-La búsqueda realizada evita reconstruir o sustituir accidentalmente el modelo científico con una versión aproximada.
+La auditoría permitió determinar de manera reproducible qué material científico está realmente disponible para Proyecto Tenate.
 
-La dependencia pendiente está claramente identificada:
+La fuente de datos disponible queda identificada mediante:
 
 ```text
-RECIBIR Y VALIDAR EL MODELO CIENTÍFICO ORIGINAL
-```
+Registros: 169
+Columnas: 12
 
-Hasta entonces, el Apartado 1 permanece abierto.
+SHA-256:
+2a74e34d0cb9dad5f98bdd8d0cf4691c5ffc929ead195ea39de603974ca716be
