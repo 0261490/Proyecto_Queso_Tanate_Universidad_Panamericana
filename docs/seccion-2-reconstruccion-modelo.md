@@ -395,14 +395,324 @@ LISTO PARA VALIDACIÓN
 
 ---
 
-# 17. Próximo paso después de validar este documento
+# 17. Subapartado 2.2 — Preparación reproducible del dataset
 
-Una vez revisada y versionada esta especificación, el siguiente trabajo será:
+El Subapartado 2.2 tuvo como objetivo construir una vista de entrenamiento reproducible a partir del CSV científico auditado, sin modificar la fuente original.
+
+Se implementó:
 
 ```text
-Subapartado 2.2 — Preparación reproducible del dataset
+model-source/prepare_dataset.py
 ```
 
-Ese subapartado deberá construir una vista de entrenamiento reproducible a partir del CSV original sin modificar la fuente.
+La herramienta valida primero la identidad criptográfica del CSV científico original.
 
-Todavía no se entrenará la Red Bayesiana hasta que la preparación de datos quede validada al 100 %.
+Fuente esperada:
+
+```text
+Filas: 169
+Columnas: 12
+
+SHA-256:
+2a74e34d0cb9dad5f98bdd8d0cf4691c5ffc929ead195ea39de603974ca716be
+```
+
+Si el SHA-256 no coincide, el proceso se detiene y el archivo es rechazado.
+
+## 17.1 Transformación aplicada
+
+La única variable eliminada de la vista de entrenamiento es:
+
+```text
+Judge_ID
+```
+
+La transformación aplicada es:
+
+```text
+CSV científico original
+169 filas × 12 columnas
+        │
+        ├── validar SHA-256
+        ├── validar esquema
+        ├── validar integridad
+        ├── conservar orden de filas
+        ├── conservar categorías demográficas
+        ├── conservar Q1-Q8 como Yes/No
+        ├── no realizar imputación
+        ├── no recodificar contenido científico
+        └── excluir Judge_ID
+                │
+                ▼
+Dataset de entrenamiento
+169 filas × 11 columnas
+```
+
+No se alteran las 169 observaciones originales.
+
+## 17.2 Columnas de entrenamiento
+
+La vista reproducible contiene exactamente:
+
+```text
+Gender
+Age
+Standardized_City
+Q1_Traditional_Mexican
+Q2_Purchase_Intention
+Q3_Recommendation
+Q4_Gastronomic_Heritage
+Q5_Authenticity_Elaboration
+Q6_Commercial_Potential
+Q7_Culture_Preservation
+Q8_Sensory_Uniqueness
+```
+
+Total:
+
+```text
+11 variables
+169 observaciones
+```
+
+`Judge_ID` permanece exclusivamente en el CSV fuente para trazabilidad y no participa como nodo científico de la Red Bayesiana.
+
+## 17.3 Serialización canónica
+
+Cuando se solicita escribir la vista derivada mediante `--output`, el archivo se genera de forma determinista con:
+
+```text
+UTF-8
+sin BOM
+sin índice
+orden de filas conservado
+orden científico fijo de columnas
+saltos de línea LF
+```
+
+El dataset derivado producido a partir del CSV científico auditado tiene:
+
+```text
+SHA-256:
+c8eb4a4e2107fde5817f87481db1a59485cf82e1ec41e9d42a672b578bb033e5
+```
+
+El hash calculado por `prepare_dataset.py` coincidió exactamente con el calculado posteriormente desde Windows.
+
+Por lo tanto, la transformación:
+
+```text
+CSV original
+→ dataset de entrenamiento
+```
+
+es reproducible a nivel de bytes bajo la serialización definida.
+
+## 17.4 Modo de verificación
+
+`prepare_dataset.py` puede ejecutarse sin `--output`.
+
+En ese modo:
+
+```text
+Archivo derivado: NO ESCRITO
+```
+
+La herramienta valida y prepara la vista de entrenamiento en memoria, calcula su SHA-256 y no genera un nuevo archivo.
+
+Esta modalidad permite comprobar la preparación sin crear artefactos innecesarios.
+
+## 17.5 Prueba real con la fuente científica
+
+La herramienta fue ejecutada dentro del entorno Docker utilizando el CSV original montado como solo lectura:
+
+```text
+:ro
+```
+
+Resultado:
+
+```text
+SHA-256 fuente:
+2a74e34d0cb9dad5f98bdd8d0cf4691c5ffc929ead195ea39de603974ca716be
+
+Filas fuente:
+169
+
+Columnas fuente:
+12
+
+Filas entrenamiento:
+169
+
+Columnas entrenamiento:
+11
+
+SHA-256 entrenamiento:
+c8eb4a4e2107fde5817f87481db1a59485cf82e1ec41e9d42a672b578bb033e5
+
+RESULTADO:
+DATASET DE ENTRENAMIENTO PREPARADO CORRECTAMENTE
+```
+
+## 17.6 Prueba del modo `--output`
+
+También se generó temporalmente:
+
+```text
+model-source/training_dataset_temp.csv
+```
+
+El archivo produjo:
+
+```text
+169 filas
+11 columnas
+
+SHA-256:
+c8eb4a4e2107fde5817f87481db1a59485cf82e1ec41e9d42a672b578bb033e5
+```
+
+El hash coincidió con el calculado previamente en memoria por `prepare_dataset.py`.
+
+Después de comprobar la reproducibilidad, el archivo temporal fue eliminado.
+
+Resultado:
+
+```text
+Test-Path model-source/training_dataset_temp.csv
+False
+```
+
+El dataset derivado temporal no se conservará ni se versionará en GitHub.
+
+Puede regenerarse de forma determinista a partir del CSV científico original cuando sea necesario.
+
+---
+
+# 18. Pruebas automáticas del Subapartado 2.2
+
+Se creó:
+
+```text
+tests/test_prepare_dataset.py
+```
+
+Las pruebas utilizan datos sintéticos y no requieren acceso al CSV científico original.
+
+Se validan los siguientes comportamientos:
+
+```text
+1. vista de entrenamiento = 169 × 11;
+2. Judge_ID no entra al modelo;
+3. valores científicos conservados;
+4. preparación determinista;
+5. SHA-256 de fuente incorrecto rechazado;
+6. estados diferentes de Yes/No rechazados;
+7. Judge_ID duplicado rechazado;
+8. archivo derivado idéntico a la serialización canónica.
+```
+
+La suite implementa siete pruebas automáticas, ya que algunas de las validaciones anteriores se comprueban conjuntamente dentro de un mismo caso de prueba.
+
+Resultado dentro de Docker:
+
+```text
+Ran 7 tests
+
+OK
+```
+
+También se verificó la compilación mediante:
+
+```text
+python -m py_compile
+```
+
+sin errores.
+
+---
+
+# 19. Criterios de cierre del Subapartado 2.2
+
+- [x] validar el SHA-256 del CSV científico original;
+- [x] conservar intacto el archivo fuente;
+- [x] mantener las 169 observaciones;
+- [x] excluir `Judge_ID` de la vista de entrenamiento;
+- [x] producir exactamente 11 variables científicas;
+- [x] conservar el orden definido de las variables;
+- [x] conservar las categorías demográficas;
+- [x] conservar Q1-Q8 como `Yes/No`;
+- [x] evitar imputaciones;
+- [x] evitar recodificaciones científicas;
+- [x] definir una serialización canónica reproducible;
+- [x] calcular el SHA-256 del dataset derivado;
+- [x] demostrar que dos preparaciones producen el mismo resultado;
+- [x] validar el modo sin escritura;
+- [x] validar el modo `--output`;
+- [x] ejecutar pruebas automáticas dentro de Docker;
+- [x] obtener 7/7 pruebas satisfactorias;
+- [x] eliminar el dataset temporal generado durante la validación;
+- [x] mantener el dataset científico y su derivado fuera de GitHub.
+
+Estado:
+
+```text
+SUBAPARTADO 2.2 — PREPARACIÓN REPRODUCIBLE DEL DATASET
+COMPLETADO AL 100 %
+```
+
+---
+
+# 20. Estado del Apartado 2
+
+```text
+Apartado 2 — Reconstrucción reproducible del modelo Bayesiano
+
+2.1 Especificación científica de reconstrucción
+COMPLETADO AL 100 %
+
+2.2 Preparación reproducible del dataset
+COMPLETADO AL 100 %
+
+2.3 Aprendizaje estructural con Hill-Climbing + BIC
+SIGUIENTE
+
+2.4 Estimación reproducible de CPT
+PENDIENTE
+
+2.5 Validación estructural y probabilística
+PENDIENTE
+
+2.6 Congelación y versionado del modelo derivado
+PENDIENTE
+```
+
+---
+
+# 21. Próximo paso
+
+El siguiente subapartado será:
+
+```text
+2.3 — Aprendizaje estructural con Hill-Climbing + BIC
+```
+
+En esta etapa se utilizará exclusivamente la vista reproducible de 169 observaciones y 11 variables definida en el Subapartado 2.2.
+
+Antes de entrenar el modelo definitivo deberán verificarse:
+
+1. la API exacta de Hill-Climbing en `pgmpy 1.1.2`;
+2. la implementación actual del criterio BIC;
+3. diferencias relevantes frente a `pgmpy 0.1.23`;
+4. parámetros por defecto de Hill-Climbing;
+5. criterios de parada;
+6. comportamiento ante empates;
+7. determinismo del aprendizaje;
+8. restricciones estructurales disponibles;
+9. efecto del orden de variables;
+10. método reproducible para registrar el DAG resultante.
+
+No se modificarán parámetros únicamente para intentar obtener la inferencia publicada de 62.6 %.
+
+La comparación con la publicación se realizará después de producir el modelo mediante una metodología documentada.
