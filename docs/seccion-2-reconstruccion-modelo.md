@@ -1,4 +1,4 @@
-﻿# Proyecto Tenate
+# Proyecto Tenate
 
 ## Sección 2 — Exportador del Modelo Bayesiano
 
@@ -664,7 +664,375 @@ COMPLETADO AL 100 %
 
 ---
 
-# 20. Estado del Apartado 2
+---
+
+# 20. Subapartado 2.3 — Aprendizaje estructural con Hill-Climbing + BIC
+
+El Subapartado 2.3 tiene como objetivo reconstruir de forma reproducible únicamente la estructura del DAG, sin estimar todavía CPT ni realizar inferencia probabilística.
+
+La entrada utilizada es exclusivamente la vista reproducible definida en el Subapartado 2.2:
+
+```text
+169 observaciones
+11 variables
+SHA-256 del dataset de entrenamiento:
+c8eb4a4e2107fde5817f87481db1a59485cf82e1ec41e9d42a672b578bb033e5
+```
+
+No se utiliza `Judge_ID` como variable del modelo.
+
+La metodología reportada por la publicación se conserva en lo que sí puede verificarse:
+
+```text
+Hill-Climbing
++
+BIC
+```
+
+La reconstrucción actual utiliza el entorno congelado del proyecto:
+
+```text
+Python 3.12.13
+pgmpy 1.1.2
+```
+
+La publicación utilizó `pgmpy 0.1.23`. Por ello, las diferencias de API y comportamiento se documentan explícitamente y no se presenta la reconstrucción como recuperación exacta del modelo original.
+
+---
+
+# 21. Auditoría de la API y configuración de Hill-Climbing
+
+En `pgmpy 1.1.2` se verificó que:
+
+```text
+HillClimbSearch: disponible
+BIC: disponible
+BicScore: no disponible con ese nombre
+ExpertKnowledge: disponible
+```
+
+Para datos discretos, el criterio utilizado es:
+
+```text
+scoring_method="bic-d"
+```
+
+La configuración estructural se fijó de forma explícita:
+
+```text
+scoring_method   = "bic-d"
+use_cache        = True
+start_dag        = None
+tabu_length      = 100
+max_indegree     = None
+expert_knowledge = None
+epsilon          = 0.0001
+max_iter         = 1000000
+show_progress    = False
+```
+
+`start_dag=None` implica comenzar desde un DAG completamente desconectado.
+
+`show_progress=False` solamente desactiva la barra visual y no altera el criterio de búsqueda.
+
+No se aplicaron aristas requeridas, aristas prohibidas, orden temporal ni otras restricciones estructurales.
+
+La API actual devuelve:
+
+```text
+pgmpy.base.DAG
+```
+
+y realiza únicamente aprendizaje de estructura.
+
+Durante la ejecución aparecen advertencias de deprecación indicando que ciertas clases serán reubicadas o eliminadas en versiones futuras de `pgmpy`. Estas advertencias no constituyen errores en el entorno congelado `pgmpy 1.1.2`.
+
+---
+
+# 22. Hallazgo de no determinismo en el comportamiento nativo de pgmpy
+
+Se creó:
+
+```text
+model-source/audit_hillclimb.py
+```
+
+para auditar el aprendizaje estructural, calcular el BIC final y generar una representación canónica del DAG con SHA-256.
+
+Tres ejecuciones consecutivas dentro del mismo proceso produjeron inicialmente el mismo DAG.
+
+Sin embargo, al ejecutar procesos independientes con diferentes valores de `PYTHONHASHSEED`, se observó que el comportamiento nativo de `HillClimbSearch` podía terminar en estructuras diferentes.
+
+Resultados relevantes:
+
+```text
+PYTHONHASHSEED=0
+Aristas: 7
+BIC: -1120.7456402514
+SHA-256 DAG:
+11fb5b49d2d51e4508563e4ba4b1d07eba1e36cf0e6da36703312c9c08136cdb
+```
+
+```text
+PYTHONHASHSEED=1
+Aristas: 7
+BIC: -1120.3418009039
+SHA-256 DAG:
+d0fd1389d23740f4684c3d4f84db0fc91c43c34b91b061b4fb4fde366d5563ef
+```
+
+Los procesos con:
+
+```text
+PYTHONHASHSEED=42
+PYTHONHASHSEED=12345
+```
+
+produjeron el mismo resultado observado con `PYTHONHASHSEED=0`.
+
+La inspección del código de `pgmpy 1.1.2` mostró que las posibles aristas nuevas se generan a partir de una colección basada en `set(...)` y que `estimate()` selecciona la mejor operación mediante `max(..., key=score_delta)`.
+
+Esto es relevante porque el orden de iteración de un `set` puede cambiar entre procesos.
+
+---
+
+# 23. Empate exacto identificado
+
+La auditoría con trazado de empates identificó un único empate en la mejor operación durante la búsqueda:
+
+```text
+iteración = 2
+score_delta = 20.959907995794595
+candidatos = 2
+```
+
+Las dos operaciones empatadas fueron:
+
+```text
+Q1_Traditional_Mexican -> Q4_Gastronomic_Heritage
+
+Q4_Gastronomic_Heritage -> Q1_Traditional_Mexican
+```
+
+Ambas operaciones tenían exactamente el mismo incremento de score en ese punto de la búsqueda.
+
+Con el comportamiento nativo, el orden interno de las operaciones podía determinar cuál era encontrada primero por `max()`.
+
+La elección inicial modificaba posteriormente el espacio local explorado por Hill-Climbing y podía conducir a máximos locales finales distintos.
+
+Por tanto, el BIC final diferente no contradice el empate inicial.
+
+---
+
+# 24. Política canónica de desempate
+
+Para eliminar la dependencia accidental del orden interno de Python se definió una política explícita de desempate.
+
+Las operaciones legales se ordenan canónicamente por:
+
+```text
+1. tipo de operación;
+2. nodo origen;
+3. nodo destino.
+```
+
+Orden de tipos:
+
+```text
++ < - < flip
+```
+
+Los nombres de nodos se ordenan lexicográficamente.
+
+La política no modifica:
+
+```text
+BIC
+epsilon
+tabu_length
+max_iter
+max_indegree
+restricciones estructurales
+dataset
+```
+
+La regla únicamente determina qué operación se selecciona cuando dos o más operaciones tienen exactamente el mismo `score_delta`.
+
+Esta política es una decisión de ingeniería para la reconstrucción reproducible de Proyecto Tenate.
+
+No se atribuye esta regla al modelo científico original ni a la publicación.
+
+Tampoco se eligió una estructura únicamente por aproximarse a la inferencia publicada de 62.6 %.
+
+---
+
+# 25. Validación entre procesos independientes
+
+El modo canónico se ejecutó en cuatro procesos independientes:
+
+```text
+PYTHONHASHSEED=0
+PYTHONHASHSEED=1
+PYTHONHASHSEED=42
+PYTHONHASHSEED=12345
+```
+
+Los cuatro produjeron exactamente:
+
+```text
+Nodos: 11
+Aristas: 7
+BIC: -1120.7456402514
+SHA-256 canónico del DAG:
+11fb5b49d2d51e4508563e4ba4b1d07eba1e36cf0e6da36703312c9c08136cdb
+Iteraciones con empate: 1
+```
+
+Las siete aristas reproducibles fueron:
+
+```text
+Q1_Traditional_Mexican -> Q4_Gastronomic_Heritage
+Q2_Purchase_Intention -> Q3_Recommendation
+Q3_Recommendation -> Q4_Gastronomic_Heritage
+Q3_Recommendation -> Q5_Authenticity_Elaboration
+Q3_Recommendation -> Q6_Commercial_Potential
+Q5_Authenticity_Elaboration -> Q1_Traditional_Mexican
+Q5_Authenticity_Elaboration -> Q7_Culture_Preservation
+```
+
+En esta reconstrucción quedaron sin aristas:
+
+```text
+Gender
+Age
+Standardized_City
+Q8_Sensory_Uniqueness
+```
+
+Esto se conserva como resultado observado de la metodología reconstruida.
+
+No se añadirán aristas manualmente para forzar coincidencia con la publicación.
+
+---
+
+# 26. Pruebas automáticas del Subapartado 2.3
+
+Se creó:
+
+```text
+tests/test_audit_hillclimb.py
+```
+
+Las pruebas utilizan exclusivamente datos sintéticos categóricos y no requieren el CSV científico original.
+
+Se validan cinco comportamientos:
+
+```text
+1. el orden canónico de operaciones empatadas es estable;
+2. un empate de score se resuelve siempre mediante la regla canónica;
+3. la regla canónica no sustituye una operación que tenga un score superior;
+4. el SHA-256 canónico de un DAG no depende del orden de inserción de sus aristas;
+5. el modo canónico resuelve de forma reproducible un empate de orientación con datos sintéticos discretos.
+```
+
+Resultado dentro de Docker:
+
+```text
+Ran 5 tests in 0.082s
+
+OK
+```
+
+También se verificó la compilación de:
+
+```text
+model-source/audit_hillclimb.py
+tests/test_audit_hillclimb.py
+```
+
+mediante:
+
+```text
+python -m py_compile
+```
+
+sin errores.
+
+`git diff --check` tampoco reportó errores de formato.
+
+---
+
+# 27. Limitaciones científicas del resultado estructural
+
+El DAG obtenido en este subapartado es una reconstrucción reproducible basada en:
+
+```text
+CSV científico recibido
++
+Hill-Climbing
++
+BIC discreto
++
+pgmpy 1.1.2
++
+parámetros explícitos
++
+política canónica de desempate
+```
+
+No se puede afirmar que sea idéntico al DAG original utilizado por los autores porque no están disponibles:
+
+```text
+modelo serializado original;
+archivo GeNIe original;
+código de entrenamiento original;
+configuración completa de Hill-Climbing;
+restricciones estructurales originales;
+regla original de desempate;
+CPT originales.
+```
+
+La dirección de una arista aprendida por este procedimiento tampoco debe interpretarse automáticamente como evidencia causal.
+
+Las diferencias con la figura o resultados de la publicación se registrarán como diferencias observadas, no se corregirán manualmente.
+
+La estimación de CPT pertenece al Subapartado 2.4 y todavía no se realiza aquí.
+
+---
+
+# 28. Criterios de cierre del Subapartado 2.3
+
+- [x] verificar la API de Hill-Climbing en `pgmpy 1.1.2`;
+- [x] verificar el criterio BIC discreto disponible;
+- [x] documentar diferencias relevantes de API frente a `pgmpy 0.1.23`;
+- [x] fijar explícitamente los parámetros de Hill-Climbing;
+- [x] comenzar desde un DAG vacío;
+- [x] mantener `max_indegree=None`;
+- [x] evitar restricciones estructurales no justificadas;
+- [x] verificar los criterios de parada;
+- [x] estudiar el comportamiento ante empates;
+- [x] identificar un empate exacto durante el aprendizaje real;
+- [x] demostrar sensibilidad del comportamiento nativo a `PYTHONHASHSEED`;
+- [x] definir una política explícita de desempate;
+- [x] demostrar reproducibilidad entre cuatro procesos independientes;
+- [x] registrar el BIC del DAG;
+- [x] registrar las aristas del DAG;
+- [x] registrar un SHA-256 canónico de la estructura;
+- [x] crear pruebas automáticas con datos sintéticos;
+- [x] obtener 5/5 pruebas satisfactorias;
+- [x] verificar experimentalmente el efecto del orden de las columnas de entrada;
+- [x] ejecutar la suite completa de pruebas del repositorio para comprobar ausencia de regresiones.
+
+Estado:
+
+```text
+SUBAPARTADO 2.3 — APRENDIZAJE ESTRUCTURAL CON HILL-CLIMBING + BIC
+COMPLETADO AL 100 %
+```
+
+---
+
+# 29. Estado del Apartado 2
 
 ```text
 Apartado 2 — Reconstrucción reproducible del modelo Bayesiano
@@ -676,7 +1044,7 @@ COMPLETADO AL 100 %
 COMPLETADO AL 100 %
 
 2.3 Aprendizaje estructural con Hill-Climbing + BIC
-SIGUIENTE
+COMPLETADO AL 100 %
 
 2.4 Estimación reproducible de CPT
 PENDIENTE
@@ -690,29 +1058,21 @@ PENDIENTE
 
 ---
 
-# 21. Próximo paso
+# 30. Cierre del Subapartado 2.3
 
-El siguiente subapartado será:
+Las dos comprobaciones finales requeridas para cerrar el Subapartado 2.3 fueron ejecutadas satisfactoriamente:
 
 ```text
-2.3 — Aprendizaje estructural con Hill-Climbing + BIC
+1. se verificó experimentalmente que el orden de las columnas de entrada no altera el resultado del modo canónico;
+2. se ejecutó satisfactoriamente la suite completa de pruebas del repositorio: 16/16 pruebas OK.
 ```
 
-En esta etapa se utilizará exclusivamente la vista reproducible de 169 observaciones y 11 variables definida en el Subapartado 2.2.
+Ambas comprobaciones fueron satisfactorias. Por lo tanto, el Subapartado 2.3 queda cerrado técnica y documentalmente al 100 %.
 
-Antes de entrenar el modelo definitivo deberán verificarse:
+El siguiente subapartado habilitado es:
 
-1. la API exacta de Hill-Climbing en `pgmpy 1.1.2`;
-2. la implementación actual del criterio BIC;
-3. diferencias relevantes frente a `pgmpy 0.1.23`;
-4. parámetros por defecto de Hill-Climbing;
-5. criterios de parada;
-6. comportamiento ante empates;
-7. determinismo del aprendizaje;
-8. restricciones estructurales disponibles;
-9. efecto del orden de variables;
-10. método reproducible para registrar el DAG resultante.
+```text
+2.4 — Estimación reproducible de CPT
+```
 
-No se modificarán parámetros únicamente para intentar obtener la inferencia publicada de 62.6 %.
-
-La comparación con la publicación se realizará después de producir el modelo mediante una metodología documentada.
+No se iniciará 2.4 hasta que los cambios correspondientes a 2.3 sean revisados, versionados y sincronizados con GitHub.
