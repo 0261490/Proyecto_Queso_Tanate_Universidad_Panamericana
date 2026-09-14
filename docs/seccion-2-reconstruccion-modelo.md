@@ -1047,7 +1047,7 @@ COMPLETADO AL 100 %
 COMPLETADO AL 100 %
 
 2.4 Estimación reproducible de CPT
-PENDIENTE
+EN VALIDACIÓN FINAL
 
 2.5 Validación estructural y probabilística
 PENDIENTE
@@ -1075,4 +1075,382 @@ El siguiente subapartado habilitado es:
 2.4 — Estimación reproducible de CPT
 ```
 
-No se iniciará 2.4 hasta que los cambios correspondientes a 2.3 sean revisados, versionados y sincronizados con GitHub.
+Los cambios correspondientes a 2.3 fueron revisados, versionados y sincronizados con GitHub. Con ello quedó habilitado formalmente el inicio del Subapartado 2.4.
+
+---
+
+# 31. Inicio del Subapartado 2.4 — Estimación reproducible de CPT
+
+El objetivo de este subapartado es reconstruir de manera reproducible las Tablas de Probabilidad Condicional (CPT) correspondientes al DAG canónico obtenido en el Subapartado 2.3.
+
+La publicación científica disponible documenta el aprendizaje paramétrico mediante `pgmpy`, pero no permite identificar de manera inequívoca la llamada exacta, parámetros o estimador utilizado originalmente para construir las CPT.
+
+Por lo tanto:
+
+```text
+Método exacto original de estimación de CPT:
+NO VERIFICABLE con los archivos disponibles.
+```
+
+El método seleccionado en este proyecto debe entenderse como una decisión explícita de reconstrucción reproducible y no como una afirmación de recuperación exacta del procedimiento original.
+
+---
+
+# 32. Auditoría de estimadores disponibles en pgmpy 1.1.2
+
+Se verificó la disponibilidad y API de:
+
+```text
+MaximumLikelihoodEstimator
+BayesianEstimator
+ExpectationMaximization
+```
+
+`BayesianEstimator` introduce parámetros de prior tales como:
+
+```text
+prior_type
+equivalent_sample_size
+pseudo_counts
+```
+
+que no están documentados en la evidencia científica disponible.
+
+`ExpectationMaximization` incorpora parámetros asociados con variables latentes, inicialización iterativa, suavizado y convergencia que tampoco están justificados por los archivos disponibles.
+
+Como método de reconstrucción se seleccionó:
+
+```text
+MaximumLikelihoodEstimator
+weighted=False
+```
+
+debido a que permite estimar las probabilidades a partir de los conteos empíricos observados sin introducir priors explícitos ni pseudo-conteos.
+
+Esta selección es una política de reconstrucción del proyecto y no una afirmación sobre el estimador exacto usado originalmente por los autores.
+
+---
+
+# 33. Auditoría interna de MaximumLikelihoodEstimator
+
+Se inspeccionó directamente la implementación instalada de `pgmpy 1.1.2`.
+
+Se confirmó que:
+
+```text
+padres:
+sorted(self.model.get_parents(node))
+
+estados observados:
+sorted(list(data.loc[:, variable].dropna().unique()))
+
+conteos:
+state_counts(..., reindex=True)
+```
+
+Las combinaciones de estados de los padres se construyen mediante un producto cartesiano determinista.
+
+También se identificó que `MaximumLikelihoodEstimator` contiene una política interna para configuraciones de padres nunca observadas:
+
+```text
+columna completamente en cero
+→ reemplazo por unos
+→ normalización
+→ distribución uniforme
+```
+
+Por esta razón fue obligatorio comprobar si esa situación ocurría en el dataset real antes de aceptar el estimador.
+
+---
+
+# 34. Configuraciones de padres no observadas
+
+Se auditó el DAG canónico completo utilizando los 169 registros de entrenamiento.
+
+Resultado:
+
+```text
+TOTAL CONFIGURACIONES CON CONTEO CERO: 0
+```
+
+Por lo tanto, para esta reconstrucción concreta:
+
+```text
+ninguna CPT requiere relleno uniforme;
+ninguna combinación de padres carece de observaciones;
+todas las probabilidades estimadas proceden de conteos empíricos observados.
+```
+
+---
+
+# 35. Equivalencia exacta entre frecuencias empíricas y CPT
+
+Para cada nodo se comparó directamente:
+
+```text
+conteo del estado
+-----------------
+total para la configuración de padres
+```
+
+contra el valor generado por `MaximumLikelihoodEstimator`.
+
+La auditoría incluyó los 11 nodos y todas las configuraciones de padres del DAG.
+
+Resultado global:
+
+```text
+MAX ABS DIFF GLOBAL: 0
+EQUIVALENCIA NUMERICA: True
+```
+
+Por lo tanto, en el dataset y DAG reconstruidos:
+
+```text
+CPT MLE = frecuencias empíricas normalizadas
+```
+
+sin diferencia numérica observable en las pruebas realizadas.
+
+---
+
+# 36. Política reproducible de estimación de CPT
+
+La política definida para esta reconstrucción es:
+
+```text
+pgmpy                     = 1.1.2
+estimador                  = MaximumLikelihoodEstimator
+weighted                   = False
+prior                      = ninguno
+pseudo-conteos             = ninguno
+suavizado explícito        = ninguno
+
+orden de nodos             = lexicográfico
+orden de padres            = lexicográfico
+orden de estados           = sorted(estados observados)
+configuraciones sin datos  = rechazadas
+```
+
+Si en una futura ejecución apareciera una configuración de padres sin observaciones, el procedimiento deberá detenerse en lugar de aceptar silenciosamente la distribución uniforme interna de `pgmpy`.
+
+---
+
+# 37. Representación canónica de CPT
+
+Para garantizar reproducibilidad se definió una representación canónica independiente del orden de inserción de nodos o aristas.
+
+Cada CPT contiene:
+
+```text
+node
+parents
+state_names
+values
+```
+
+La serialización utiliza:
+
+```text
+UTF-8
+JSON
+sort_keys=True
+separators=(",", ":")
+allow_nan=False
+```
+
+Se probaron tres variantes de construcción del mismo DAG:
+
+```text
+original
+reverse
+alphabetical
+```
+
+Las tres produjeron:
+
+```text
+Nodos            : 11
+Bytes canónicos  : 2693
+
+SHA-256 CPT:
+a35320e2de8b2bc7c3af0093b968b1b46d28f8a8911a8ebbc19710861a88e61c
+```
+
+Resultado:
+
+```text
+HASHES IDENTICOS: True
+```
+
+Este SHA-256 queda definido como referencia canónica de las CPT reconstruidas bajo la configuración actual del proyecto.
+
+---
+
+# 38. Script reproducible de estimación
+
+Se creó:
+
+```text
+model-source/estimate_cpts.py
+```
+
+El script reutiliza directamente:
+
+```text
+prepare_dataset.prepare_dataset(...)
+audit_hillclimb.learn(...)
+audit_hillclimb.canonical_sha256(...)
+```
+
+De esta forma no se duplica manualmente ni la preparación del dataset ni la definición estructural del modelo.
+
+Antes de estimar CPT el script verifica:
+
+```text
+pgmpy == 1.1.2
+
+SHA-256 entrenamiento:
+c8eb4a4e2107fde5817f87481db1a59485cf82e1ec41e9d42a672b578bb033e5
+
+SHA-256 DAG:
+11fb5b49d2d51e4508563e4ba4b1d07eba1e36cf0e6da36703312c9c08136cdb
+```
+
+Si cualquiera de estas referencias cambia, el proceso se detiene.
+
+La primera ejecución permanente en modo verificación produjo:
+
+```text
+Python                         : 3.12.13
+pgmpy                          : 1.1.2
+Estimador                      : MaximumLikelihoodEstimator
+weighted                       : False
+Nodos DAG                      : 11
+Aristas DAG                    : 7
+BIC DAG                        : -1120.7456402514
+Iteraciones con empate         : 1
+CPT estimadas                  : 11
+Configuraciones sin datos      : 0
+Máx. diferencia empírica/CPT   : 0
+Bytes canónicos CPT            : 2693
+SHA-256 canónico CPT           : a35320e2de8b2bc7c3af0093b968b1b46d28f8a8911a8ebbc19710861a88e61c
+```
+
+El modo de verificación no escribió ningún archivo CPT permanente.
+
+---
+
+# 39. Pruebas automáticas de CPT
+
+Se creó:
+
+```text
+tests/test_estimate_cpts.py
+```
+
+Las cinco pruebas nuevas validan:
+
+```text
+1. serialización canónica determinista;
+2. independencia frente al orden de inserción del DAG;
+3. equivalencia entre CPT y frecuencias empíricas;
+4. normalización de todas las CPT;
+5. rechazo de configuraciones de padres sin observaciones.
+```
+
+Resultado:
+
+```text
+Ran 5 tests in 0.118s
+
+OK
+```
+
+Después se ejecutó la suite completa del repositorio.
+
+Resultado:
+
+```text
+Ran 21 tests in 2.297s
+
+OK
+```
+
+No hubo `FAIL` ni `ERROR`.
+
+`git diff --check` tampoco reportó errores.
+
+Los mensajes `FutureWarning` observados corresponden a APIs que `pgmpy` anuncia como deprecadas para una versión futura 1.3.0. No representan fallos en el entorno reproducible actual basado en `pgmpy 1.1.2`.
+
+---
+
+# 40. Diferencia científica relevante respecto de la publicación
+
+En el DAG canónico reconstruido:
+
+```text
+Q2_Purchase_Intention
+```
+
+no tiene padres y presenta:
+
+```text
+P(Q2=No)  = 68 / 169
+P(Q2=Yes) = 101 / 169
+
+P(Q2=Yes) = 0.5976331360946746
+```
+
+Además:
+
+```text
+Q8_Sensory_Uniqueness
+```
+
+es una variable aislada en el DAG reconstruido.
+
+Por esta razón estructural, esta reconstrucción no debe modificarse manualmente para intentar reproducir la referencia publicada:
+
+```text
+P(Q2=Yes | Q8=Yes) = 62.6 %
+```
+
+Esa diferencia deberá evaluarse y documentarse formalmente durante la validación probabilística correspondiente al Subapartado 2.5.
+
+No se ajustarán aristas ni CPT para forzar coincidencia con la publicación.
+
+---
+
+# 41. Criterios de cierre del Subapartado 2.4
+
+- [x] auditar los estimadores disponibles en `pgmpy 1.1.2`;
+- [x] documentar que el estimador original exacto no es verificable;
+- [x] seleccionar explícitamente el estimador de reconstrucción;
+- [x] evitar priors y pseudo-conteos no justificados;
+- [x] auditar el orden de padres;
+- [x] auditar el orden de estados;
+- [x] auditar configuraciones de padres no observadas;
+- [x] confirmar cero configuraciones de padres sin datos;
+- [x] demostrar equivalencia exacta entre CPT y frecuencias empíricas;
+- [x] verificar normalización de todas las CPT;
+- [x] definir representación canónica;
+- [x] demostrar independencia del orden de inserción del DAG;
+- [x] registrar SHA-256 canónico de CPT;
+- [x] crear `model-source/estimate_cpts.py`;
+- [x] crear pruebas automáticas de CPT;
+- [x] obtener 5/5 pruebas nuevas satisfactorias;
+- [x] ejecutar la suite completa del repositorio;
+- [x] obtener 21/21 pruebas satisfactorias;
+- [x] ejecutar `git diff --check` sin errores;
+- [x] realizar revisión documental final;
+- [ ] versionar y sincronizar los cambios de 2.4 con GitHub.
+
+Estado actual:
+
+```text
+SUBAPARTADO 2.4 — ESTIMACIÓN REPRODUCIBLE DE CPT
+EN VALIDACIÓN FINAL
+```
+
+No se avanzará al Subapartado 2.5 hasta cerrar técnica, documentalmente y en GitHub el Subapartado 2.4.
