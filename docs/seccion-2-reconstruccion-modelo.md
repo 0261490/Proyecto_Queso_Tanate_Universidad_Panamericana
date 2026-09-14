@@ -1047,7 +1047,7 @@ COMPLETADO AL 100 %
 COMPLETADO AL 100 %
 
 2.4 Estimación reproducible de CPT
-EN VALIDACIÓN FINAL
+COMPLETADO AL 100 %
 
 2.5 Validación estructural y probabilística
 PENDIENTE
@@ -1444,13 +1444,17 @@ No se ajustarán aristas ni CPT para forzar coincidencia con la publicación.
 - [x] obtener 21/21 pruebas satisfactorias;
 - [x] ejecutar `git diff --check` sin errores;
 - [x] realizar revisión documental final;
-- [ ] versionar y sincronizar los cambios de 2.4 con GitHub.
+- [x] versionar y sincronizar los cambios de 2.4 con GitHub.
 
 Estado actual:
 
 ```text
 SUBAPARTADO 2.4 — ESTIMACIÓN REPRODUCIBLE DE CPT
-EN VALIDACIÓN FINAL
+COMPLETADO AL 100 %
 ```
 
-No se avanzará al Subapartado 2.5 hasta cerrar técnica, documentalmente y en GitHub el Subapartado 2.4.
+El Subapartado 2.4 queda cerrado técnica, documentalmente y en GitHub. El siguiente subapartado habilitado es:
+
+`	ext
+2.5 — Validación estructural y probabilística
+`
