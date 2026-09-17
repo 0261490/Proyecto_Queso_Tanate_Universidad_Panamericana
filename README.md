@@ -251,7 +251,20 @@ La reproducibilidad validada en esta sección corresponde al entorno de ingenier
 
 Exportador del modelo bayesiano.
 
-**Estado:** Pendiente.
+**Estado:** Completada.
+
+La sección reconstruye de forma reproducible un modelo derivado del CSV
+científico auditado, valida sus diferencias frente a la publicación y exporta
+una representación portable para el futuro motor TypeScript.
+
+Artefactos principales:
+
+- `model-source/validate_model.py`;
+- `model-export/export_model.py`;
+- `model-export/model.json`;
+- `model-export/model.sha256`;
+- `model-export/model.schema.json`;
+- `docs/model-json-format.md`.
 
 ---
 

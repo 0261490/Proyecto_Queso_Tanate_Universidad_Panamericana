@@ -1,0 +1,95 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://proyecto-tenate.local/schemas/model.schema.json",
+  "title": "Proyecto Tenate Bayesian Model",
+  "type": "object",
+  "required": [
+    "format",
+    "schema_version",
+    "model_version",
+    "metadata",
+    "nodes",
+    "edges",
+    "cpts"
+  ],
+  "properties": {
+    "format": {
+      "const": "proyecto-tenate-bayesian-model"
+    },
+    "schema_version": {
+      "const": 1
+    },
+    "model_version": {
+      "type": "string",
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"
+    },
+    "metadata": {
+      "type": "object"
+    },
+    "nodes": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["id", "states"],
+        "properties": {
+          "id": {"type": "string", "minLength": 1},
+          "states": {
+            "type": "array",
+            "minItems": 1,
+            "items": {"type": "string"},
+            "uniqueItems": true
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "edges": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["source", "target"],
+        "properties": {
+          "source": {"type": "string"},
+          "target": {"type": "string"}
+        },
+        "additionalProperties": false
+      }
+    },
+    "cpts": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["node", "parents", "state_names", "values"],
+        "properties": {
+          "node": {"type": "string"},
+          "parents": {
+            "type": "array",
+            "items": {"type": "string"},
+            "uniqueItems": true
+          },
+          "state_names": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "array",
+              "minItems": 1,
+              "items": {"type": "string"}
+            }
+          },
+          "values": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "array",
+              "minItems": 1,
+              "items": {"type": "number", "minimum": 0, "maximum": 1}
+            }
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

@@ -4,7 +4,7 @@
 
 ### Apartado 2 — Reconstrucción reproducible del modelo Bayesiano
 
-**Estado:** En proceso
+**Estado:** Completado
 **Fuente científica disponible:** CSV auditado de 169 registros
 **Modelo Bayesiano serializado original:** No disponible
 
@@ -1050,10 +1050,10 @@ COMPLETADO AL 100 %
 COMPLETADO AL 100 %
 
 2.5 Validación estructural y probabilística
-PENDIENTE
+COMPLETADO AL 100 %
 
 2.6 Congelación y versionado del modelo derivado
-PENDIENTE
+COMPLETADO AL 100 %
 ```
 
 ---
@@ -1455,6 +1455,186 @@ COMPLETADO AL 100 %
 
 El Subapartado 2.4 queda cerrado técnica, documentalmente y en GitHub. El siguiente subapartado habilitado es:
 
-`	ext
+```text
 2.5 — Validación estructural y probabilística
-`
+```
+
+---
+
+# 42. Subapartado 2.5 — Validación estructural y probabilística
+
+La validación se ejecutó sobre el CSV científico original verificado, montado
+en Docker como archivo de solo lectura:
+
+```text
+Registros: 169
+Columnas: 12
+Bytes: 10261
+SHA-256: 2a74e34d0cb9dad5f98bdd8d0cf4691c5ffc929ead195ea39de603974ca716be
+```
+
+Se completó `model-source/validate_model.py` y se agregaron pruebas automáticas
+en `tests/test_validate_model.py`. El validador fija las versiones esperadas de
+`pgmpy` y `scikit-learn`, verifica el hash del dataset de entrenamiento y exige
+que el DAG corresponda a la estructura canónica aprobada en 2.3.
+
+## 42.1 Comparación estructural
+
+La lectura dirigida de la Figura 1 contiene 11 aristas, mientras que el DAG
+reconstruido contiene 7:
+
+```text
+Aristas coincidentes:        2
+Precisión:                   0.285714285714
+Recall:                      0.181818181818
+F1:                          0.222222222222
+Jaccard:                     0.125
+Diferencia simétrica:        14
+Structural Hamming Distance: 14
+```
+
+El resultado confirma que el DAG derivado del CSV no es equivalente al DAG
+publicado. No se modificaron aristas para aumentar artificialmente la
+coincidencia.
+
+## 42.2 Comparación probabilística
+
+En el DAG reconstruido, `Q8_Sensory_Uniqueness` es un nodo aislado. Por ello,
+observar `Q8=Yes` no modifica la probabilidad de `Q2`:
+
+```text
+P(Q2=Yes) reconstruido:           0.597633136095
+P(Q2=Yes | Q8=Yes) reconstruido:  0.597633136095
+P(Q2=Yes | Q8=Yes) publicado:     0.626
+Diferencia:                       -2.836686 puntos porcentuales
+```
+
+Esta diferencia se conserva y documenta como evidencia científica. No se
+alteraron el CSV, la estructura ni las CPT para forzar la referencia de 62.6 %.
+
+## 42.3 Validación cruzada reconstruida
+
+Se utilizó `StratifiedKFold(n_splits=10, shuffle=True, random_state=42)`. En
+cada fold se reaprendió la estructura canónica y se estimaron las CPT solo con
+los datos de entrenamiento del fold.
+
+Resultados agrupados usando el Markov blanket de Q2:
+
+```text
+Accuracy: 0.840236686391
+Log-loss: 0.456751828928
+AUC-ROC:  0.756697728596
+```
+
+Referencias publicadas:
+
+```text
+Accuracy: 0.842
+Log-loss: 0.32
+AUC-ROC:  0.89
+```
+
+La cercanía de la exactitud no implica equivalencia metodológica. Las
+diferencias de log-loss, AUC, estructura y posterior Q2/Q8 confirman que el
+resultado es una reconstrucción y no una reproducción exacta.
+
+## 42.4 Cierre de 2.5
+
+- [x] validar la estructura frente a la Figura 1;
+- [x] comparar marginales empíricas con los porcentajes publicados;
+- [x] calcular la inferencia Q2/Q8 reconstruida;
+- [x] ejecutar validación cruzada determinista de 10 folds;
+- [x] documentar diferencias sin ajustar el modelo;
+- [x] crear pruebas automáticas del validador;
+- [x] ejecutar la suite completa dentro de Docker.
+
+```text
+SUBAPARTADO 2.5 — VALIDACIÓN ESTRUCTURAL Y PROBABILÍSTICA
+COMPLETADO AL 100 %
+```
+
+---
+
+# 43. Subapartado 2.6 — Congelación y versionado
+
+El modelo derivado quedó congelado con los siguientes identificadores:
+
+```text
+Versión del modelo: 1.0.0
+SHA-256 entrenamiento: c8eb4a4e2107fde5817f87481db1a59485cf82e1ec41e9d42a672b578bb033e5
+SHA-256 DAG:           11fb5b49d2d51e4508563e4ba4b1d07eba1e36cf0e6da36703312c9c08136cdb
+SHA-256 CPT:           a35320e2de8b2bc7c3af0093b968b1b46d28f8a8911a8ebbc19710861a88e61c
+```
+
+El exportador rechaza cualquier ejecución en la que cambie uno de estos
+componentes. De esta forma, una variación científica no puede introducirse de
+manera silenciosa.
+
+```text
+SUBAPARTADO 2.6 — CONGELACIÓN Y VERSIONADO
+COMPLETADO AL 100 %
+```
+
+---
+
+# 44. Exportador final
+
+Se creó `model-export/export_model.py`. El programa reconstruye el modelo
+exclusivamente desde el CSV verificado, valida todos los hashes científicos y
+escribe:
+
+```text
+model-export/model.json
+model-export/model.sha256
+```
+
+El JSON contiene nodos, estados, aristas, CPT y metadatos de procedencia. Su
+estructura está documentada en `docs/model-json-format.md` y dispone de un
+esquema en `model-export/model.schema.json`.
+
+Identidad del artefacto final:
+
+```text
+Formato:  proyecto-tenate-bayesian-model
+Esquema:  1
+Modelo:   1.0.0
+Nodos:    11
+Aristas:  7
+CPT:      11
+Bytes:    4882
+SHA-256:  8ecb6ae7cd8236aa3e7930287bb8ae51f4828cbe97baf138d63bb75388800f3b
+```
+
+Dos ejecuciones independientes dentro de Docker produjeron exactamente los
+mismos bytes y el mismo SHA-256.
+
+---
+
+# 45. Pruebas finales
+
+La suite completa contiene 30 pruebas:
+
+```text
+Ran 30 tests
+OK
+```
+
+Incluye pruebas del inspector, preparación del dataset, aprendizaje
+estructural, estimación de CPT, validación científica y exportador JSON.
+
+---
+
+# 46. Estado final de la Sección 2
+
+```text
+2.1 Especificación científica                 COMPLETADA
+2.2 Preparación reproducible del dataset      COMPLETADA
+2.3 Aprendizaje Hill-Climbing + BIC           COMPLETADA
+2.4 Estimación reproducible de CPT            COMPLETADA
+2.5 Validación estructural y probabilística   COMPLETADA
+2.6 Congelación y versionado                  COMPLETADA
+Exportador JSON                               COMPLETADO
+Pruebas automáticas                           30/30 OK
+
+SECCIÓN 2 — COMPLETADA AL 100 %
+```
