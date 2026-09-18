@@ -1,0 +1,120 @@
+{
+  "cases": [
+    {
+      "evidence": {},
+      "id": "age_prior",
+      "probabilities": [
+        0.7041420118343196,
+        0.11834319526627218,
+        0.01775147928994083,
+        0.01775147928994083,
+        0.04142011834319527,
+        0.023668639053254437,
+        0.023668639053254437,
+        0.05325443786982249
+      ],
+      "states": [
+        "18-21",
+        "22-25",
+        "26-29",
+        "30-34",
+        "35-40",
+        "41-45",
+        "46-50",
+        "More than 50"
+      ],
+      "variable": "Age"
+    },
+    {
+      "evidence": {},
+      "id": "q2_prior",
+      "probabilities": [
+        0.40236686390532544,
+        0.5976331360946746
+      ],
+      "states": [
+        "No",
+        "Yes"
+      ],
+      "variable": "Q2_Purchase_Intention"
+    },
+    {
+      "evidence": {
+        "Q8_Sensory_Uniqueness": "Yes"
+      },
+      "id": "q2_given_q8_yes",
+      "probabilities": [
+        0.40236686390532544,
+        0.5976331360946746
+      ],
+      "states": [
+        "No",
+        "Yes"
+      ],
+      "variable": "Q2_Purchase_Intention"
+    },
+    {
+      "evidence": {
+        "Q5_Authenticity_Elaboration": "Yes"
+      },
+      "id": "q1_given_q5_yes",
+      "probabilities": [
+        0.14925373134328357,
+        0.8507462686567164
+      ],
+      "states": [
+        "No",
+        "Yes"
+      ],
+      "variable": "Q1_Traditional_Mexican"
+    },
+    {
+      "evidence": {
+        "Q3_Recommendation": "Yes"
+      },
+      "id": "q4_given_q3_yes",
+      "probabilities": [
+        0.3271625698563268,
+        0.6728374301436731
+      ],
+      "states": [
+        "No",
+        "Yes"
+      ],
+      "variable": "Q4_Gastronomic_Heritage"
+    },
+    {
+      "evidence": {
+        "Q1_Traditional_Mexican": "Yes",
+        "Q3_Recommendation": "Yes"
+      },
+      "id": "q4_given_q1_yes_q3_yes",
+      "probabilities": [
+        0.21212121212121213,
+        0.7878787878787878
+      ],
+      "states": [
+        "No",
+        "Yes"
+      ],
+      "variable": "Q4_Gastronomic_Heritage"
+    },
+    {
+      "evidence": {
+        "Q3_Recommendation": "No"
+      },
+      "id": "q6_given_q3_no",
+      "probabilities": [
+        0.5098039215686274,
+        0.49019607843137253
+      ],
+      "states": [
+        "No",
+        "Yes"
+      ],
+      "variable": "Q6_Commercial_Potential"
+    }
+  ],
+  "generator": "pgmpy VariableElimination",
+  "model_sha256": "8ecb6ae7cd8236aa3e7930287bb8ae51f4828cbe97baf138d63bb75388800f3b"
+}

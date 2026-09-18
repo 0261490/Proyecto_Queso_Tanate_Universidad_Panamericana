@@ -266,6 +266,16 @@ Artefactos principales:
 - `model-export/model.schema.json`;
 - `docs/model-json-format.md`.
 
+### Sección 3
+
+Motor Bayesiano TypeScript de inferencia exacta.
+
+**Estado:** Completada.
+
+La implementación se encuentra en `inference-engine/` e incluye carga
+validada de `model.json`, evidencia, consultas probabilísticas, inferencia
+exacta y casos de comparación contra `pgmpy`.
+
 ---
 
 ## Modelo Científico
