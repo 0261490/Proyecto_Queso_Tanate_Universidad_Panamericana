@@ -217,7 +217,7 @@ docker compose run --rm python ls -la /workspace
 
 Arquitectura inicial y planificación del proyecto.
 
-**Estado:** En desarrollo — parte 1 de 3 completada.
+**Estado:** Completada.
 
 ### Sección 1
 
@@ -280,7 +280,7 @@ exacta y casos de comparación contra `pgmpy`.
 
 Traductor desacoplado de respuestas de interfaz a evidencia bayesiana.
 
-**Estado:** Completada.
+**Estado:** En desarrollo — parte 1 de 3 completada.
 
 La primera parte en `inference-engine/src/evidence-mapper.ts` publica el catálogo
 de preguntas naturales, los identificadores semánticos estables y su
