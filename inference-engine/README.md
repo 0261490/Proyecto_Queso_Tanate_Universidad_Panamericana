@@ -69,6 +69,26 @@ Las variables o estados desconocidos generan `InferenceError`. La inferencia es
 exacta: enumera las variables ocultas en orden topológico y utiliza directamente
 las CPT exportadas, sin aproximaciones ni reentrenamiento.
 
+## Traductor de evidencia
+
+La primera parte del traductor publica un catálogo único para que la interfaz
+muestre preguntas naturales y utilice identificadores semánticos estables. Los
+componentes visuales pueden consumir `QUESTION_CATALOG` sin codificar de nuevo
+los textos ni sus correspondencias:
+
+```ts
+import { QUESTION_CATALOG } from "./src/index.ts";
+
+for (const question of QUESTION_CATALOG) {
+  renderQuestion(question.id, question.prompt);
+}
+```
+
+Cada entrada relaciona `id` (interfaz), `prompt` (pregunta natural) y `variable`
+(modelo). Los tipos `UserAnswers`, `QuestionId` y `Question` se derivan del
+catálogo y forman el contrato TypeScript con la futura PWA. La validación de
+entrada y la conversión a estados `Yes`/`No` corresponden a la segunda parte.
+
 ## Pruebas
 
 ```text

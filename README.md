@@ -217,7 +217,7 @@ docker compose run --rm python ls -la /workspace
 
 Arquitectura inicial y planificación del proyecto.
 
-**Estado:** Completada.
+**Estado:** En desarrollo — parte 1 de 3 completada.
 
 ### Sección 1
 
@@ -275,6 +275,17 @@ Motor Bayesiano TypeScript de inferencia exacta.
 La implementación se encuentra en `inference-engine/` e incluye carga
 validada de `model.json`, evidencia, consultas probabilísticas, inferencia
 exacta y casos de comparación contra `pgmpy`.
+
+### Sección 4
+
+Traductor desacoplado de respuestas de interfaz a evidencia bayesiana.
+
+**Estado:** Completada.
+
+La primera parte en `inference-engine/src/evidence-mapper.ts` publica el catálogo
+de preguntas naturales, los identificadores semánticos estables y su
+correspondencia con las ocho variables del modelo. La validación y traducción de
+respuestas se incorporarán en la segunda parte.
 
 ---
 
