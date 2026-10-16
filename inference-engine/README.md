@@ -71,23 +71,48 @@ las CPT exportadas, sin aproximaciones ni reentrenamiento.
 
 ## Traductor de evidencia
 
-La primera parte del traductor publica un catálogo único para que la interfaz
-muestre preguntas naturales y utilice identificadores semánticos estables. Los
-componentes visuales pueden consumir `QUESTION_CATALOG` sin codificar de nuevo
-los textos ni sus correspondencias:
+La interfaz no necesita conocer los identificadores `Q1`–`Q8` ni los estados
+internos del modelo. Puede construir sus formularios con `QUESTION_CATALOG` y
+enviar las respuestas usando los identificadores semánticos estables:
 
 ```ts
-import { QUESTION_CATALOG } from "./src/index.ts";
+import {
+  ExactInferenceEngine,
+  mapAnswersToEvidence,
+  QUESTION_CATALOG,
+} from "./src/index.ts";
 
-for (const question of QUESTION_CATALOG) {
-  renderQuestion(question.id, question.prompt);
+const answers = {
+  traditionalMexican: true,
+  authenticElaboration: false,
+  sensoryUniqueness: true,
+};
+
+const evidence = mapAnswersToEvidence(answers);
+const result = engine.query("Q2_Purchase_Intention", evidence);
+```
+
+La traducción produce:
+
+```ts
+{
+  Q1_Traditional_Mexican: "Yes",
+  Q5_Authenticity_Elaboration: "No",
+  Q8_Sensory_Uniqueness: "Yes",
 }
 ```
 
-Cada entrada relaciona `id` (interfaz), `prompt` (pregunta natural) y `variable`
-(modelo). Los tipos `UserAnswers`, `QuestionId` y `Question` se derivan del
-catálogo y forman el contrato TypeScript con la futura PWA. La validación de
-entrada y la conversión a estados `Yes`/`No` corresponden a la segunda parte.
+`mapAnswersToEvidence` acepta conjuntos parciales —una pregunta omitida no
+genera evidencia— y valida el límite de ejecución. La entrada debe ser un
+objeto, cada clave debe pertenecer al catálogo y cada respuesta debe ser un
+booleano o texto español `sí`, `si` o `no` (ignorando mayúsculas y espacios en
+los extremos). `normalizeUserAnswers` convierte esas cadenas a booleanos en un
+objeto nuevo antes de la traducción. Otras cadenas y los números se rechazan
+con `EvidenceMapperError`.
+
+`validateUserAnswers` está disponible por separado cuando la interfaz necesita
+validar objetos estrictamente booleanos; no convierte texto. `UserAnswers`, `QuestionId` y `Question` forman el
+contrato TypeScript compartido con la futura PWA.
 
 ## Pruebas
 

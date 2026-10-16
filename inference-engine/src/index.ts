@@ -1,5 +1,11 @@
 export { ExactInferenceEngine, InferenceError } from "./inference-engine.ts";
-export { QUESTION_CATALOG } from "./evidence-mapper.ts";
+export {
+  EvidenceMapperError,
+  mapAnswersToEvidence,
+  normalizeUserAnswers,
+  QUESTION_CATALOG,
+  validateUserAnswers,
+} from "./evidence-mapper.ts";
 export {
   loadModel,
   loadModelFromJson,
