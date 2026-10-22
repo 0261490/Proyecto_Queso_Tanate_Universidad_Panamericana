@@ -280,7 +280,7 @@ exacta y casos de comparación contra `pgmpy`.
 
 Traductor desacoplado de respuestas de interfaz a evidencia bayesiana.
 
-**Estado:** En desarrollo — parte 2 de 3 completada.
+**Estado:** Completada.
 
 La implementación en `inference-engine/src/evidence-mapper.ts` publica el
 catálogo natural de Q1–Q8, valida respuestas, normaliza texto `sí/si/no` a

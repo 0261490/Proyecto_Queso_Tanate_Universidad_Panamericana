@@ -2,9 +2,10 @@
 
 ## Estado
 
-Sección 3 completada. El motor carga el `model.json`
+Secciones 3 y 4 completadas. El motor carga el `model.json`
 congelado en la Sección 2, valida su estructura y ejecuta inferencia exacta por
-enumeración sin servidor ni dependencias de ejecución externas.
+enumeración sin servidor ni dependencias de ejecución externas. El traductor de
+evidencia valida y desacopla las respuestas de interfaz del modelo.
 
 ## API interna
 
@@ -111,8 +112,9 @@ objeto nuevo antes de la traducción. Otras cadenas y los números se rechazan
 con `EvidenceMapperError`.
 
 `validateUserAnswers` está disponible por separado cuando la interfaz necesita
-validar objetos estrictamente booleanos; no convierte texto. `UserAnswers`, `QuestionId` y `Question` forman el
-contrato TypeScript compartido con la futura PWA.
+validar objetos estrictamente booleanos; no convierte texto. `UserAnswers`,
+`QuestionId` y `Question` forman el contrato TypeScript compartido con la futura
+PWA.
 
 ## Pruebas
 

@@ -2,14 +2,13 @@
 
 ## Estado
 
-En desarrollo. Parte 2 de 3 completada: validación, normalización y traducción
-de respuestas a evidencia bayesiana.
+Completada.
 
 ## División de la sección
 
 1. Catálogo y contrato entre la interfaz y el modelo: completado.
 2. Validación y traducción de respuestas: completado, incluido texto `sí/si/no`.
-3. Pruebas de integración y cierre documental: pendiente de cierre.
+3. Pruebas de integración y cierre documental: completado.
 
 ## Objetivo
 
@@ -121,6 +120,19 @@ Comando reproducible:
 docker compose run --rm node npm --prefix inference-engine test
 ```
 
-Validación de la parte 2: 28 pruebas del motor aprobadas, incluidas 10 del
-traductor; cero fallos. Se comprobó además manualmente la conversión de texto
-y el rechazo de respuestas inválidas en PowerShell.
+La prueba de integración construye evidencia con el traductor y la entrega a
+`ExactInferenceEngine`, verificando el contrato real entre ambas capas. El
+cierre ejecuta también todas las pruebas Python del repositorio para confirmar
+que los cambios de interfaz no alteraron la reconstrucción científica.
+
+Resultado final: 28 pruebas TypeScript y 30 pruebas Python aprobadas, sin
+fallos. Los avisos de obsolescencia emitidos por `pgmpy` no afectan el resultado
+y corresponden a una actualización futura de dependencias.
+
+## Cierre
+
+Las tres partes están completas. El catálogo, la normalización, la validación y
+la traducción se exportan desde la API pública del motor; las pruebas cubren el
+contrato aislado y su integración; y la documentación registra uso, decisiones,
+limitaciones y reproducción. La etiqueta `sprint-4` identifica este estado
+estable sin incluir trabajo de la Sección 5.
