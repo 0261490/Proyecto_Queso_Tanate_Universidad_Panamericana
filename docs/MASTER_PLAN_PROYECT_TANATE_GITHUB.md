@@ -36,12 +36,28 @@ Cada cierre de sprint deberá incluir, como mínimo:
 
 1. código fuente desarrollado o modificado;
 2. pruebas asociadas;
-3. documentación correspondiente;
+3. documentación técnica general correspondiente en el repositorio;
 4. actualización del `README.md` cuando sea necesario;
 5. actualización del estado del sprint en la documentación del proyecto;
 6. commit descriptivo;
 7. push al repositorio remoto;
 8. etiqueta de versión (`tag`) cuando el sprint represente un hito estable.
+
+## Separación obligatoria de la documentación
+
+Cada sección o sprint genera dos documentos diferentes:
+
+1. **Documentación técnica general.** Forma parte del repositorio y describe
+   arquitectura, contratos, instrucciones de uso, pruebas, validaciones y la
+   información necesaria para reproducir y mantener el proyecto.
+2. **Documento explicativo de la sección.** Es un Google Doc privado que
+   registra qué se hizo, qué se encontró, cómo se modificó el proyecto, las
+   decisiones tomadas, los resultados obtenidos y las limitaciones detectadas.
+   Se almacena únicamente en Google Drive y no se copia, exporta ni versiona
+   dentro del repositorio de GitHub.
+
+La documentación técnica general no sustituye al Google Doc explicativo, y el
+Google Doc explicativo no sustituye la documentación técnica del repositorio.
 
 ## Convención recomendada de commits
 
@@ -548,6 +564,8 @@ sprint-4
 ---
 
 # Sprint 5
+
+**Estado al 30 de octubre de 2026:** implementación disponible; 8 pruebas PWA y 28 del motor aprobadas, compilación correcta. Pendientes validación reproducible en Docker, comprobación de navegador/instalación/offline y etiqueta de cierre sprint-5. Consulte `docs/seccion-5-pwa.md`.
 
 ## Desarrollo de la PWA
 

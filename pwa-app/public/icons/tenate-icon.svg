@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title">
+  <title id="title">Canasto tejido de Tenate</title>
+  <rect width="512" height="512" rx="112" fill="#20372d"/>
+  <circle cx="390" cy="116" r="54" fill="#dfa83b"/>
+  <path d="m102 176 154-86 154 86v170l-154 88-154-88z" fill="#c7663e" stroke="#fff8e8" stroke-width="14" stroke-linejoin="round"/>
+  <g fill="none" stroke="#fff8e8" stroke-width="12" stroke-linejoin="round">
+    <path d="m102 176 154 88 154-88M256 264v170M148 150l210 120M122 294l134 76 134-76M184 126l174 100"/>
+  </g>
+  <path d="M194 214c38-24 87-24 124 0v78c-37 25-86 25-124 0z" fill="#f1cf70" stroke="#774730" stroke-width="10"/>
+  <path d="M194 214c38 25 87 25 124 0" fill="none" stroke="#774730" stroke-width="10"/>
+</svg>

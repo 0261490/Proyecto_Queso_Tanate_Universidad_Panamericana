@@ -289,6 +289,20 @@ booleanos y genera evidencia
 la matriz completa de correspondencias están documentados en
 `docs/seccion-4-traductor-evidencia.md`.
 
+### Sección 5
+
+Interfaz PWA accesible, instalable y preparada para trabajo sin conexión.
+
+**Estado:** Implementación disponible; cierre sprint-5 pendiente de validación final en Docker y navegador.
+
+La aplicación en `pwa-app/` presenta siete preguntas naturales, ejecuta el
+traductor y el motor completamente en el navegador y comunica una estimación de
+intención de compra sin mostrar identificadores internos. Incluye componentes
+responsive, iconografía SVG, manifiesto, service worker con precache, pruebas de
+interfaz e instrucciones de instalación. Con las siete respuestas observadas,
+el modelo produce 81.4 % si la recomendación es Sí y 9.8 % si es No; esta
+limitación se conserva y documenta en `docs/seccion-5-pwa.md`.
+
 ---
 
 ## Modelo Científico
@@ -324,10 +338,18 @@ Cada sección deberá terminar con:
 1. desarrollo completo;
 2. pruebas;
 3. validación;
-4. documentación;
-5. commit descriptivo;
-6. push a GitHub;
-7. tag de versión cuando corresponda.
+4. documentación técnica general de la sección en el repositorio;
+5. documento explicativo privado de la sección en Google Drive;
+6. commit descriptivo;
+7. push a GitHub;
+8. tag de versión cuando corresponda.
+
+Los dos tipos de documentación son artefactos distintos. La documentación
+técnica general describe contratos, arquitectura, uso, pruebas y validaciones
+reproducibles, y se versiona con el código. El documento explicativo registra
+qué se hizo, qué se encontró, cómo se modificó el proyecto, las decisiones,
+los resultados y las limitaciones de la sección; debe crearse como Google Doc
+y conservarse únicamente en Google Drive, sin incorporarlo al repositorio.
 
 No se deberá avanzar a la siguiente sección hasta completar la sección actual al 100%.
 

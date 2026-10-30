@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="es-MX">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#20372d" />
+    <meta
+      name="description"
+      content="Orientación comercial privada para productores de Queso Tenate, disponible aun sin conexión."
+    />
+    <link rel="manifest" href="./manifest.webmanifest" />
+    <link rel="icon" href="./icons/tenate-icon.svg" type="image/svg+xml" />
+    <title>Tenate · Orientación comercial</title>
+  </head>
+  <body>
+    <a class="skip-link" href="#assessment">Saltar al cuestionario</a>
+
+    <svg class="icon-sprite" aria-hidden="true">
+      <symbol id="icon-tradition" viewBox="0 0 24 24">
+        <path d="M4 9.5 12 4l8 5.5v9a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 4 18.5zM8 20v-7h8v7M9 8h6" />
+      </symbol>
+      <symbol id="icon-voice" viewBox="0 0 24 24">
+        <path d="M5 5.5h14v10H9l-4 3zM9 9h6M9 12h4" />
+      </symbol>
+      <symbol id="icon-heritage" viewBox="0 0 24 24">
+        <path d="M3 10h18M5 10l7-6 7 6M5 20h14M7 10v7M12 10v7M17 10v7" />
+      </symbol>
+      <symbol id="icon-craft" viewBox="0 0 24 24">
+        <path d="M5 7.5 12 4l7 3.5v9L12 20l-7-3.5zM5 7.5l7 3.5 7-3.5M12 11v9M8.5 6l7 3.5" />
+      </symbol>
+      <symbol id="icon-growth" viewBox="0 0 24 24">
+        <path d="M5 19V9M11 19V5M17 19v-7M3 19h18M15 5h4v4M19 5l-7 7-3-3-4 4" />
+      </symbol>
+      <symbol id="icon-culture" viewBox="0 0 24 24">
+        <path d="M12 20c-4-2.5-7-6-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 4-3 7.5-7 10ZM12 7.4V17M9 11l3 2 3-2" />
+      </symbol>
+      <symbol id="icon-senses" viewBox="0 0 24 24">
+        <path d="M4 12s3-5 8-5 8 5 8 5-3 5-8 5-8-5-8-5ZM12 14.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5ZM7 4l1 2M17 4l-1 2" />
+      </symbol>
+    </svg>
+
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="Tenate, inicio">
+        <svg class="brand-mark" viewBox="0 0 48 48" aria-hidden="true">
+          <path d="M8 17 24 8l16 9v18L24 44 8 35z" />
+          <path d="m8 17 16 9 16-9M24 26v18M15 13l17 9M11 30l13 7 13-7" />
+        </svg>
+        <span><strong>Tenate</strong><small>Orientación comercial</small></span>
+      </a>
+      <div class="header-actions">
+        <span id="connection-status" class="status-pill" role="status">
+          <span class="status-dot" aria-hidden="true"></span>
+          <span>Comprobando conexión</span>
+        </span>
+        <button id="install-button" class="button button-quiet" type="button" hidden>
+          Instalar aplicación
+        </button>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow">Decisiones informadas, saber artesanal</p>
+          <h1 id="hero-title">Una lectura clara del potencial de compra de su queso</h1>
+          <p class="hero-intro">
+            Responda siete preguntas sobre el Queso Tenate. El análisis ocurre
+            en este dispositivo y puede funcionar sin conexión.
+          </p>
+          <div class="trust-row" aria-label="Características de la herramienta">
+            <span>Privado</span><span>Sin servidor</span><span>Resultado inmediato</span>
+          </div>
+        </div>
+        <div class="hero-art" aria-hidden="true">
+          <span class="sun-disc"></span>
+          <svg viewBox="0 0 420 340">
+            <path class="hill hill-back" d="M0 245c65-44 125-48 190-8 64-74 137-84 230-13v116H0z" />
+            <path class="hill hill-front" d="M0 286c88-58 169-49 244 4 71-33 126-29 176 1v49H0z" />
+            <path class="basket" d="M129 128 210 82l81 46v92l-81 48-81-48z" />
+            <path class="weave" d="m129 128 81 47 81-47M210 175v93M151 116l99 57M141 185l69 40 70-40M168 106l83 48" />
+            <path class="cheese" d="M177 150c23-13 50-13 70 0v44c-20 14-47 14-70 0z" />
+            <path class="cheese-line" d="M177 150c23 14 50 14 70 0M191 167h.1M228 179h.1" />
+          </svg>
+          <p>Hecho para acompañar, no para sustituir su experiencia.</p>
+        </div>
+      </section>
+
+      <section id="assessment" class="assessment" aria-labelledby="assessment-title">
+        <div class="section-heading">
+          <p class="eyebrow">Evaluación guiada</p>
+          <h2 id="assessment-title" tabindex="-1">Cuéntenos sobre el producto</h2>
+          <p>Todas las preguntas son necesarias. Sus respuestas no salen de este dispositivo.</p>
+        </div>
+
+        <form id="assessment-form" novalidate>
+          <div class="progress-block">
+            <div class="progress-copy">
+              <span id="progress-label">0 de 7 respondidas</span>
+              <span>Complete cada selección</span>
+            </div>
+            <progress id="question-progress" value="0" max="7">0 de 7</progress>
+          </div>
+
+          <div id="form-error" class="form-error" role="alert" tabindex="-1" hidden></div>
+          <div id="question-list" class="question-list"></div>
+
+          <div class="form-actions">
+            <p>Puede cambiar cualquier respuesta antes de analizar.</p>
+            <button class="button button-primary" type="submit">
+              Ver orientación comercial
+              <span aria-hidden="true">→</span>
+            </button>
+          </div>
+        </form>
+      </section>
+
+      <section id="results" class="results" aria-labelledby="results-title" hidden>
+        <div class="result-card" role="status" aria-live="polite">
+          <div class="result-copy">
+            <p class="eyebrow">Su resultado</p>
+            <h2 id="results-title" tabindex="-1">Intención estimada de compra</h2>
+            <p id="result-summary" class="result-summary"></p>
+            <p class="result-note">
+              Esta probabilidad se basa en un modelo reconstruido a partir de una encuesta;
+              no garantiza una decisión individual ni reemplaza el conocimiento local.
+            </p>
+            <button id="restart-button" class="button button-secondary" type="button">
+              Realizar otra evaluación
+            </button>
+          </div>
+          <div class="probability-visual">
+            <div id="probability-ring" class="probability-ring" aria-hidden="true">
+              <span id="probability-value">0 %</span>
+            </div>
+            <div
+              id="probability-meter"
+              class="sr-only"
+              role="meter"
+              aria-label="Probabilidad estimada de compra"
+              aria-valuemin="0"
+              aria-valuemax="100"
+              aria-valuenow="0"
+            ></div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p><strong>Proyecto Tenate</strong> · Inferencia local y reproducible</p>
+      <p>Diseñado para funcionar en campo, incluso con conectividad limitada.</p>
+    </footer>
+
+    <noscript>
+      <p class="noscript">Active JavaScript para utilizar la evaluación local.</p>
+    </noscript>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
