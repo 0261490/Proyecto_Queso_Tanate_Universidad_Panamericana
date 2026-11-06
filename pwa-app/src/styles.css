@@ -22,7 +22,7 @@ html { scroll-behavior: smooth; }
 
 body {
   margin: 0;
-  min-width: 320px;
+  min-width: 0;
   min-height: 100vh;
   background:
     radial-gradient(circle at 10% 0%, rgb(223 168 59 / 12%), transparent 28rem),
@@ -74,11 +74,11 @@ button { cursor: pointer; }
 }
 
 .brand-mark { width: 2.75rem; height: 2.75rem; }
-.brand-mark path { fill: none; stroke: var(--clay); stroke-width: 1.8; stroke-linejoin: round; }
 .brand span { display: grid; line-height: 1.15; }
 .brand strong { font-family: "Fraunces", Georgia, serif; font-size: 1.35rem; }
 .brand small { margin-top: 0.25rem; color: var(--ink-muted); font-size: 0.75rem; }
 .header-actions { display: flex; gap: 0.75rem; align-items: center; }
+.offline-status { width: min(1180px, calc(100% - 2rem)); margin: 0 auto; color: var(--ink-muted); font-size: 0.85rem; }
 
 .status-pill {
   display: inline-flex;
@@ -154,23 +154,10 @@ h2 { font-size: clamp(2rem, 4vw, 3.4rem); }
 }
 
 .hero-art svg { position: absolute; inset: 4% 0 2rem; width: 100%; height: calc(100% - 2rem); }
-.hero-art p {
-  position: absolute;
-  right: 1.5rem;
-  bottom: 1rem;
-  left: 1.5rem;
-  margin: 0;
-  color: #4d5e54;
-  font-size: 0.8rem;
-  text-align: center;
-}
-
 .sun-disc { position: absolute; top: 10%; right: 15%; width: 7rem; height: 7rem; border-radius: 50%; background: var(--ochre); }
 .hill { stroke: none; }
 .hill-back { fill: var(--sage); }
 .hill-front { fill: var(--forest-soft); }
-.basket, .weave { fill: #ce8457; stroke: #774730; stroke-width: 2; stroke-linejoin: round; }
-.weave { fill: none; }
 .cheese { fill: #f0cc6c; stroke: #774730; stroke-width: 2; }
 .cheese-line { fill: none; stroke: #a06e32; stroke-width: 3; stroke-linecap: round; }
 
@@ -230,8 +217,8 @@ progress::-moz-progress-bar { background: var(--ochre); }
 .form-actions p { margin: 0; color: #bfcac3; font-size: 0.88rem; }
 
 .button { min-height: 2.75rem; padding: 0.7rem 1rem; border: 0; border-radius: 0.65rem; font-weight: 700; }
-.button-primary { display: inline-flex; gap: 1rem; align-items: center; justify-content: center; background: var(--clay); color: white; box-shadow: 0 8px 22px rgb(0 0 0 / 15%); }
-.button-primary:hover { background: #d4744b; }
+.button-primary { display: inline-flex; gap: 1rem; align-items: center; justify-content: center; background: var(--clay-dark); color: white; box-shadow: 0 8px 22px rgb(0 0 0 / 15%); }
+.button-primary:hover { background: #883c23; }
 .button-secondary { border: 1px solid var(--forest); background: transparent; color: var(--forest); }
 .button-secondary:hover { background: #edf0e9; }
 .button-quiet { border: 1px solid var(--forest); background: transparent; color: var(--forest); font-size: 0.8rem; }
@@ -270,8 +257,8 @@ footer p { margin: 0; }
 }
 
 @media (max-width: 560px) {
-  .site-header { align-items: flex-start; }
-  .brand small, .status-pill span:last-child { display: none; }
+  .site-header { align-items: flex-start; flex-wrap: wrap; gap: 0.75rem; }
+  .brand small { display: none; }
   .header-actions { align-items: flex-start; }
   .hero-art { min-height: 340px; }
   .answer-options { grid-template-columns: 1fr; }

@@ -16,6 +16,10 @@
     <a class="skip-link" href="#assessment">Saltar al cuestionario</a>
 
     <svg class="icon-sprite" aria-hidden="true">
+      <symbol id="logo-cheese" viewBox="165 132 94 78">
+        <path class="cheese" d="M177 150c23-13 50-13 70 0v44c-20 14-47 14-70 0z" />
+        <path class="cheese-line" d="M177 150c23 14 50 14 70 0M191 167h.1M228 179h.1" />
+      </symbol>
       <symbol id="icon-tradition" viewBox="0 0 24 24">
         <path d="M4 9.5 12 4l8 5.5v9a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 4 18.5zM8 20v-7h8v7M9 8h6" />
       </symbol>
@@ -41,9 +45,8 @@
 
     <header class="site-header">
       <a class="brand" href="#top" aria-label="Tenate, inicio">
-        <svg class="brand-mark" viewBox="0 0 48 48" aria-hidden="true">
-          <path d="M8 17 24 8l16 9v18L24 44 8 35z" />
-          <path d="m8 17 16 9 16-9M24 26v18M15 13l17 9M11 30l13 7 13-7" />
+        <svg class="brand-mark" viewBox="0 0 94 78" aria-hidden="true">
+          <use href="#logo-cheese" />
         </svg>
         <span><strong>Tenate</strong><small>Orientación comercial</small></span>
       </a>
@@ -58,6 +61,7 @@
       </div>
     </header>
 
+    <p id="offline-status" class="offline-status" role="status">Preparando uso sin conexión…</p>
     <main id="top">
       <section class="hero" aria-labelledby="hero-title">
         <div class="hero-copy">
@@ -76,12 +80,9 @@
           <svg viewBox="0 0 420 340">
             <path class="hill hill-back" d="M0 245c65-44 125-48 190-8 64-74 137-84 230-13v116H0z" />
             <path class="hill hill-front" d="M0 286c88-58 169-49 244 4 71-33 126-29 176 1v49H0z" />
-            <path class="basket" d="M129 128 210 82l81 46v92l-81 48-81-48z" />
-            <path class="weave" d="m129 128 81 47 81-47M210 175v93M151 116l99 57M141 185l69 40 70-40M168 106l83 48" />
             <path class="cheese" d="M177 150c23-13 50-13 70 0v44c-20 14-47 14-70 0z" />
             <path class="cheese-line" d="M177 150c23 14 50 14 70 0M191 167h.1M228 179h.1" />
           </svg>
-          <p>Hecho para acompañar, no para sustituir su experiencia.</p>
         </div>
       </section>
 
@@ -148,7 +149,7 @@
 
     <footer>
       <p><strong>Proyecto Tenate</strong> · Inferencia local y reproducible</p>
-      <p>Diseñado para funcionar en campo, incluso con conectividad limitada.</p>
+      <p>Diseñado para funcionar en campo, incluso sin conexión.</p>
     </footer>
 
     <noscript>

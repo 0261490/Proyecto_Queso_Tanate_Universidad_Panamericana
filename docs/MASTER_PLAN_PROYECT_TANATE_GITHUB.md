@@ -565,7 +565,7 @@ sprint-4
 
 # Sprint 5
 
-**Estado al 30 de octubre de 2026:** implementación disponible; 8 pruebas PWA y 28 del motor aprobadas, compilación correcta. Pendientes validación reproducible en Docker, comprobación de navegador/instalación/offline y etiqueta de cierre sprint-5. Consulte `docs/seccion-5-pwa.md`.
+**Estado al 6 de noviembre de 2026:** implementación revisada; 11 pruebas PWA, 28 del motor y 30 Python aprobadas en Docker el 5 de noviembre, compilación correcta y flujo de interfaz comprobado a 320 px. Pendientes instalación y recarga/cálculo offline en Chrome/Edge mediante comprobación guiada elegida por el usuario. Commit y push autorizados por el usuario; no se declara cierre ni se crea la etiqueta sprint-5. Consulte `docs/seccion-5-pwa.md`.
 
 ## Desarrollo de la PWA
 

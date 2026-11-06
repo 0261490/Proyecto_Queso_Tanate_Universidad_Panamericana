@@ -2,7 +2,10 @@
 
 ## Estado
 
-Entrega de implementación con siete preguntas originales. Validación final en Docker/navegador y etiqueta de cierre sprint-5 pendientes.
+Preparación de cierre revisada el 5 de noviembre de 2026. Pruebas y compilación
+en Docker aprobadas; flujo de interfaz y vista de 320 px comprobados. Pendientes:
+instalación y prueba offline completa en Chrome/Edge a cargo del usuario, que
+solicitó una comprobación guiada. No se declara el cierre al 100 %.
 
 ## Alcance
 
@@ -33,7 +36,8 @@ reconstruida, no un fallo de redondeo. Se preservan las siete preguntas y el
 proceso original por decisión del usuario. El ensayo de cuatro preguntas se
 retiró y no forma parte del entregable. No se afirma que las siete preguntas
 influyan independientemente ni que más respuestas Sí aumenten el resultado.
-Después de editar respuestas se debe pulsar nuevamente el botón de análisis.
+Después de editar respuestas se oculta el resultado anterior y se debe pulsar
+nuevamente el botón de análisis.
 
 ## Componentes
 
@@ -76,8 +80,14 @@ interpretación aparecen también como texto.
 Vite crea el paquete estático y el script posterior enumera todos sus recursos,
 calcula una huella de contenido y genera `dist/sw.js`. Durante la instalación,
 el service worker precarga HTML, JavaScript, CSS, manifiesto e iconografía. En
-navegaciones sin red devuelve el documento precacheado; para otros recursos usa
-caché primero y actualiza la caché cuando obtiene una respuesta válida.
+navegaciones devuelve primero el HTML de su propia caché, incluso con red, para
+mantener juntos el documento y los recursos de la misma compilación. Las nuevas
+versiones llegan al actualizar el service worker. Para otros recursos consulta
+su propia caché primero y almacena respuestas de red válidas cuando falta el recurso.
+
+La interfaz distingue el estado de red de la preparación offline. El aviso
+«Lista para usar sin conexión en este navegador» indica que el documento está
+controlado por un service worker; no sustituye la prueba real de recarga y cálculo.
 
 Al activar una versión nueva, elimina únicamente cachés anteriores cuyo nombre
 empieza con `tenate-`. No interviene sobre cachés ajenas al proyecto.
@@ -108,37 +118,63 @@ contraste, así como las estrategias esenciales del service worker.
   `8ecb6ae7cd8236aa3e7930287bb8ae51f4828cbe97baf138d63bb75388800f3b`.
 - `git diff --check` sin errores.
 
-### Comprobaciones pendientes antes del cierre
+## Validación de preparación — 5 de noviembre de 2026
 
-Docker Desktop responde que no puede iniciar. La alternativa Python local
-no pudo cargar seis módulos de pruebas: faltan pandas, numpy, pgmpy y networkx.
-Esto es una limitación del entorno, no una suite científica aprobada.
-La prueba automática de Edge no se ejecutó porque se rechazó su autorización.
+| Comprobación | Resultado |
+| --- | --- |
+| PWA en Docker | 11/11 aprobadas, incluidas tres pruebas de ejecución del service worker con caché/red simuladas |
+| Motor en Docker | 28/28 aprobadas |
+| Suite científica Python en Docker | 30/30 aprobadas; avisos de deprecación de pgmpy, sin fallos |
+| Compilación Linux con dependencias aisladas | Correcta; Vite 7.3.7, siete recursos precacheados |
+| Auditoría npm | Cero vulnerabilidades después de actualizar Vite y source-map-js |
+| Modelo congelado | SHA-256 idéntico al registrado arriba |
+| Navegador integrado, con servidor disponible | Siete preguntas, error por omisiones, progreso, 9.8 % / 81.4 %, cambio de recomendación, reinicio y teclado comprobados |
+| Vista de 320 px | Corregido el desbordamiento: ancho de contenido igual al ancho útil de 305 px con barra de desplazamiento |
+| Navegador integrado, servidor detenido | No aprobado: se recuperó HTML, pero no CSS/JavaScript; causa no determinada, pendiente de contraste en Chrome/Edge |
+| Instalación en Chrome/Edge | Pendiente; el usuario eligió realizar la comprobación guiada |
 
-1. Con Docker operativo, ejecutar pruebas PWA, build, pruebas del motor y
-   `docker compose run --rm python python -m unittest discover -s tests -p "test_*.py"`.
-   Si node_modules contiene binarios Windows, usar un volumen aislado de Linux
-   para las dependencias del contenedor, sin borrar las dependencias locales.
-2. Abrir la compilación con preview y comprobar siete preguntas, errores ante
-   respuestas pendientes, progreso, navegación por teclado y vista a 320 px.
-3. Probar todas No (9.8 %) y todas Sí (81.4 %). Mantener recomendación y
-   cambiar otras respuestas debe conservar el resultado al volver a calcular.
-   Cambiar recomendación debe alternar los dos valores. Reiniciar debe limpiar
-   selecciones y progreso.
-4. Esperar al service worker, desconectar la red, recargar y volver a calcular.
-   Verificar instalación desde un navegador compatible. El servidor dev no
-   sustituye esta comprobación de la compilación de producción.
-5. Actualizar el estado con la evidencia obtenida; crear commit de cierre y etiqueta
-   únicamente cuando las comprobaciones hayan terminado satisfactoriamente.
+Correcciones de esta preparación:
 
-## Alcance previsto del commit
+- eliminar el ancho mínimo del body que producía desplazamiento horizontal;
+- conservar texto de conexión en móvil y mejorar contraste del botón principal;
+- respetar movimiento reducido al desplazar la página desde JavaScript;
+- ocultar resultados anteriores cuando se modifica una respuesta;
+- mostrar un estado específico de preparación offline;
+- servir HTML y recursos desde la caché de la misma versión;
+- agregar pruebas del worker para navegación y recursos sin red, coherencia de
+  versión y limpieza limitada a cachés Tenate.
 
-Incluir `pwa-app/` (incluida la retirada de su .gitkeep), esta documentación y
-la sección correspondiente del README. El plan maestro contiene además cambios
-locales previos de política documental: revisar su diff antes de incorporarlos.
-No incluir automáticamente la eliminación previa de
-`docs/seccion-1-documentacion.md` ni `resultados-pruebas-motor.txt`.
-El Google Doc explicativo existente se actualiza en Drive y no se copia aquí.
+Las pruebas simuladas no certifican por sí solas la instalación ni la recarga
+offline real. La comprobación de teclado/semántica tampoco equivale a una
+auditoría integral WCAG o a una prueba con lector de pantalla.
 
-Mensaje previsto: `Sprint 5: desarrollar interfaz PWA accesible y offline`.
-Esta entrega publica la implementación; no declara el cierre completo ni crea la etiqueta sprint-5 mientras las verificaciones anteriores estén pendientes.
+### Comandos reproducibles
+
+```text
+docker compose run --rm -v tenate-pwa-linux-deps:/workspace/pwa-app/node_modules node sh -c 'npm --prefix pwa-app ci && npm --prefix pwa-app test && npm --prefix pwa-app run build'
+docker compose run --rm node npm --prefix inference-engine test
+docker compose run --rm python python -m unittest discover -s tests -p "test_*.py"
+```
+
+El volumen Linux conserva las dependencias locales de Windows sin reemplazarlas.
+
+### Pendientes de aceptación
+
+1. Ejecutar la guía de instalación y offline de `pwa-app/README.md` en Chrome o
+   Edge y registrar navegador/versión, instalación, recarga offline y ambos resultados.
+2. Si la prueba falla, diagnosticar y corregir antes de declarar la sección completa.
+3. Con la prueba aprobada, actualizar documentación técnica y Google Doc privado,
+   crear commit de cierre y etiqueta `sprint-5`.
+4. La actualización de implementación tiene autorización expresa de push del
+   6 de noviembre de 2026; esta publicación no sustituye la aceptación pendiente.
+
+## Control de cambios
+
+La implementación base está en `a33ed84`. El 6 de noviembre de 2026 el usuario
+autorizó el commit y push de esta actualización, conservando los pendientes de
+aceptación y sin crear la etiqueta de cierre. Se incorporan también sus ajustes
+visuales: queso en la cabecera, ilustración central con paisaje sin caja,
+eliminación de la frase de acompañamiento y pie «incluso sin conexión».
+Mantener fuera de la entrega
+la eliminación previa de `docs/seccion-1-documentacion.md` y el archivo no seguido
+`resultados-pruebas-motor.txt`. El documento explicativo permanece en Google Drive.

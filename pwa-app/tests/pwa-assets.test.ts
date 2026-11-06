@@ -46,5 +46,5 @@ test("service worker template precaches and handles navigation offline", () => {
   assert.match(worker, /cache\.addAll\(APP_SHELL\)/);
   assert.match(worker, /caches\.delete/);
   assert.match(worker, /event\.request\.mode === "navigate"/);
-  assert.match(worker, /caches\.match\("\.\/index.html"\)/);
+  assert.match(worker, /cache\.match\("\.\/index.html"\)/);
 });

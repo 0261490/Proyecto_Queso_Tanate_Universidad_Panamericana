@@ -80,6 +80,52 @@ Con este formulario completo, la recomendación determina el resultado: Sí da
 81.4 % y No da 9.8 %. Las otras respuestas no cambian ese porcentaje en el DAG
 congelado cuando recomendación ya está observada. Esta limitación se documenta;
 no se altera la evidencia ni el modelo para producir porcentajes diferentes.
-Tras cambiar respuestas, pulse de nuevo el botón de análisis para actualizar
-el resultado. El modelo reconstruido no equivale exactamente al publicado ni
+Tras cambiar respuestas, el resultado anterior se oculta; pulse de nuevo el botón
+de análisis para actualizarlo. El modelo reconstruido no equivale exactamente al publicado ni
 demuestra el efecto causal de mejorar un atributo del producto.
+
+## Comprobación final guiada en Chrome o Edge
+
+Esta prueba sigue pendiente al 5 de noviembre de 2026. El navegador integrado
+recuperó HTML al detener el servidor, pero no cargó los estilos ni el cuestionario.
+No considerar ese ensayo una prueba offline aprobada.
+
+Para iniciar la versión de producción desde la raíz del repositorio:
+
+```powershell
+npm.cmd --prefix pwa-app run build
+npm.cmd --prefix pwa-app run preview -- --host 127.0.0.1 --port 4174 --strictPort
+```
+
+1. Abra `http://127.0.0.1:4174` en **Chrome o Edge**. Use siempre esta misma
+   dirección y puerto: `localhost` y `127.0.0.1` tienen almacenamientos distintos.
+2. Espere el aviso **Lista para usar sin conexión en este navegador**. Compruebe
+   siete preguntas, seleccione todas **Sí** y pulse **Ver orientación comercial**:
+   debe aparecer **81.4 %**. Cambie recomendación a **No**: el resultado anterior
+   se oculta; al analizar nuevamente debe aparecer **9.8 %**.
+3. Pulse **Instalar aplicación** o la opción de instalación del navegador.
+   Confirme la instalación y verifique que Tenate abre en su propia ventana.
+   Si no aparece la opción, anote navegador/versión y el mensaje visible; no
+   dé por aprobada la instalación sólo por existir un manifiesto.
+4. En la pestaña del navegador, abra **F12 → Application/Aplicación → Service
+   Workers**, compruebe que `sw.js` está activado y marque **Offline**. Esta
+   opción simula pérdida de red sólo para la prueba. No active «Bypass for network».
+5. Recargue normalmente con **Ctrl+R**. Deben mantenerse estilos y las siete
+   preguntas. Las respuestas pueden reiniciarse: el historial pertenece a la sección 6.
+6. Sin quitar **Offline**, haga dos evaluaciones: todas **No → 9.8 %** y todas
+   **Sí → 81.4 %**. Compruebe que **Realizar otra evaluación** limpia el formulario.
+7. Desmarque **Offline** al terminar. Informe navegador/versión y si instalación,
+   recarga con estilos y ambos cálculos funcionaron. Si algo falla, copie el
+   mensaje o describa el paso exacto; aún no se debe cerrar la sección.
+
+Registro de aceptación por completar:
+
+| Dato | Resultado |
+| --- | --- |
+| Navegador y versión | Pendiente |
+| Instalación y apertura en ventana propia | Pendiente |
+| Recarga offline con estilos y siete preguntas | Pendiente |
+| Offline: 9.8 % / 81.4 % y reinicio | Pendiente |
+
+El usuario autorizó publicar esta actualización en GitHub el 6 de noviembre de
+2026. La instalación y la prueba offline completa siguen pendientes de aceptación.

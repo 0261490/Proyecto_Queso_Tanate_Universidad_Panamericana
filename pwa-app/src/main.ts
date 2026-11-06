@@ -44,6 +44,7 @@ const probabilityMeter = element<HTMLDivElement>("probability-meter");
 const restartButton = element<HTMLButtonElement>("restart-button");
 const connectionStatus = element<HTMLSpanElement>("connection-status");
 const installButton = element<HTMLButtonElement>("install-button");
+const offlineStatus = element<HTMLParagraphElement>("offline-status");
 
 list.innerHTML = questions
   .map((question, index) => renderQuestion(question, index, questions.length))
@@ -82,8 +83,16 @@ function showError(message: string): void {
 
 form.addEventListener("change", () => {
   errorBox.hidden = true;
+  results.hidden = true;
   updateProgress();
 });
+
+function scrollToSection(section: HTMLElement): void {
+  section.scrollIntoView({
+    behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "instant" : "smooth",
+    block: "start",
+  });
+}
 
 form.addEventListener("submit", (event) => {
   event.preventDefault();
@@ -111,7 +120,7 @@ form.addEventListener("submit", (event) => {
     probabilityMeter.setAttribute("aria-valuetext", formatted);
     resultSummary.textContent = `${interpretProbability(probability)}: ${formatted}.`;
     results.hidden = false;
-    results.scrollIntoView({ behavior: "smooth", block: "start" });
+    scrollToSection(results);
     element<HTMLElement>("results-title").focus({ preventScroll: true });
   } catch (error) {
     console.error(error);
@@ -125,7 +134,7 @@ restartButton.addEventListener("click", () => {
   errorBox.hidden = true;
   updateProgress();
   element<HTMLElement>("assessment-title").focus();
-  form.scrollIntoView({ behavior: "smooth", block: "start" });
+  scrollToSection(form);
 });
 
 function updateConnectionStatus(): void {
@@ -133,7 +142,7 @@ function updateConnectionStatus(): void {
   connectionStatus.classList.toggle("is-offline", !online);
   connectionStatus.querySelector("span:last-child")!.textContent = online
     ? "Con conexión"
-    : "Disponible sin conexión";
+    : "Sin conexión";
 }
 
 window.addEventListener("online", updateConnectionStatus);
@@ -163,8 +172,23 @@ window.addEventListener("appinstalled", () => {
 
 if (import.meta.env.PROD && "serviceWorker" in navigator) {
   window.addEventListener("load", () => {
-    navigator.serviceWorker.register("./sw.js").catch((error) => {
+    const updateOfflineStatus = (): void => {
+      if (navigator.serviceWorker.controller) {
+        offlineStatus.textContent = "Lista para usar sin conexión en este navegador.";
+      }
+    };
+    navigator.serviceWorker.addEventListener("controllerchange", updateOfflineStatus);
+    updateOfflineStatus();
+    navigator.serviceWorker.register("./sw.js").then(async () => {
+      await navigator.serviceWorker.ready;
+      updateOfflineStatus();
+    }).catch((error) => {
       console.error("Service worker registration failed", error);
+      offlineStatus.textContent = "No se pudo preparar el uso sin conexión. Recargue con conexión para reintentar.";
     });
   });
+} else {
+  offlineStatus.textContent = import.meta.env.PROD
+    ? "Este navegador no permite preparar el uso sin conexión. Abra la aplicación en Chrome o Edge."
+    : "El uso sin conexión se prepara en la versión de producción.";
 }
