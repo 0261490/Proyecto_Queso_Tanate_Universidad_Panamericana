@@ -2,10 +2,12 @@
 
 ## Estado
 
-Preparación de cierre revisada el 5 de noviembre de 2026. Pruebas y compilación
-en Docker aprobadas; flujo de interfaz y vista de 320 px comprobados. Pendientes:
-instalación y prueba offline completa en Chrome/Edge a cargo del usuario, que
-solicitó una comprobación guiada. No se declara el cierre al 100 %.
+**Completada al 17 de noviembre de 2026.** El usuario confirmó la comprobación
+final de instalación y funcionamiento offline y autorizó el cierre documental.
+La aceptación manual se registra como confirmación del usuario; no se
+reportaron navegador ni versión. Las pruebas y la compilación aprobadas en
+Docker, así como la revisión del flujo y vista de 320 px, corresponden al
+5 de noviembre. No se ejecutó una nueva prueba de navegador durante este cierre.
 
 ## Alcance
 
@@ -158,15 +160,24 @@ docker compose run --rm python python -m unittest discover -s tests -p "test_*.p
 
 El volumen Linux conserva las dependencias locales de Windows sin reemplazarlas.
 
-### Pendientes de aceptación
+### Aceptación final — 17 de noviembre de 2026
 
-1. Ejecutar la guía de instalación y offline de `pwa-app/README.md` en Chrome o
-   Edge y registrar navegador/versión, instalación, recarga offline y ambos resultados.
-2. Si la prueba falla, diagnosticar y corregir antes de declarar la sección completa.
-3. Con la prueba aprobada, actualizar documentación técnica y Google Doc privado,
-   crear commit de cierre y etiqueta `sprint-5`.
-4. La actualización de implementación tiene autorización expresa de push del
-   6 de noviembre de 2026; esta publicación no sustituye la aceptación pendiente.
+Tras recibir la lista de pendientes (instalación, recarga y cálculo offline de
+81.4 % y 9.8 %), el usuario confirmó: «ya lo confirme esta perfecto» y autorizó
+cerrar la documentación. Esta confirmación satisface la aceptación pendiente.
+
+| Comprobación | Registro de cierre |
+| --- | --- |
+| Instalación y apertura | Aceptadas por confirmación del usuario |
+| Recarga y cálculo offline | Aceptados por confirmación del usuario |
+| Navegador y versión | No reportados |
+| Evidencia de aceptación | Confirmación del usuario en el chat del 17 de noviembre de 2026 |
+
+Se conserva el ensayo fallido del navegador integrado del 5 de noviembre como
+antecedente histórico; no se atribuye una causa ni una corrección no comprobadas.
+El cierre actual se sustenta en la posterior aceptación del usuario. Se actualizan
+la documentación técnica y el Google Doc privado. El historial local queda
+fuera de esta sección y corresponde a la Sección 6.
 
 ## Control de cambios
 

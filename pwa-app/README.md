@@ -86,9 +86,10 @@ demuestra el efecto causal de mejorar un atributo del producto.
 
 ## Comprobación final guiada en Chrome o Edge
 
-Esta prueba sigue pendiente al 5 de noviembre de 2026. El navegador integrado
-recuperó HTML al detener el servidor, pero no cargó los estilos ni el cuestionario.
-No considerar ese ensayo una prueba offline aprobada.
+El usuario confirmó la comprobación final el 17 de noviembre de 2026 y autorizó
+el cierre documental. La guía se conserva para reproducir la validación.
+El ensayo previo del navegador integrado del 5 de noviembre recuperó HTML,
+pero no estilos ni cuestionario; se conserva como antecedente, no como prueba aprobada.
 
 Para iniciar la versión de producción desde la raíz del repositorio:
 
@@ -118,14 +119,15 @@ npm.cmd --prefix pwa-app run preview -- --host 127.0.0.1 --port 4174 --strictPor
    recarga con estilos y ambos cálculos funcionaron. Si algo falla, copie el
    mensaje o describa el paso exacto; aún no se debe cerrar la sección.
 
-Registro de aceptación por completar:
+Registro de aceptación — 17 de noviembre de 2026:
 
 | Dato | Resultado |
 | --- | --- |
-| Navegador y versión | Pendiente |
-| Instalación y apertura en ventana propia | Pendiente |
-| Recarga offline con estilos y siete preguntas | Pendiente |
-| Offline: 9.8 % / 81.4 % y reinicio | Pendiente |
+| Navegador y versión | No reportados por el usuario |
+| Instalación y apertura en ventana propia | Aceptadas por confirmación del usuario |
+| Recarga offline con estilos y siete preguntas | Aceptada por confirmación del usuario |
+| Offline: 9.8 % / 81.4 % y reinicio | Aceptados por confirmación del usuario |
 
-El usuario autorizó publicar esta actualización en GitHub el 6 de noviembre de
-2026. La instalación y la prueba offline completa siguen pendientes de aceptación.
+La aceptación se basa en la confirmación del usuario en el chat; no se realizó
+una nueva comprobación automatizada de navegador durante el cierre documental.
+La sección 5 queda completada. La persistencia local corresponde a la sección 6.

@@ -293,12 +293,12 @@ la matriz completa de correspondencias están documentados en
 
 Interfaz PWA accesible, instalable y preparada para trabajo sin conexión.
 
-**Estado al 5 de noviembre de 2026:** pruebas Docker aprobadas (11 PWA, 28 motor,
-30 Python) y compilación correcta. Flujo de interfaz y vista móvil comprobados.
-Pendientes instalación y recarga/cálculo offline en Chrome o Edge mediante la
-guía de `pwa-app/README.md`. Actualización de implementación autorizada para
-commit y push el 6 de noviembre de 2026; sin etiqueta de cierre mientras esas
-comprobaciones estén pendientes.
+**Estado al 17 de noviembre de 2026:** Completada. El usuario confirmó la
+comprobación final de instalación y funcionamiento offline y autorizó el cierre
+documental. Se conserva la validación del 5 de noviembre: 11 pruebas PWA,
+28 del motor y 30 Python aprobadas en Docker, compilación correcta y revisión
+del flujo y vista móvil. La aceptación manual procede del usuario; no se
+reportaron navegador ni versión. Véase `docs/seccion-5-pwa.md`.
 
 La aplicación en `pwa-app/` presenta siete preguntas naturales, ejecuta el
 traductor y el motor completamente en el navegador y comunica una estimación de
