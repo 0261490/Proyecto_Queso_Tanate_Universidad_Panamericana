@@ -52,9 +52,35 @@ use **Compartir → Añadir a pantalla de inicio**.
 
 ## Privacidad y alcance
 
-Las respuestas y la inferencia permanecen en el dispositivo. Esta sección no
-guarda historial; la persistencia local corresponde a la Sección 6. El resultado
-es una orientación probabilística, no una garantía comercial.
+Las respuestas y la inferencia permanecen en el dispositivo. Desde la Sección 6,
+cada evaluación completada se guarda automáticamente en IndexedDB junto con
+sus respuestas, evidencia, resultado, fecha y versión del modelo. El historial
+permite consultar las respuestas y eliminar una evaluación o todos los registros,
+con confirmación. El resultado es una orientación probabilística, no una garantía comercial.
+
+El historial pertenece al navegador y origen utilizados: cambiar de dispositivo,
+perfil, dominio o puerto muestra otro almacenamiento. No se sincroniza ni se
+respalda en un servidor. Borrar los datos del sitio, la navegación privada o la
+limpieza automática del navegador pueden eliminarlo. En dispositivos compartidos,
+otras personas con acceso al mismo perfil pueden consultarlo.
+
+Si falla el guardado, el resultado sigue disponible y se muestra un aviso.
+Reiniciar el formulario no borra el historial. No se guardan borradores incompletos.
+El esquema y las decisiones técnicas se describen en `../docs/seccion-6-persistencia.md`.
+
+## Pruebas del historial en navegador
+
+```powershell
+npm.cmd --prefix pwa-app ci
+npm.cmd --prefix pwa-app run build
+npm.cmd --prefix pwa-app run test:e2e
+```
+
+Playwright usa Edge instalado en Windows, sin ventana visible, y un servidor de
+pruebas aislado en el puerto 4176. En Linux/macOS se usa Chromium de Playwright;
+instale primero su navegador con `npx playwright install chromium` desde `pwa-app`.
+Las pruebas usan un perfil temporal sin tocar el historial del usuario. Cubren
+recarga, reapertura de página, operaciones offline, errores de almacenamiento y 320 px.
 
 ## Demostración local sin Docker
 
@@ -112,7 +138,8 @@ npm.cmd --prefix pwa-app run preview -- --host 127.0.0.1 --port 4174 --strictPor
    Workers**, compruebe que `sw.js` está activado y marque **Offline**. Esta
    opción simula pérdida de red sólo para la prueba. No active «Bypass for network».
 5. Recargue normalmente con **Ctrl+R**. Deben mantenerse estilos y las siete
-   preguntas. Las respuestas pueden reiniciarse: el historial pertenece a la sección 6.
+   preguntas. El formulario puede reiniciarse; las evaluaciones completadas
+   deben seguir disponibles en **Su historial** desde la sección 6.
 6. Sin quitar **Offline**, haga dos evaluaciones: todas **No → 9.8 %** y todas
    **Sí → 81.4 %**. Compruebe que **Realizar otra evaluación** limpia el formulario.
 7. Desmarque **Offline** al terminar. Informe navegador/versión y si instalación,

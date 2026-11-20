@@ -10,9 +10,12 @@
     "dev": "vite --host 0.0.0.0",
     "build": "vite build && node scripts/generate-service-worker.mjs",
     "preview": "vite preview --host 0.0.0.0",
-    "test": "node --test tests/*.test.ts"
+    "test": "node --test tests/*.test.ts",
+    "test:e2e": "playwright test"
   },
   "devDependencies": {
+    "@playwright/test": "1.65.1",
+    "fake-indexeddb": "6.2.8",
     "vite": "7.3.7"
   }
 }

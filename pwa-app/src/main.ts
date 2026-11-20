@@ -1,6 +1,9 @@
 import "./styles.css";
 
 import modelData from "../../model-export/model.json";
+import modelHash from "../../model-export/model.sha256?raw";
+import { HistoryStore } from "./storage/history.ts";
+import { createHistoryUI } from "./history-ui.ts";
 import {
   ExactInferenceEngine,
   mapAnswersToEvidence,
@@ -30,6 +33,13 @@ const questions = QUESTION_CATALOG.filter(
   ({ id }) => id !== "purchaseIntention",
 );
 const engine = new ExactInferenceEngine(loadModel(modelData));
+const historyStore = new HistoryStore();
+const modelSha256 = modelHash.trim().split(/\s+/)[0];
+const historyUI = createHistoryUI(historyStore, modelSha256);
+const saveStatus = element<HTMLParagraphElement>("save-status");
+const submitButton = document.querySelector<HTMLButtonElement>('button[type="submit"]')!;
+let saving = false;
+let evaluationVersion = 0;
 
 const form = element<HTMLFormElement>("assessment-form");
 const list = element<HTMLDivElement>("question-list");
@@ -82,6 +92,7 @@ function showError(message: string): void {
 }
 
 form.addEventListener("change", () => {
+  evaluationVersion++;
   errorBox.hidden = true;
   results.hidden = true;
   updateProgress();
@@ -94,8 +105,9 @@ function scrollToSection(section: HTMLElement): void {
   });
 }
 
-form.addEventListener("submit", (event) => {
+form.addEventListener("submit", async (event) => {
   event.preventDefault();
+  if (saving) return;
   const missing = questions.length - answeredCount();
   if (missing > 0) {
     showError(
@@ -109,7 +121,8 @@ form.addEventListener("submit", (event) => {
   }
 
   try {
-    const evidence = mapAnswersToEvidence(collectAnswers());
+    const answers = collectAnswers();
+    const evidence = mapAnswersToEvidence(answers);
     const probability = engine.probability("Q2_Purchase_Intention", "Yes", evidence);
     const percent = Math.round(probability * 1000) / 10;
     const formatted = formatProbability(probability);
@@ -122,6 +135,28 @@ form.addEventListener("submit", (event) => {
     results.hidden = false;
     scrollToSection(results);
     element<HTMLElement>("results-title").focus({ preventScroll: true });
+    saving = true;
+    submitButton.disabled = true;
+    const version = ++evaluationVersion;
+    saveStatus.textContent = "Guardando evaluación en este navegador…";
+    try {
+      await historyStore.add({
+        schemaVersion: 1,
+        id: crypto.randomUUID(),
+        createdAt: new Date().toISOString(),
+        model: { version: modelData.model_version, sha256: modelSha256 },
+        answers,
+        evidence,
+        result: { variable: "Q2_Purchase_Intention", state: "Yes", probability },
+      });
+      if (version === evaluationVersion) saveStatus.textContent = "Evaluación guardada en el historial de este navegador.";
+      await historyUI.reload();
+    } catch {
+      if (version === evaluationVersion) saveStatus.textContent = "El resultado es válido, pero no se pudo guardar. Compruebe el espacio o los permisos del navegador y vuelva a evaluar para reintentar.";
+    } finally {
+      saving = false;
+      submitButton.disabled = false;
+    }
   } catch (error) {
     console.error(error);
     showError("No fue posible calcular el resultado. Revise sus respuestas e intente de nuevo.");
@@ -129,6 +164,7 @@ form.addEventListener("submit", (event) => {
 });
 
 restartButton.addEventListener("click", () => {
+  evaluationVersion++;
   form.reset();
   results.hidden = true;
   errorBox.hidden = true;

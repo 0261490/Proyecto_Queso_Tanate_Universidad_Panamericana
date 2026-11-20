@@ -621,6 +621,13 @@ sprint-5
 
 # Sprint 6
 
+**Estado al 20 de noviembre de 2026:** completado. Persistencia e historial implementados y
+validados localmente. Se aprobaron 17 pruebas PWA, compilación Docker, 28 pruebas
+del motor, 30 Python y cuatro pruebas en Edge (incluido CRUD offline). Documentación
+técnica en `docs/seccion-6-persistencia.md` y documento explicativo privado en
+Google Drive. El usuario autorizó la publicación del cierre con commit, push y
+etiqueta `sprint-6` el 20 de noviembre de 2026.
+
 ## Persistencia
 
 Implementar:

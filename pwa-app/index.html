@@ -121,6 +121,7 @@
             <p class="eyebrow">Su resultado</p>
             <h2 id="results-title" tabindex="-1">Intención estimada de compra</h2>
             <p id="result-summary" class="result-summary"></p>
+            <p id="save-status" role="status"></p>
             <p class="result-note">
               Esta probabilidad se basa en un modelo reconstruido a partir de una encuesta;
               no garantiza una decisión individual ni reemplaza el conocimiento local.
@@ -144,6 +145,18 @@
             ></div>
           </div>
         </div>
+      </section>
+      <section id="history" class="history" aria-labelledby="history-title">
+        <h2 id="history-title">Su historial</h2>
+        <p>Las evaluaciones se guardan automáticamente en este navegador y pueden consultarse sin conexión.
+          Si comparte el dispositivo, otras personas con acceso al navegador podrán verlas.
+          Al borrar los datos del sitio o usar navegación privada, el historial puede perderse.</p>
+        <div class="history-actions">
+          <button id="refresh-history" class="button button-secondary" type="button">Actualizar historial</button>
+          <button id="clear-history" class="button button-secondary" type="button" disabled>Eliminar todo el historial</button>
+        </div>
+        <p id="history-status" role="status">Cargando historial…</p>
+        <ul id="history-list" class="history-list"></ul>
       </section>
     </main>
 

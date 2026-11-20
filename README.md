@@ -310,6 +310,22 @@ limitación se conserva y documenta en `docs/seccion-5-pwa.md`.
 
 ---
 
+## Sección 6 — Persistencia local
+
+**Estado al 20 de noviembre de 2026:** completada. Implementación y validación
+del 17 de noviembre; publicación autorizada por el usuario para el cierre `sprint-6`.
+
+La PWA guarda cada evaluación completa en IndexedDB: respuestas, evidencia,
+probabilidad sin redondear, fecha y versión/huella del modelo. El historial permite
+consultar las respuestas y eliminar registros de forma individual o completa,
+también offline. Un fallo de almacenamiento no impide mostrar la inferencia.
+
+Validación: 17 pruebas PWA y compilación aprobadas en Docker, 28 pruebas del motor,
+30 Python y cuatro pruebas de navegador en Edge. El modelo conserva su SHA-256.
+Véase `docs/seccion-6-persistencia.md` para esquema, límites y reproducción.
+La auditoría actual reporta cuatro alertas altas en dependencias de desarrollo
+relacionadas con picomatch; no se declara una auditoría limpia.
+
 ## Modelo Científico
 
 El proyecto se basa en una Red Bayesiana desarrollada para analizar factores relacionados con la intención de compra del Queso Tenate.
