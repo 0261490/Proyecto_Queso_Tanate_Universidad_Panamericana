@@ -3,7 +3,7 @@ import { readFileSync } from "node:fs";
 import { runInNewContext } from "node:vm";
 import test from "node:test";
 
-function worker() {
+function worker(varyOrigin = false) {
   const handlers: Record<string, (event: any) => void> = {};
   const files = new Map<string, Response>();
   const removed: string[] = [];
@@ -12,7 +12,8 @@ function worker() {
     async addAll(paths: string[]) {
       for (const path of paths) files.set(path, new Response(`cached:${path}`));
     },
-    async match(request: string | { url: string }) {
+    async match(request: string | { url: string; mode?: string }, options?: { ignoreVary?: boolean }) {
+      if (varyOrigin && typeof request !== "string" && request.mode === "cors" && !options?.ignoreVary) return undefined;
       return files.get(typeof request === "string" ? request : `.${new URL(request.url).pathname}`)?.clone();
     },
     async put(request: { url: string }, response: Response) {
@@ -25,7 +26,7 @@ function worker() {
   runInNewContext(source, {
     URL,
     self: {
-      location: { origin: "https://tenate.test" },
+      location: { origin: "https://tenate.test", href: "https://tenate.test/sw.js" },
       addEventListener: (name: string, handler: any) => { handlers[name] = handler; },
       skipWaiting: async () => {},
       clients: { claim: async () => {} },
@@ -42,6 +43,7 @@ function worker() {
   });
   return {
     removed,
+    seed(path: string) { files.set(path, new Response("dynamic variant")); },
     offline() { online = false; },
     async lifecycle(name: string) {
       let pending: Promise<unknown> | undefined;
@@ -80,4 +82,14 @@ test("activation removes only previous Tenate caches and ignores unrelated reque
   assert.deepEqual(sw.removed, ["tenate-old"]);
   assert.equal(await sw.request("https://other.test/image.png"), undefined);
   assert.equal(await sw.request("/", "same-origin", "POST"), undefined);
+});
+
+test("first offline module load tolerates Vary only for explicitly precached static files", async () => {
+  const sw = worker(true);
+  await sw.lifecycle("install");
+  sw.seed("./account.json");
+  sw.offline();
+  assert.equal(await (await sw.request("/assets/app.js", "cors"))?.text(), "cached:./assets/app.js");
+  assert.equal(await (await sw.request("/assets/app.css", "cors"))?.text(), "cached:./assets/app.css");
+  await assert.rejects(sw.request("/account.json", "cors"), /Network unavailable/);
 });

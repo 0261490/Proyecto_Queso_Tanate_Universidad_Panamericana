@@ -328,6 +328,20 @@ relacionadas con picomatch; no se declara una auditoría limpia.
 
 ## Modelo Científico
 
+### Validación de la Sección 7
+
+Al 20 de noviembre de 2026 se aprobaron localmente 90 pruebas (30 Python,
+32 motor, 21 PWA y siete de navegador). Las 128 combinaciones del cuestionario
+coinciden con pgmpy con error máximo de `2.22e-16` y conservan respuestas,
+evidencia y resultados en el historial. La primera recarga offline desde una
+instalación nueva tiene una prueba de regresión y una corrección limitada a
+los recursos estáticos precargados con `Vary: Origin`.
+
+La consulta publicada de 62.6 % da 59.7633 % en la reconstrucción. Se valida
+equivalencia entre Python y TypeScript para esta reconstrucción, no recuperación
+exacta del modelo publicado. El reporte, cobertura y límites están en
+`docs/seccion-7-validacion-integral.md`. Cierre formal identificado con la etiqueta `sprint-7`.
+
 El proyecto se basa en una Red Bayesiana desarrollada para analizar factores relacionados con la intención de compra del Queso Tenate.
 
 Una de las referencias científicas que posteriormente deberá utilizarse para validar la equivalencia de las implementaciones es:

@@ -40,3 +40,59 @@ test("rejects a non-normalized CPT", () => {
   raw.cpts[0].values[0][0] = 0.9;
   assert.throws(() => loadModel(raw), /not normalized/);
 });
+
+test("rejects malformed JSON and unsupported model contracts", () => {
+  assert.throws(() => loadModelFromJson("{broken"), /Invalid model JSON/);
+  assert.throws(() => loadModelFromJson("null"), ModelValidationError);
+  for (const change of [
+    raw => { raw.format = "other"; },
+    raw => { raw.schema_version = 2; },
+    raw => { raw.model_version = ""; },
+    raw => { raw.metadata = null; },
+    raw => { raw.nodes = []; },
+    raw => { raw.edges = null; },
+  ]) {
+    const raw = JSON.parse(MODEL_JSON);
+    change(raw);
+    assert.throws(() => loadModel(raw), ModelValidationError);
+  }
+});
+
+test("rejects ambiguous states, duplicate nodes and unknown dependencies", () => {
+  for (const change of [
+    raw => { raw.nodes.push(raw.nodes[0]); },
+    raw => { raw.nodes[0].states = []; },
+    raw => { raw.nodes[0].states.push(raw.nodes[0].states[0]); },
+    raw => { raw.edges[0].source = "unknown"; },
+    raw => { raw.cpts.pop(); },
+    raw => { raw.cpts[1] = raw.cpts[0]; },
+  ]) {
+    const raw = JSON.parse(MODEL_JSON);
+    change(raw);
+    assert.throws(() => loadModel(raw), ModelValidationError);
+  }
+});
+
+test("rejects CPT axes inconsistent with the scientific graph and state order", () => {
+  for (const change of [
+    cpt => { cpt.parents = null; },
+    cpt => { cpt.parents.push(cpt.parents[0]); },
+    cpt => { cpt.parents = []; },
+    cpt => { cpt.state_names[cpt.node].reverse(); },
+    cpt => { cpt.state_names[cpt.parents[0]].reverse(); },
+    cpt => { cpt.values.pop(); },
+    cpt => { cpt.values[0].pop(); },
+  ]) {
+    const raw = JSON.parse(MODEL_JSON);
+    change(raw.cpts.find(c => c.parents.length > 0));
+    assert.throws(() => loadModel(raw), ModelValidationError);
+  }
+});
+
+test("rejects out-of-range, nonnumeric and nonfinite probabilities", () => {
+  for (const value of [-0.01, 1.01, "0.5", null, NaN, Infinity]) {
+    const raw = JSON.parse(MODEL_JSON);
+    raw.cpts[0].values[0][0] = value;
+    assert.throws(() => loadModel(raw), /not a probability/);
+  }
+});

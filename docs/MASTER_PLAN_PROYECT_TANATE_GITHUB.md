@@ -670,6 +670,14 @@ sprint-6
 
 # Sprint 7
 
+**Estado al 20 de noviembre de 2026:** validación automatizada realizada localmente:
+90 pruebas aprobadas y 128 combinaciones contrastadas con pgmpy. Se añadió una
+corrección y regresión para la primera recarga offline con recursos `Vary: Origin`.
+Reporte y alcance de cobertura en `docs/seccion-7-validacion-integral.md`.
+Cierre formal identificado con la etiqueta `sprint-7`.
+La equivalencia se demuestra para el modelo reconstruido; el desacuerdo con
+el 62.6 % publicado se conserva explícitamente y no se declara equivalencia al original.
+
 ## Pruebas
 
 Validar:

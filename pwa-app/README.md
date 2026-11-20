@@ -70,6 +70,14 @@ El esquema y las decisiones técnicas se describen en `../docs/seccion-6-persist
 
 ## Pruebas del historial en navegador
 
+Desde la sección 7, la suite también verifica referencias Python mixtas,
+formulario incompleto, teclado y primera recarga offline tras la instalación.
+El reporte JSON queda en `test-results/results.json`. Los 128 casos completos
+se comparan con pgmpy en `tests/golden-integration.test.ts`.
+Para medir únicamente los módulos cargados por las pruebas Node use
+`npm.cmd --prefix pwa-app run test:coverage` desde la raíz; ese porcentaje no
+incluye los módulos DOM ni constituye cobertura global de la PWA.
+
 ```powershell
 npm.cmd --prefix pwa-app ci
 npm.cmd --prefix pwa-app run build

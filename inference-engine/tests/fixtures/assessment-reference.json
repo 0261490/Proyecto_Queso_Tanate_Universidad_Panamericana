@@ -1,0 +1,2831 @@
+{
+  "cases": [
+    {
+      "answers": {
+        "authenticElaboration": false,
+        "commercialPotential": false,
+        "culturePreservation": false,
+        "gastronomicHeritage": false,
+        "recommendation": false,
+        "sensoryUniqueness": false,
+        "traditionalMexican": false
+      },
+      "evidence": {
+        "Q1_Traditional_Mexican": "No",
+        "Q3_Recommendation": "No",
+        "Q4_Gastronomic_Heritage": "No",
+        "Q5_Authenticity_Elaboration": "No",
+        "Q6_Commercial_Potential": "No",
+        "Q7_Culture_Preservation": "No",
+        "Q8_Sensory_Uniqueness": "No"
+      },
+      "id": "assessment_000",
+      "probability": 0.09803921568627454
+    },
+    {
+      "answers": {
+        "authenticElaboration": false,
+        "commercialPotential": false,
+        "culturePreservation": false,
+        "gastronomicHeritage": false,
+        "recommendation": false,
+        "sensoryUniqueness": false,
+        "traditionalMexican": true
+      },
+      "evidence": {
+        "Q1_Traditional_Mexican": "Yes",
+        "Q3_Recommendation": "No",
+        "Q4_Gastronomic_Heritage": "No",
+        "Q5_Authenticity_Elaboration": "No",
+        "Q6_Commercial_Potential": "No",
+        "Q7_Culture_Preservation": "No",
+        "Q8_Sensory_Uniqueness": "No"
+      },
+      "id": "assessment_001",
+      "probability": 0.09803921568627454
+    },
+    {
+      "answers": {
+        "authenticElaboration": false,
+        "commercialPotential": false,
+        "culturePreservation": false,
+        "gastronomicHeritage": false,
+        "recommendation": true,
+        "sensoryUniqueness": false,
+        "traditionalMexican": false
+      },
+      "evidence": {
+        "Q1_Traditional_Mexican": "No",
+        "Q3_Recommendation": "Yes",
+        "Q4_Gastronomic_Heritage": "No",
+        "Q5_Authenticity_Elaboration": "No",
+        "Q6_Commercial_Potential": "No",
+        "Q7_Culture_Preservation": "No",
+        "Q8_Sensory_Uniqueness": "No"
+      },
+      "id": "assessment_002",
+      "probability": 0.8135593220338984
+    },
+    {
+      "answers": {
+        "authenticElaboration": false,
+        "commercialPotential": false,
+        "culturePreservation": false,
+        "gastronomicHeritage": false,
+        "recommendation": true,
+        "sensoryUniqueness": false,
+        "traditionalMexican": true
+      },
+      "evidence": {
+        "Q1_Traditional_Mexican": "Yes",
+        "Q3_Recommendation": "Yes",
+        "Q4_Gastronomic_Heritage": "No",
+        "Q5_Authenticity_Elaboration": "No",
+        "Q6_Commercial_Potential": "No",
+        "Q7_Culture_Preservation": "No",
+        "Q8_Sensory_Uniqueness": "No"
+      },
+      "id": "assessment_003",
+      "probability": 0.8135593220338984
+    },
+    {
+      "answers": {
+        "authenticElaboration": false,
+        "commercialPotential": false,
+        "culturePreservation": false,
+        "gastronomicHeritage": true,
+        "recommendation": false,
+        "sensoryUniqueness": false,
+        "traditionalMexican": false
+      },
+      "evidence": {
+        "Q1_Traditional_Mexican": "No",
+        "Q3_Recommendation": "No",
+        "Q4_Gastronomic_Heritage": "Yes",
+        "Q5_Authenticity_Elaboration": "No",
+        "Q6_Commercial_Potential": "No",
+        "Q7_Culture_Preservation": "No",
+        "Q8_Sensory_Uniqueness": "No"
+      },
+      "id": "assessment_004",
+      "probability": 0.09803921568627454
+    },
+    {
+      "answers": {
+        "authenticElaboration": false,
+        "commercialPotential": false,
+        "culturePreservation": false,
+        "gastronomicHeritage": true,
+        "recommendation": false,
+        "sensoryUniqueness": false,
+        "traditionalMexican": true
+      },
+      "evidence": {
+        "Q1_Traditional_Mexican": "Yes",
+        "Q3_Recommendation": "No",
+        "Q4_Gastronomic_Heritage": "Yes",
+        "Q5_Authenticity_Elaboration": "No",
+        "Q6_Commercial_Potential": "No",
+        "Q7_Culture_Preservation": "No",
+        "Q8_Sensory_Uniqueness": "No"
+      },
+      "id": "assessment_005",
+      "probability": 0.09803921568627454
+    },
+    {
+      "answers": {
+        "authenticElaboration": false,
+        "commercialPotential": false,
+        "culturePreservation": false,
+        "gastronomicHeritage": true,
+        "recommendation": true,
+        "sensoryUniqueness": false,
+        "traditionalMexican": false
+      },
+      "evidence": {
+        "Q1_Traditional_Mexican": "No",
+        "Q3_Recommendation": "Yes",
+        "Q4_Gastronomic_Heritage": "Yes",
+        "Q5_Authenticity_Elaboration": "No",
+        "Q6_Commercial_Potential": "No",
+        "Q7_Culture_Preservation": "No",
+        "Q8_Sensory_Uniqueness": "No"
+      },
+      "id": "assessment_006",
+      "probability": 0.8135593220338984
+    },
+    {
+      "answers": {
+        "authenticElaboration": false,
+        "commercialPotential": false,
+        "culturePreservation": false,
+        "gastronomicHeritage": true,
+        "recommendation": true,
+        "sensoryUniqueness": false,
+        "traditionalMexican": true
+      },
+      "evidence": {
+        "Q1_Traditional_Mexican": "Yes",
+        "Q3_Recommendation": "Yes",
+        "Q4_Gastronomic_Heritage": "Yes",
+        "Q5_Authenticity_Elaboration": "No",
+        "Q6_Commercial_Potential": "No",
+        "Q7_Culture_Preservation": "No",
+        "Q8_Sensory_Uniqueness": "No"
+      },
+      "id": "assessment_007",
+      "probability": 0.8135593220338984
+    },
+    {
+      "answers": {
+        "authenticElaboration": true,
+        "commercialPotential": false,
+        "culturePreservation": false,
+        "gastronomicHeritage": false,
+        "recommendation": false,
+        "sensoryUniqueness": false,
+        "traditionalMexican": false
+      },
+      "evidence": {
+        "Q1_Traditional_Mexican": "No",
+        "Q3_Recommendation": "No",
+        "Q4_Gastronomic_Heritage": "No",
+        "Q5_Authenticity_Elaboration": "Yes",
+        "Q6_Commercial_Potential": "No",
+        "Q7_Culture_Preservation": "No",
+        "Q8_Sensory_Uniqueness": "No"
+      },
+      "id": "assessment_008",
+      "probability": 0.09803921568627454
+    },
+    {
+      "answers": {
+        "authenticElaboration": true,
+        "commercialPotential": false,
+        "culturePreservation": false,
+        "gastronomicHeritage": false,
+        "recommendation": false,
+        "sensoryUniqueness": false,
+        "traditionalMexican": true
+      },
+      "evidence": {
+        "Q1_Traditional_Mexican": "Yes",
+        "Q3_Recommendation": "No",
+        "Q4_Gastronomic_Heritage": "No",
+        "Q5_Authenticity_Elaboration": "Yes",
+        "Q6_Commercial_Potential": "No",
+        "Q7_Culture_Preservation": "No",
+        "Q8_Sensory_Uniqueness": "No"
+      },
+      "id": "assessment_009",
+      "probability": 0.09803921568627454
+    },
+    {
+      "answers": {
+        "authenticElaboration": true,
+        "commercialPotential": false,
+        "culturePreservation": false,
+        "gastronomicHeritage": false,
+        "recommendation": true,
+        "sensoryUniqueness": false,
+        "traditionalMexican": false
+      },
+      "evidence": {
+        "Q1_Traditional_Mexican": "No",
+        "Q3_Recommendation": "Yes",
+        "Q4_Gastronomic_Heritage": "No",
+        "Q5_Authenticity_Elaboration": "Yes",
+        "Q6_Commercial_Potential": "No",
+        "Q7_Culture_Preservation": "No",
+        "Q8_Sensory_Uniqueness": "No"
+      },
+      "id": "assessment_010",
+      "probability": 0.8135593220338984
+    },
+    {
+      "answers": {
+        "authenticElaboration": true,
+        "commercialPotential": false,
+        "culturePreservation": false,
+        "gastronomicHeritage": false,
+        "recommendation": true,
+        "sensoryUniqueness": false,
+        "traditionalMexican": true
+      },
+      "evidence": {
+        "Q1_Traditional_Mexican": "Yes",
+        "Q3_Recommendation": "Yes",
+        "Q4_Gastronomic_Heritage": "No",
+        "Q5_Authenticity_Elaboration": "Yes",
+        "Q6_Commercial_Potential": "No",
+        "Q7_Culture_Preservation": "No",
+        "Q8_Sensory_Uniqueness": "No"
+      },
+      "id": "assessment_011",
+      "probability": 0.8135593220338984
+    },
+    {
+      "answers": {
+        "authenticElaboration": true,
+        "commercialPotential": false,
+        "culturePreservation": false,
+        "gastronomicHeritage": true,
+        "recommendation": false,
+        "sensoryUniqueness": false,
+        "traditionalMexican": false
+      },
+      "evidence": {
+        "Q1_Traditional_Mexican": "No",
+        "Q3_Recommendation": "No",
+        "Q4_Gastronomic_Heritage": "Yes",
+        "Q5_Authenticity_Elaboration": "Yes",
+        "Q6_Commercial_Potential": "No",
+        "Q7_Culture_Preservation": "No",
+        "Q8_Sensory_Uniqueness": "No"
+      },
+      "id": "assessment_012",
+      "probability": 0.09803921568627454
+    },
+    {
+      "answers": {
+        "authenticElaboration": true,
+        "commercialPotential": false,
+        "culturePreservation": false,
+        "gastronomicHeritage": true,
+        "recommendation": false,
+        "sensoryUniqueness": false,
+        "traditionalMexican": true
+      },
+      "evidence": {
+        "Q1_Traditional_Mexican": "Yes",
+        "Q3_Recommendation": "No",
+        "Q4_Gastronomic_Heritage": "Yes",
+        "Q5_Authenticity_Elaboration": "Yes",
+        "Q6_Commercial_Potential": "No",
+        "Q7_Culture_Preservation": "No",
+        "Q8_Sensory_Uniqueness": "No"
+      },
+      "id": "assessment_013",
+      "probability": 0.09803921568627454
+    },
+    {
+      "answers": {
+        "authenticElaboration": true,
+        "commercialPotential": false,
+        "culturePreservation": false,
+        "gastronomicHeritage": true,
+        "recommendation": true,
+        "sensoryUniqueness": false,
+        "traditionalMexican": false
+      },
+      "evidence": {
+        "Q1_Traditional_Mexican": "No",
+        "Q3_Recommendation": "Yes",
+        "Q4_Gastronomic_Heritage": "Yes",
+        "Q5_Authenticity_Elaboration": "Yes",
+        "Q6_Commercial_Potential": "No",
+        "Q7_Culture_Preservation": "No",
+        "Q8_Sensory_Uniqueness": "No"
+      },
+      "id": "assessment_014",
+      "probability": 0.8135593220338984
+    },
+    {
+      "answers": {
+        "authenticElaboration": true,
+        "commercialPotential": false,
+        "culturePreservation": false,
+        "gastronomicHeritage": true,
+        "recommendation": true,
+        "sensoryUniqueness": false,
+        "traditionalMexican": true
+      },
+      "evidence": {
+        "Q1_Traditional_Mexican": "Yes",
+        "Q3_Recommendation": "Yes",
+        "Q4_Gastronomic_Heritage": "Yes",
+        "Q5_Authenticity_Elaboration": "Yes",
+        "Q6_Commercial_Potential": "No",
+        "Q7_Culture_Preservation": "No",
+        "Q8_Sensory_Uniqueness": "No"
+      },
+      "id": "assessment_015",
+      "probability": 0.8135593220338984
+    },
+    {
+      "answers": {
+        "authenticElaboration": false,
+        "commercialPotential": true,
+        "culturePreservation": false,
+        "gastronomicHeritage": false,
+        "recommendation": false,
+        "sensoryUniqueness": false,
+        "traditionalMexican": false
+      },
+      "evidence": {
+        "Q1_Traditional_Mexican": "No",
+        "Q3_Recommendation": "No",
+        "Q4_Gastronomic_Heritage": "No",
+        "Q5_Authenticity_Elaboration": "No",
+        "Q6_Commercial_Potential": "Yes",
+        "Q7_Culture_Preservation": "No",
+        "Q8_Sensory_Uniqueness": "No"
+      },
+      "id": "assessment_016",
+      "probability": 0.09803921568627454
+    },
+    {
+      "answers": {
+        "authenticElaboration": false,
+        "commercialPotential": true,
+        "culturePreservation": false,
+        "gastronomicHeritage": false,
+        "recommendation": false,
+        "sensoryUniqueness": false,
+        "traditionalMexican": true
+      },
+      "evidence": {
+        "Q1_Traditional_Mexican": "Yes",
+        "Q3_Recommendation": "No",
+        "Q4_Gastronomic_Heritage": "No",
+        "Q5_Authenticity_Elaboration": "No",
+        "Q6_Commercial_Potential": "Yes",
+        "Q7_Culture_Preservation": "No",
+        "Q8_Sensory_Uniqueness": "No"
+      },
+      "id": "assessment_017",
+      "probability": 0.09803921568627454
+    },
+    {
+      "answers": {
+        "authenticElaboration": false,
+        "commercialPotential": true,
+        "culturePreservation": false,
+        "gastronomicHeritage": false,
+        "recommendation": true,
+        "sensoryUniqueness": false,
+        "traditionalMexican": false
+      },
+      "evidence": {
+        "Q1_Traditional_Mexican": "No",
+        "Q3_Recommendation": "Yes",
+        "Q4_Gastronomic_Heritage": "No",
+        "Q5_Authenticity_Elaboration": "No",
+        "Q6_Commercial_Potential": "Yes",
+        "Q7_Culture_Preservation": "No",
+        "Q8_Sensory_Uniqueness": "No"
+      },
+      "id": "assessment_018",
+      "probability": 0.8135593220338984
+    },
+    {
+      "answers": {
+        "authenticElaboration": false,
+        "commercialPotential": true,
+        "culturePreservation": false,
+        "gastronomicHeritage": false,
+        "recommendation": true,
+        "sensoryUniqueness": false,
+        "traditionalMexican": true
+      },
+      "evidence": {
+        "Q1_Traditional_Mexican": "Yes",
+        "Q3_Recommendation": "Yes",
+        "Q4_Gastronomic_Heritage": "No",
+        "Q5_Authenticity_Elaboration": "No",
+        "Q6_Commercial_Potential": "Yes",
+        "Q7_Culture_Preservation": "No",
+        "Q8_Sensory_Uniqueness": "No"
+      },
+      "id": "assessment_019",
+      "probability": 0.8135593220338984
+    },
+    {
+      "answers": {
+        "authenticElaboration": false,
+        "commercialPotential": true,
+        "culturePreservation": false,
+        "gastronomicHeritage": true,
+        "recommendation": false,
+        "sensoryUniqueness": false,
+        "traditionalMexican": false
+      },
+      "evidence": {
+        "Q1_Traditional_Mexican": "No",
+        "Q3_Recommendation": "No",
+        "Q4_Gastronomic_Heritage": "Yes",
+        "Q5_Authenticity_Elaboration": "No",
+        "Q6_Commercial_Potential": "Yes",
+        "Q7_Culture_Preservation": "No",
+        "Q8_Sensory_Uniqueness": "No"
+      },
+      "id": "assessment_020",
+      "probability": 0.09803921568627454
+    },
+    {
+      "answers": {
+        "authenticElaboration": false,
+        "commercialPotential": true,
+        "culturePreservation": false,
+        "gastronomicHeritage": true,
+        "recommendation": false,
+        "sensoryUniqueness": false,
+        "traditionalMexican": true
+      },
+      "evidence": {
+        "Q1_Traditional_Mexican": "Yes",
+        "Q3_Recommendation": "No",
+        "Q4_Gastronomic_Heritage": "Yes",
+        "Q5_Authenticity_Elaboration": "No",
+        "Q6_Commercial_Potential": "Yes",
+        "Q7_Culture_Preservation": "No",
+        "Q8_Sensory_Uniqueness": "No"
+      },
+      "id": "assessment_021",
+      "probability": 0.09803921568627454
+    },
+    {
+      "answers": {
+        "authenticElaboration": false,
+        "commercialPotential": true,
+        "culturePreservation": false,
+        "gastronomicHeritage": true,
+        "recommendation": true,
+        "sensoryUniqueness": false,
+        "traditionalMexican": false
+      },
+      "evidence": {
+        "Q1_Traditional_Mexican": "No",
+        "Q3_Recommendation": "Yes",
+        "Q4_Gastronomic_Heritage": "Yes",
+        "Q5_Authenticity_Elaboration": "No",
+        "Q6_Commercial_Potential": "Yes",
+        "Q7_Culture_Preservation": "No",
+        "Q8_Sensory_Uniqueness": "No"
+      },
+      "id": "assessment_022",
+      "probability": 0.8135593220338984
+    },
+    {
+      "answers": {
+        "authenticElaboration": false,
+        "commercialPotential": true,
+        "culturePreservation": false,
+        "gastronomicHeritage": true,
+        "recommendation": true,
+        "sensoryUniqueness": false,
+        "traditionalMexican": true
+      },
+      "evidence": {
+        "Q1_Traditional_Mexican": "Yes",
+        "Q3_Recommendation": "Yes",
+        "Q4_Gastronomic_Heritage": "Yes",
+        "Q5_Authenticity_Elaboration": "No",
+        "Q6_Commercial_Potential": "Yes",
+        "Q7_Culture_Preservation": "No",
+        "Q8_Sensory_Uniqueness": "No"
+      },
+      "id": "assessment_023",
+      "probability": 0.8135593220338984
+    },
+    {
+      "answers": {
+        "authenticElaboration": true,
+        "commercialPotential": true,
+        "culturePreservation": false,
+        "gastronomicHeritage": false,
+        "recommendation": false,
+        "sensoryUniqueness": false,
+        "traditionalMexican": false
+      },
+      "evidence": {
+        "Q1_Traditional_Mexican": "No",
+        "Q3_Recommendation": "No",
+        "Q4_Gastronomic_Heritage": "No",
+        "Q5_Authenticity_Elaboration": "Yes",
+        "Q6_Commercial_Potential": "Yes",
+        "Q7_Culture_Preservation": "No",
+        "Q8_Sensory_Uniqueness": "No"
+      },
+      "id": "assessment_024",
+      "probability": 0.09803921568627454
+    },
+    {
+      "answers": {
+        "authenticElaboration": true,
+        "commercialPotential": true,
+        "culturePreservation": false,
+        "gastronomicHeritage": false,
+        "recommendation": false,
+        "sensoryUniqueness": false,
+        "traditionalMexican": true
+      },
+      "evidence": {
+        "Q1_Traditional_Mexican": "Yes",
+        "Q3_Recommendation": "No",
+        "Q4_Gastronomic_Heritage": "No",
+        "Q5_Authenticity_Elaboration": "Yes",
+        "Q6_Commercial_Potential": "Yes",
+        "Q7_Culture_Preservation": "No",
+        "Q8_Sensory_Uniqueness": "No"
+      },
+      "id": "assessment_025",
+      "probability": 0.09803921568627454
+    },
+    {
+      "answers": {
+        "authenticElaboration": true,
+        "commercialPotential": true,
+        "culturePreservation": false,
+        "gastronomicHeritage": false,
+        "recommendation": true,
+        "sensoryUniqueness": false,
+        "traditionalMexican": false
+      },
+      "evidence": {
+        "Q1_Traditional_Mexican": "No",
+        "Q3_Recommendation": "Yes",
+        "Q4_Gastronomic_Heritage": "No",
+        "Q5_Authenticity_Elaboration": "Yes",
+        "Q6_Commercial_Potential": "Yes",
+        "Q7_Culture_Preservation": "No",
+        "Q8_Sensory_Uniqueness": "No"
+      },
+      "id": "assessment_026",
+      "probability": 0.8135593220338984
+    },
+    {
+      "answers": {
+        "authenticElaboration": true,
+        "commercialPotential": true,
+        "culturePreservation": false,
+        "gastronomicHeritage": false,
+        "recommendation": true,
+        "sensoryUniqueness": false,
+        "traditionalMexican": true
+      },
+      "evidence": {
+        "Q1_Traditional_Mexican": "Yes",
+        "Q3_Recommendation": "Yes",
+        "Q4_Gastronomic_Heritage": "No",
+        "Q5_Authenticity_Elaboration": "Yes",
+        "Q6_Commercial_Potential": "Yes",
+        "Q7_Culture_Preservation": "No",
+        "Q8_Sensory_Uniqueness": "No"
+      },
+      "id": "assessment_027",
+      "probability": 0.8135593220338984
+    },
+    {
+      "answers": {
+        "authenticElaboration": true,
+        "commercialPotential": true,
+        "culturePreservation": false,
+        "gastronomicHeritage": true,
+        "recommendation": false,
+        "sensoryUniqueness": false,
+        "traditionalMexican": false
+      },
+      "evidence": {
+        "Q1_Traditional_Mexican": "No",
+        "Q3_Recommendation": "No",
+        "Q4_Gastronomic_Heritage": "Yes",
+        "Q5_Authenticity_Elaboration": "Yes",
+        "Q6_Commercial_Potential": "Yes",
+        "Q7_Culture_Preservation": "No",
+        "Q8_Sensory_Uniqueness": "No"
+      },
+      "id": "assessment_028",
+      "probability": 0.09803921568627454
+    },
+    {
+      "answers": {
+        "authenticElaboration": true,
+        "commercialPotential": true,
+        "culturePreservation": false,
+        "gastronomicHeritage": true,
+        "recommendation": false,
+        "sensoryUniqueness": false,
+        "traditionalMexican": true
+      },
+      "evidence": {
+        "Q1_Traditional_Mexican": "Yes",
+        "Q3_Recommendation": "No",
+        "Q4_Gastronomic_Heritage": "Yes",
+        "Q5_Authenticity_Elaboration": "Yes",
+        "Q6_Commercial_Potential": "Yes",
+        "Q7_Culture_Preservation": "No",
+        "Q8_Sensory_Uniqueness": "No"
+      },
+      "id": "assessment_029",
+      "probability": 0.09803921568627454
+    },
+    {
+      "answers": {
+        "authenticElaboration": true,
+        "commercialPotential": true,
+        "culturePreservation": false,
+        "gastronomicHeritage": true,
+        "recommendation": true,
+        "sensoryUniqueness": false,
+        "traditionalMexican": false
+      },
+      "evidence": {
+        "Q1_Traditional_Mexican": "No",
+        "Q3_Recommendation": "Yes",
+        "Q4_Gastronomic_Heritage": "Yes",
+        "Q5_Authenticity_Elaboration": "Yes",
+        "Q6_Commercial_Potential": "Yes",
+        "Q7_Culture_Preservation": "No",
+        "Q8_Sensory_Uniqueness": "No"
+      },
+      "id": "assessment_030",
+      "probability": 0.8135593220338984
+    },
+    {
+      "answers": {
+        "authenticElaboration": true,
+        "commercialPotential": true,
+        "culturePreservation": false,
+        "gastronomicHeritage": true,
+        "recommendation": true,
+        "sensoryUniqueness": false,
+        "traditionalMexican": true
+      },
+      "evidence": {
+        "Q1_Traditional_Mexican": "Yes",
+        "Q3_Recommendation": "Yes",
+        "Q4_Gastronomic_Heritage": "Yes",
+        "Q5_Authenticity_Elaboration": "Yes",
+        "Q6_Commercial_Potential": "Yes",
+        "Q7_Culture_Preservation": "No",
+        "Q8_Sensory_Uniqueness": "No"
+      },
+      "id": "assessment_031",
+      "probability": 0.8135593220338984
+    },
+    {
+      "answers": {
+        "authenticElaboration": false,
+        "commercialPotential": false,
+        "culturePreservation": true,
+        "gastronomicHeritage": false,
+        "recommendation": false,
+        "sensoryUniqueness": false,
+        "traditionalMexican": false
+      },
+      "evidence": {
+        "Q1_Traditional_Mexican": "No",
+        "Q3_Recommendation": "No",
+        "Q4_Gastronomic_Heritage": "No",
+        "Q5_Authenticity_Elaboration": "No",
+        "Q6_Commercial_Potential": "No",
+        "Q7_Culture_Preservation": "Yes",
+        "Q8_Sensory_Uniqueness": "No"
+      },
+      "id": "assessment_032",
+      "probability": 0.09803921568627454
+    },
+    {
+      "answers": {
+        "authenticElaboration": false,
+        "commercialPotential": false,
+        "culturePreservation": true,
+        "gastronomicHeritage": false,
+        "recommendation": false,
+        "sensoryUniqueness": false,
+        "traditionalMexican": true
+      },
+      "evidence": {
+        "Q1_Traditional_Mexican": "Yes",
+        "Q3_Recommendation": "No",
+        "Q4_Gastronomic_Heritage": "No",
+        "Q5_Authenticity_Elaboration": "No",
+        "Q6_Commercial_Potential": "No",
+        "Q7_Culture_Preservation": "Yes",
+        "Q8_Sensory_Uniqueness": "No"
+      },
+      "id": "assessment_033",
+      "probability": 0.09803921568627454
+    },
+    {
+      "answers": {
+        "authenticElaboration": false,
+        "commercialPotential": false,
+        "culturePreservation": true,
+        "gastronomicHeritage": false,
+        "recommendation": true,
+        "sensoryUniqueness": false,
+        "traditionalMexican": false
+      },
+      "evidence": {
+        "Q1_Traditional_Mexican": "No",
+        "Q3_Recommendation": "Yes",
+        "Q4_Gastronomic_Heritage": "No",
+        "Q5_Authenticity_Elaboration": "No",
+        "Q6_Commercial_Potential": "No",
+        "Q7_Culture_Preservation": "Yes",
+        "Q8_Sensory_Uniqueness": "No"
+      },
+      "id": "assessment_034",
+      "probability": 0.8135593220338984
+    },
+    {
+      "answers": {
+        "authenticElaboration": false,
+        "commercialPotential": false,
+        "culturePreservation": true,
+        "gastronomicHeritage": false,
+        "recommendation": true,
+        "sensoryUniqueness": false,
+        "traditionalMexican": true
+      },
+      "evidence": {
+        "Q1_Traditional_Mexican": "Yes",
+        "Q3_Recommendation": "Yes",
+        "Q4_Gastronomic_Heritage": "No",
+        "Q5_Authenticity_Elaboration": "No",
+        "Q6_Commercial_Potential": "No",
+        "Q7_Culture_Preservation": "Yes",
+        "Q8_Sensory_Uniqueness": "No"
+      },
+      "id": "assessment_035",
+      "probability": 0.8135593220338984
+    },
+    {
+      "answers": {
+        "authenticElaboration": false,
+        "commercialPotential": false,
+        "culturePreservation": true,
+        "gastronomicHeritage": true,
+        "recommendation": false,
+        "sensoryUniqueness": false,
+        "traditionalMexican": false
+      },
+      "evidence": {
+        "Q1_Traditional_Mexican": "No",
+        "Q3_Recommendation": "No",
+        "Q4_Gastronomic_Heritage": "Yes",
+        "Q5_Authenticity_Elaboration": "No",
+        "Q6_Commercial_Potential": "No",
+        "Q7_Culture_Preservation": "Yes",
+        "Q8_Sensory_Uniqueness": "No"
+      },
+      "id": "assessment_036",
+      "probability": 0.09803921568627454
+    },
+    {
+      "answers": {
+        "authenticElaboration": false,
+        "commercialPotential": false,
+        "culturePreservation": true,
+        "gastronomicHeritage": true,
+        "recommendation": false,
+        "sensoryUniqueness": false,
+        "traditionalMexican": true
+      },
+      "evidence": {
+        "Q1_Traditional_Mexican": "Yes",
+        "Q3_Recommendation": "No",
+        "Q4_Gastronomic_Heritage": "Yes",
+        "Q5_Authenticity_Elaboration": "No",
+        "Q6_Commercial_Potential": "No",
+        "Q7_Culture_Preservation": "Yes",
+        "Q8_Sensory_Uniqueness": "No"
+      },
+      "id": "assessment_037",
+      "probability": 0.09803921568627454
+    },
+    {
+      "answers": {
+        "authenticElaboration": false,
+        "commercialPotential": false,
+        "culturePreservation": true,
+        "gastronomicHeritage": true,
+        "recommendation": true,
+        "sensoryUniqueness": false,
+        "traditionalMexican": false
+      },
+      "evidence": {
+        "Q1_Traditional_Mexican": "No",
+        "Q3_Recommendation": "Yes",
+        "Q4_Gastronomic_Heritage": "Yes",
+        "Q5_Authenticity_Elaboration": "No",
+        "Q6_Commercial_Potential": "No",
+        "Q7_Culture_Preservation": "Yes",
+        "Q8_Sensory_Uniqueness": "No"
+      },
+      "id": "assessment_038",
+      "probability": 0.8135593220338984
+    },
+    {
+      "answers": {
+        "authenticElaboration": false,
+        "commercialPotential": false,
+        "culturePreservation": true,
+        "gastronomicHeritage": true,
+        "recommendation": true,
+        "sensoryUniqueness": false,
+        "traditionalMexican": true
+      },
+      "evidence": {
+        "Q1_Traditional_Mexican": "Yes",
+        "Q3_Recommendation": "Yes",
+        "Q4_Gastronomic_Heritage": "Yes",
+        "Q5_Authenticity_Elaboration": "No",
+        "Q6_Commercial_Potential": "No",
+        "Q7_Culture_Preservation": "Yes",
+        "Q8_Sensory_Uniqueness": "No"
+      },
+      "id": "assessment_039",
+      "probability": 0.8135593220338984
+    },
+    {
+      "answers": {
+        "authenticElaboration": true,
+        "commercialPotential": false,
+        "culturePreservation": true,
+        "gastronomicHeritage": false,
+        "recommendation": false,
+        "sensoryUniqueness": false,
+        "traditionalMexican": false
+      },
+      "evidence": {
+        "Q1_Traditional_Mexican": "No",
+        "Q3_Recommendation": "No",
+        "Q4_Gastronomic_Heritage": "No",
+        "Q5_Authenticity_Elaboration": "Yes",
+        "Q6_Commercial_Potential": "No",
+        "Q7_Culture_Preservation": "Yes",
+        "Q8_Sensory_Uniqueness": "No"
+      },
+      "id": "assessment_040",
+      "probability": 0.09803921568627454
+    },
+    {
+      "answers": {
+        "authenticElaboration": true,
+        "commercialPotential": false,
+        "culturePreservation": true,
+        "gastronomicHeritage": false,
+        "recommendation": false,
+        "sensoryUniqueness": false,
+        "traditionalMexican": true
+      },
+      "evidence": {
+        "Q1_Traditional_Mexican": "Yes",
+        "Q3_Recommendation": "No",
+        "Q4_Gastronomic_Heritage": "No",
+        "Q5_Authenticity_Elaboration": "Yes",
+        "Q6_Commercial_Potential": "No",
+        "Q7_Culture_Preservation": "Yes",
+        "Q8_Sensory_Uniqueness": "No"
+      },
+      "id": "assessment_041",
+      "probability": 0.09803921568627454
+    },
+    {
+      "answers": {
+        "authenticElaboration": true,
+        "commercialPotential": false,
+        "culturePreservation": true,
+        "gastronomicHeritage": false,
+        "recommendation": true,
+        "sensoryUniqueness": false,
+        "traditionalMexican": false
+      },
+      "evidence": {
+        "Q1_Traditional_Mexican": "No",
+        "Q3_Recommendation": "Yes",
+        "Q4_Gastronomic_Heritage": "No",
+        "Q5_Authenticity_Elaboration": "Yes",
+        "Q6_Commercial_Potential": "No",
+        "Q7_Culture_Preservation": "Yes",
+        "Q8_Sensory_Uniqueness": "No"
+      },
+      "id": "assessment_042",
+      "probability": 0.8135593220338984
+    },
+    {
+      "answers": {
+        "authenticElaboration": true,
+        "commercialPotential": false,
+        "culturePreservation": true,
+        "gastronomicHeritage": false,
+        "recommendation": true,
+        "sensoryUniqueness": false,
+        "traditionalMexican": true
+      },
+      "evidence": {
+        "Q1_Traditional_Mexican": "Yes",
+        "Q3_Recommendation": "Yes",
+        "Q4_Gastronomic_Heritage": "No",
+        "Q5_Authenticity_Elaboration": "Yes",
+        "Q6_Commercial_Potential": "No",
+        "Q7_Culture_Preservation": "Yes",
+        "Q8_Sensory_Uniqueness": "No"
+      },
+      "id": "assessment_043",
+      "probability": 0.8135593220338984
+    },
+    {
+      "answers": {
+        "authenticElaboration": true,
+        "commercialPotential": false,
+        "culturePreservation": true,
+        "gastronomicHeritage": true,
+        "recommendation": false,
+        "sensoryUniqueness": false,
+        "traditionalMexican": false
+      },
+      "evidence": {
+        "Q1_Traditional_Mexican": "No",
+        "Q3_Recommendation": "No",
+        "Q4_Gastronomic_Heritage": "Yes",
+        "Q5_Authenticity_Elaboration": "Yes",
+        "Q6_Commercial_Potential": "No",
+        "Q7_Culture_Preservation": "Yes",
+        "Q8_Sensory_Uniqueness": "No"
+      },
+      "id": "assessment_044",
+      "probability": 0.09803921568627454
+    },
+    {
+      "answers": {
+        "authenticElaboration": true,
+        "commercialPotential": false,
+        "culturePreservation": true,
+        "gastronomicHeritage": true,
+        "recommendation": false,
+        "sensoryUniqueness": false,
+        "traditionalMexican": true
+      },
+      "evidence": {
+        "Q1_Traditional_Mexican": "Yes",
+        "Q3_Recommendation": "No",
+        "Q4_Gastronomic_Heritage": "Yes",
+        "Q5_Authenticity_Elaboration": "Yes",
+        "Q6_Commercial_Potential": "No",
+        "Q7_Culture_Preservation": "Yes",
+        "Q8_Sensory_Uniqueness": "No"
+      },
+      "id": "assessment_045",
+      "probability": 0.09803921568627454
+    },
+    {
+      "answers": {
+        "authenticElaboration": true,
+        "commercialPotential": false,
+        "culturePreservation": true,
+        "gastronomicHeritage": true,
+        "recommendation": true,
+        "sensoryUniqueness": false,
+        "traditionalMexican": false
+      },
+      "evidence": {
+        "Q1_Traditional_Mexican": "No",
+        "Q3_Recommendation": "Yes",
+        "Q4_Gastronomic_Heritage": "Yes",
+        "Q5_Authenticity_Elaboration": "Yes",
+        "Q6_Commercial_Potential": "No",
+        "Q7_Culture_Preservation": "Yes",
+        "Q8_Sensory_Uniqueness": "No"
+      },
+      "id": "assessment_046",
+      "probability": 0.8135593220338984
+    },
+    {
+      "answers": {
+        "authenticElaboration": true,
+        "commercialPotential": false,
+        "culturePreservation": true,
+        "gastronomicHeritage": true,
+        "recommendation": true,
+        "sensoryUniqueness": false,
+        "traditionalMexican": true
+      },
+      "evidence": {
+        "Q1_Traditional_Mexican": "Yes",
+        "Q3_Recommendation": "Yes",
+        "Q4_Gastronomic_Heritage": "Yes",
+        "Q5_Authenticity_Elaboration": "Yes",
+        "Q6_Commercial_Potential": "No",
+        "Q7_Culture_Preservation": "Yes",
+        "Q8_Sensory_Uniqueness": "No"
+      },
+      "id": "assessment_047",
+      "probability": 0.8135593220338984
+    },
+    {
+      "answers": {
+        "authenticElaboration": false,
+        "commercialPotential": true,
+        "culturePreservation": true,
+        "gastronomicHeritage": false,
+        "recommendation": false,
+        "sensoryUniqueness": false,
+        "traditionalMexican": false
+      },
+      "evidence": {
+        "Q1_Traditional_Mexican": "No",
+        "Q3_Recommendation": "No",
+        "Q4_Gastronomic_Heritage": "No",
+        "Q5_Authenticity_Elaboration": "No",
+        "Q6_Commercial_Potential": "Yes",
+        "Q7_Culture_Preservation": "Yes",
+        "Q8_Sensory_Uniqueness": "No"
+      },
+      "id": "assessment_048",
+      "probability": 0.09803921568627454
+    },
+    {
+      "answers": {
+        "authenticElaboration": false,
+        "commercialPotential": true,
+        "culturePreservation": true,
+        "gastronomicHeritage": false,
+        "recommendation": false,
+        "sensoryUniqueness": false,
+        "traditionalMexican": true
+      },
+      "evidence": {
+        "Q1_Traditional_Mexican": "Yes",
+        "Q3_Recommendation": "No",
+        "Q4_Gastronomic_Heritage": "No",
+        "Q5_Authenticity_Elaboration": "No",
+        "Q6_Commercial_Potential": "Yes",
+        "Q7_Culture_Preservation": "Yes",
+        "Q8_Sensory_Uniqueness": "No"
+      },
+      "id": "assessment_049",
+      "probability": 0.09803921568627454
+    },
+    {
+      "answers": {
+        "authenticElaboration": false,
+        "commercialPotential": true,
+        "culturePreservation": true,
+        "gastronomicHeritage": false,
+        "recommendation": true,
+        "sensoryUniqueness": false,
+        "traditionalMexican": false
+      },
+      "evidence": {
+        "Q1_Traditional_Mexican": "No",
+        "Q3_Recommendation": "Yes",
+        "Q4_Gastronomic_Heritage": "No",
+        "Q5_Authenticity_Elaboration": "No",
+        "Q6_Commercial_Potential": "Yes",
+        "Q7_Culture_Preservation": "Yes",
+        "Q8_Sensory_Uniqueness": "No"
+      },
+      "id": "assessment_050",
+      "probability": 0.8135593220338984
+    },
+    {
+      "answers": {
+        "authenticElaboration": false,
+        "commercialPotential": true,
+        "culturePreservation": true,
+        "gastronomicHeritage": false,
+        "recommendation": true,
+        "sensoryUniqueness": false,
+        "traditionalMexican": true
+      },
+      "evidence": {
+        "Q1_Traditional_Mexican": "Yes",
+        "Q3_Recommendation": "Yes",
+        "Q4_Gastronomic_Heritage": "No",
+        "Q5_Authenticity_Elaboration": "No",
+        "Q6_Commercial_Potential": "Yes",
+        "Q7_Culture_Preservation": "Yes",
+        "Q8_Sensory_Uniqueness": "No"
+      },
+      "id": "assessment_051",
+      "probability": 0.8135593220338984
+    },
+    {
+      "answers": {
+        "authenticElaboration": false,
+        "commercialPotential": true,
+        "culturePreservation": true,
+        "gastronomicHeritage": true,
+        "recommendation": false,
+        "sensoryUniqueness": false,
+        "traditionalMexican": false
+      },
+      "evidence": {
+        "Q1_Traditional_Mexican": "No",
+        "Q3_Recommendation": "No",
+        "Q4_Gastronomic_Heritage": "Yes",
+        "Q5_Authenticity_Elaboration": "No",
+        "Q6_Commercial_Potential": "Yes",
+        "Q7_Culture_Preservation": "Yes",
+        "Q8_Sensory_Uniqueness": "No"
+      },
+      "id": "assessment_052",
+      "probability": 0.09803921568627454
+    },
+    {
+      "answers": {
+        "authenticElaboration": false,
+        "commercialPotential": true,
+        "culturePreservation": true,
+        "gastronomicHeritage": true,
+        "recommendation": false,
+        "sensoryUniqueness": false,
+        "traditionalMexican": true
+      },
+      "evidence": {
+        "Q1_Traditional_Mexican": "Yes",
+        "Q3_Recommendation": "No",
+        "Q4_Gastronomic_Heritage": "Yes",
+        "Q5_Authenticity_Elaboration": "No",
+        "Q6_Commercial_Potential": "Yes",
+        "Q7_Culture_Preservation": "Yes",
+        "Q8_Sensory_Uniqueness": "No"
+      },
+      "id": "assessment_053",
+      "probability": 0.09803921568627454
+    },
+    {
+      "answers": {
+        "authenticElaboration": false,
+        "commercialPotential": true,
+        "culturePreservation": true,
+        "gastronomicHeritage": true,
+        "recommendation": true,
+        "sensoryUniqueness": false,
+        "traditionalMexican": false
+      },
+      "evidence": {
+        "Q1_Traditional_Mexican": "No",
+        "Q3_Recommendation": "Yes",
+        "Q4_Gastronomic_Heritage": "Yes",
+        "Q5_Authenticity_Elaboration": "No",
+        "Q6_Commercial_Potential": "Yes",
+        "Q7_Culture_Preservation": "Yes",
+        "Q8_Sensory_Uniqueness": "No"
+      },
+      "id": "assessment_054",
+      "probability": 0.8135593220338984
+    },
+    {
+      "answers": {
+        "authenticElaboration": false,
+        "commercialPotential": true,
+        "culturePreservation": true,
+        "gastronomicHeritage": true,
+        "recommendation": true,
+        "sensoryUniqueness": false,
+        "traditionalMexican": true
+      },
+      "evidence": {
+        "Q1_Traditional_Mexican": "Yes",
+        "Q3_Recommendation": "Yes",
+        "Q4_Gastronomic_Heritage": "Yes",
+        "Q5_Authenticity_Elaboration": "No",
+        "Q6_Commercial_Potential": "Yes",
+        "Q7_Culture_Preservation": "Yes",
+        "Q8_Sensory_Uniqueness": "No"
+      },
+      "id": "assessment_055",
+      "probability": 0.8135593220338984
+    },
+    {
+      "answers": {
+        "authenticElaboration": true,
+        "commercialPotential": true,
+        "culturePreservation": true,
+        "gastronomicHeritage": false,
+        "recommendation": false,
+        "sensoryUniqueness": false,
+        "traditionalMexican": false
+      },
+      "evidence": {
+        "Q1_Traditional_Mexican": "No",
+        "Q3_Recommendation": "No",
+        "Q4_Gastronomic_Heritage": "No",
+        "Q5_Authenticity_Elaboration": "Yes",
+        "Q6_Commercial_Potential": "Yes",
+        "Q7_Culture_Preservation": "Yes",
+        "Q8_Sensory_Uniqueness": "No"
+      },
+      "id": "assessment_056",
+      "probability": 0.09803921568627454
+    },
+    {
+      "answers": {
+        "authenticElaboration": true,
+        "commercialPotential": true,
+        "culturePreservation": true,
+        "gastronomicHeritage": false,
+        "recommendation": false,
+        "sensoryUniqueness": false,
+        "traditionalMexican": true
+      },
+      "evidence": {
+        "Q1_Traditional_Mexican": "Yes",
+        "Q3_Recommendation": "No",
+        "Q4_Gastronomic_Heritage": "No",
+        "Q5_Authenticity_Elaboration": "Yes",
+        "Q6_Commercial_Potential": "Yes",
+        "Q7_Culture_Preservation": "Yes",
+        "Q8_Sensory_Uniqueness": "No"
+      },
+      "id": "assessment_057",
+      "probability": 0.09803921568627454
+    },
+    {
+      "answers": {
+        "authenticElaboration": true,
+        "commercialPotential": true,
+        "culturePreservation": true,
+        "gastronomicHeritage": false,
+        "recommendation": true,
+        "sensoryUniqueness": false,
+        "traditionalMexican": false
+      },
+      "evidence": {
+        "Q1_Traditional_Mexican": "No",
+        "Q3_Recommendation": "Yes",
+        "Q4_Gastronomic_Heritage": "No",
+        "Q5_Authenticity_Elaboration": "Yes",
+        "Q6_Commercial_Potential": "Yes",
+        "Q7_Culture_Preservation": "Yes",
+        "Q8_Sensory_Uniqueness": "No"
+      },
+      "id": "assessment_058",
+      "probability": 0.8135593220338984
+    },
+    {
+      "answers": {
+        "authenticElaboration": true,
+        "commercialPotential": true,
+        "culturePreservation": true,
+        "gastronomicHeritage": false,
+        "recommendation": true,
+        "sensoryUniqueness": false,
+        "traditionalMexican": true
+      },
+      "evidence": {
+        "Q1_Traditional_Mexican": "Yes",
+        "Q3_Recommendation": "Yes",
+        "Q4_Gastronomic_Heritage": "No",
+        "Q5_Authenticity_Elaboration": "Yes",
+        "Q6_Commercial_Potential": "Yes",
+        "Q7_Culture_Preservation": "Yes",
+        "Q8_Sensory_Uniqueness": "No"
+      },
+      "id": "assessment_059",
+      "probability": 0.8135593220338984
+    },
+    {
+      "answers": {
+        "authenticElaboration": true,
+        "commercialPotential": true,
+        "culturePreservation": true,
+        "gastronomicHeritage": true,
+        "recommendation": false,
+        "sensoryUniqueness": false,
+        "traditionalMexican": false
+      },
+      "evidence": {
+        "Q1_Traditional_Mexican": "No",
+        "Q3_Recommendation": "No",
+        "Q4_Gastronomic_Heritage": "Yes",
+        "Q5_Authenticity_Elaboration": "Yes",
+        "Q6_Commercial_Potential": "Yes",
+        "Q7_Culture_Preservation": "Yes",
+        "Q8_Sensory_Uniqueness": "No"
+      },
+      "id": "assessment_060",
+      "probability": 0.09803921568627454
+    },
+    {
+      "answers": {
+        "authenticElaboration": true,
+        "commercialPotential": true,
+        "culturePreservation": true,
+        "gastronomicHeritage": true,
+        "recommendation": false,
+        "sensoryUniqueness": false,
+        "traditionalMexican": true
+      },
+      "evidence": {
+        "Q1_Traditional_Mexican": "Yes",
+        "Q3_Recommendation": "No",
+        "Q4_Gastronomic_Heritage": "Yes",
+        "Q5_Authenticity_Elaboration": "Yes",
+        "Q6_Commercial_Potential": "Yes",
+        "Q7_Culture_Preservation": "Yes",
+        "Q8_Sensory_Uniqueness": "No"
+      },
+      "id": "assessment_061",
+      "probability": 0.09803921568627454
+    },
+    {
+      "answers": {
+        "authenticElaboration": true,
+        "commercialPotential": true,
+        "culturePreservation": true,
+        "gastronomicHeritage": true,
+        "recommendation": true,
+        "sensoryUniqueness": false,
+        "traditionalMexican": false
+      },
+      "evidence": {
+        "Q1_Traditional_Mexican": "No",
+        "Q3_Recommendation": "Yes",
+        "Q4_Gastronomic_Heritage": "Yes",
+        "Q5_Authenticity_Elaboration": "Yes",
+        "Q6_Commercial_Potential": "Yes",
+        "Q7_Culture_Preservation": "Yes",
+        "Q8_Sensory_Uniqueness": "No"
+      },
+      "id": "assessment_062",
+      "probability": 0.8135593220338984
+    },
+    {
+      "answers": {
+        "authenticElaboration": true,
+        "commercialPotential": true,
+        "culturePreservation": true,
+        "gastronomicHeritage": true,
+        "recommendation": true,
+        "sensoryUniqueness": false,
+        "traditionalMexican": true
+      },
+      "evidence": {
+        "Q1_Traditional_Mexican": "Yes",
+        "Q3_Recommendation": "Yes",
+        "Q4_Gastronomic_Heritage": "Yes",
+        "Q5_Authenticity_Elaboration": "Yes",
+        "Q6_Commercial_Potential": "Yes",
+        "Q7_Culture_Preservation": "Yes",
+        "Q8_Sensory_Uniqueness": "No"
+      },
+      "id": "assessment_063",
+      "probability": 0.8135593220338984
+    },
+    {
+      "answers": {
+        "authenticElaboration": false,
+        "commercialPotential": false,
+        "culturePreservation": false,
+        "gastronomicHeritage": false,
+        "recommendation": false,
+        "sensoryUniqueness": true,
+        "traditionalMexican": false
+      },
+      "evidence": {
+        "Q1_Traditional_Mexican": "No",
+        "Q3_Recommendation": "No",
+        "Q4_Gastronomic_Heritage": "No",
+        "Q5_Authenticity_Elaboration": "No",
+        "Q6_Commercial_Potential": "No",
+        "Q7_Culture_Preservation": "No",
+        "Q8_Sensory_Uniqueness": "Yes"
+      },
+      "id": "assessment_064",
+      "probability": 0.09803921568627454
+    },
+    {
+      "answers": {
+        "authenticElaboration": false,
+        "commercialPotential": false,
+        "culturePreservation": false,
+        "gastronomicHeritage": false,
+        "recommendation": false,
+        "sensoryUniqueness": true,
+        "traditionalMexican": true
+      },
+      "evidence": {
+        "Q1_Traditional_Mexican": "Yes",
+        "Q3_Recommendation": "No",
+        "Q4_Gastronomic_Heritage": "No",
+        "Q5_Authenticity_Elaboration": "No",
+        "Q6_Commercial_Potential": "No",
+        "Q7_Culture_Preservation": "No",
+        "Q8_Sensory_Uniqueness": "Yes"
+      },
+      "id": "assessment_065",
+      "probability": 0.09803921568627454
+    },
+    {
+      "answers": {
+        "authenticElaboration": false,
+        "commercialPotential": false,
+        "culturePreservation": false,
+        "gastronomicHeritage": false,
+        "recommendation": true,
+        "sensoryUniqueness": true,
+        "traditionalMexican": false
+      },
+      "evidence": {
+        "Q1_Traditional_Mexican": "No",
+        "Q3_Recommendation": "Yes",
+        "Q4_Gastronomic_Heritage": "No",
+        "Q5_Authenticity_Elaboration": "No",
+        "Q6_Commercial_Potential": "No",
+        "Q7_Culture_Preservation": "No",
+        "Q8_Sensory_Uniqueness": "Yes"
+      },
+      "id": "assessment_066",
+      "probability": 0.8135593220338984
+    },
+    {
+      "answers": {
+        "authenticElaboration": false,
+        "commercialPotential": false,
+        "culturePreservation": false,
+        "gastronomicHeritage": false,
+        "recommendation": true,
+        "sensoryUniqueness": true,
+        "traditionalMexican": true
+      },
+      "evidence": {
+        "Q1_Traditional_Mexican": "Yes",
+        "Q3_Recommendation": "Yes",
+        "Q4_Gastronomic_Heritage": "No",
+        "Q5_Authenticity_Elaboration": "No",
+        "Q6_Commercial_Potential": "No",
+        "Q7_Culture_Preservation": "No",
+        "Q8_Sensory_Uniqueness": "Yes"
+      },
+      "id": "assessment_067",
+      "probability": 0.8135593220338984
+    },
+    {
+      "answers": {
+        "authenticElaboration": false,
+        "commercialPotential": false,
+        "culturePreservation": false,
+        "gastronomicHeritage": true,
+        "recommendation": false,
+        "sensoryUniqueness": true,
+        "traditionalMexican": false
+      },
+      "evidence": {
+        "Q1_Traditional_Mexican": "No",
+        "Q3_Recommendation": "No",
+        "Q4_Gastronomic_Heritage": "Yes",
+        "Q5_Authenticity_Elaboration": "No",
+        "Q6_Commercial_Potential": "No",
+        "Q7_Culture_Preservation": "No",
+        "Q8_Sensory_Uniqueness": "Yes"
+      },
+      "id": "assessment_068",
+      "probability": 0.09803921568627454
+    },
+    {
+      "answers": {
+        "authenticElaboration": false,
+        "commercialPotential": false,
+        "culturePreservation": false,
+        "gastronomicHeritage": true,
+        "recommendation": false,
+        "sensoryUniqueness": true,
+        "traditionalMexican": true
+      },
+      "evidence": {
+        "Q1_Traditional_Mexican": "Yes",
+        "Q3_Recommendation": "No",
+        "Q4_Gastronomic_Heritage": "Yes",
+        "Q5_Authenticity_Elaboration": "No",
+        "Q6_Commercial_Potential": "No",
+        "Q7_Culture_Preservation": "No",
+        "Q8_Sensory_Uniqueness": "Yes"
+      },
+      "id": "assessment_069",
+      "probability": 0.09803921568627454
+    },
+    {
+      "answers": {
+        "authenticElaboration": false,
+        "commercialPotential": false,
+        "culturePreservation": false,
+        "gastronomicHeritage": true,
+        "recommendation": true,
+        "sensoryUniqueness": true,
+        "traditionalMexican": false
+      },
+      "evidence": {
+        "Q1_Traditional_Mexican": "No",
+        "Q3_Recommendation": "Yes",
+        "Q4_Gastronomic_Heritage": "Yes",
+        "Q5_Authenticity_Elaboration": "No",
+        "Q6_Commercial_Potential": "No",
+        "Q7_Culture_Preservation": "No",
+        "Q8_Sensory_Uniqueness": "Yes"
+      },
+      "id": "assessment_070",
+      "probability": 0.8135593220338984
+    },
+    {
+      "answers": {
+        "authenticElaboration": false,
+        "commercialPotential": false,
+        "culturePreservation": false,
+        "gastronomicHeritage": true,
+        "recommendation": true,
+        "sensoryUniqueness": true,
+        "traditionalMexican": true
+      },
+      "evidence": {
+        "Q1_Traditional_Mexican": "Yes",
+        "Q3_Recommendation": "Yes",
+        "Q4_Gastronomic_Heritage": "Yes",
+        "Q5_Authenticity_Elaboration": "No",
+        "Q6_Commercial_Potential": "No",
+        "Q7_Culture_Preservation": "No",
+        "Q8_Sensory_Uniqueness": "Yes"
+      },
+      "id": "assessment_071",
+      "probability": 0.8135593220338984
+    },
+    {
+      "answers": {
+        "authenticElaboration": true,
+        "commercialPotential": false,
+        "culturePreservation": false,
+        "gastronomicHeritage": false,
+        "recommendation": false,
+        "sensoryUniqueness": true,
+        "traditionalMexican": false
+      },
+      "evidence": {
+        "Q1_Traditional_Mexican": "No",
+        "Q3_Recommendation": "No",
+        "Q4_Gastronomic_Heritage": "No",
+        "Q5_Authenticity_Elaboration": "Yes",
+        "Q6_Commercial_Potential": "No",
+        "Q7_Culture_Preservation": "No",
+        "Q8_Sensory_Uniqueness": "Yes"
+      },
+      "id": "assessment_072",
+      "probability": 0.09803921568627454
+    },
+    {
+      "answers": {
+        "authenticElaboration": true,
+        "commercialPotential": false,
+        "culturePreservation": false,
+        "gastronomicHeritage": false,
+        "recommendation": false,
+        "sensoryUniqueness": true,
+        "traditionalMexican": true
+      },
+      "evidence": {
+        "Q1_Traditional_Mexican": "Yes",
+        "Q3_Recommendation": "No",
+        "Q4_Gastronomic_Heritage": "No",
+        "Q5_Authenticity_Elaboration": "Yes",
+        "Q6_Commercial_Potential": "No",
+        "Q7_Culture_Preservation": "No",
+        "Q8_Sensory_Uniqueness": "Yes"
+      },
+      "id": "assessment_073",
+      "probability": 0.09803921568627454
+    },
+    {
+      "answers": {
+        "authenticElaboration": true,
+        "commercialPotential": false,
+        "culturePreservation": false,
+        "gastronomicHeritage": false,
+        "recommendation": true,
+        "sensoryUniqueness": true,
+        "traditionalMexican": false
+      },
+      "evidence": {
+        "Q1_Traditional_Mexican": "No",
+        "Q3_Recommendation": "Yes",
+        "Q4_Gastronomic_Heritage": "No",
+        "Q5_Authenticity_Elaboration": "Yes",
+        "Q6_Commercial_Potential": "No",
+        "Q7_Culture_Preservation": "No",
+        "Q8_Sensory_Uniqueness": "Yes"
+      },
+      "id": "assessment_074",
+      "probability": 0.8135593220338984
+    },
+    {
+      "answers": {
+        "authenticElaboration": true,
+        "commercialPotential": false,
+        "culturePreservation": false,
+        "gastronomicHeritage": false,
+        "recommendation": true,
+        "sensoryUniqueness": true,
+        "traditionalMexican": true
+      },
+      "evidence": {
+        "Q1_Traditional_Mexican": "Yes",
+        "Q3_Recommendation": "Yes",
+        "Q4_Gastronomic_Heritage": "No",
+        "Q5_Authenticity_Elaboration": "Yes",
+        "Q6_Commercial_Potential": "No",
+        "Q7_Culture_Preservation": "No",
+        "Q8_Sensory_Uniqueness": "Yes"
+      },
+      "id": "assessment_075",
+      "probability": 0.8135593220338984
+    },
+    {
+      "answers": {
+        "authenticElaboration": true,
+        "commercialPotential": false,
+        "culturePreservation": false,
+        "gastronomicHeritage": true,
+        "recommendation": false,
+        "sensoryUniqueness": true,
+        "traditionalMexican": false
+      },
+      "evidence": {
+        "Q1_Traditional_Mexican": "No",
+        "Q3_Recommendation": "No",
+        "Q4_Gastronomic_Heritage": "Yes",
+        "Q5_Authenticity_Elaboration": "Yes",
+        "Q6_Commercial_Potential": "No",
+        "Q7_Culture_Preservation": "No",
+        "Q8_Sensory_Uniqueness": "Yes"
+      },
+      "id": "assessment_076",
+      "probability": 0.09803921568627454
+    },
+    {
+      "answers": {
+        "authenticElaboration": true,
+        "commercialPotential": false,
+        "culturePreservation": false,
+        "gastronomicHeritage": true,
+        "recommendation": false,
+        "sensoryUniqueness": true,
+        "traditionalMexican": true
+      },
+      "evidence": {
+        "Q1_Traditional_Mexican": "Yes",
+        "Q3_Recommendation": "No",
+        "Q4_Gastronomic_Heritage": "Yes",
+        "Q5_Authenticity_Elaboration": "Yes",
+        "Q6_Commercial_Potential": "No",
+        "Q7_Culture_Preservation": "No",
+        "Q8_Sensory_Uniqueness": "Yes"
+      },
+      "id": "assessment_077",
+      "probability": 0.09803921568627454
+    },
+    {
+      "answers": {
+        "authenticElaboration": true,
+        "commercialPotential": false,
+        "culturePreservation": false,
+        "gastronomicHeritage": true,
+        "recommendation": true,
+        "sensoryUniqueness": true,
+        "traditionalMexican": false
+      },
+      "evidence": {
+        "Q1_Traditional_Mexican": "No",
+        "Q3_Recommendation": "Yes",
+        "Q4_Gastronomic_Heritage": "Yes",
+        "Q5_Authenticity_Elaboration": "Yes",
+        "Q6_Commercial_Potential": "No",
+        "Q7_Culture_Preservation": "No",
+        "Q8_Sensory_Uniqueness": "Yes"
+      },
+      "id": "assessment_078",
+      "probability": 0.8135593220338984
+    },
+    {
+      "answers": {
+        "authenticElaboration": true,
+        "commercialPotential": false,
+        "culturePreservation": false,
+        "gastronomicHeritage": true,
+        "recommendation": true,
+        "sensoryUniqueness": true,
+        "traditionalMexican": true
+      },
+      "evidence": {
+        "Q1_Traditional_Mexican": "Yes",
+        "Q3_Recommendation": "Yes",
+        "Q4_Gastronomic_Heritage": "Yes",
+        "Q5_Authenticity_Elaboration": "Yes",
+        "Q6_Commercial_Potential": "No",
+        "Q7_Culture_Preservation": "No",
+        "Q8_Sensory_Uniqueness": "Yes"
+      },
+      "id": "assessment_079",
+      "probability": 0.8135593220338984
+    },
+    {
+      "answers": {
+        "authenticElaboration": false,
+        "commercialPotential": true,
+        "culturePreservation": false,
+        "gastronomicHeritage": false,
+        "recommendation": false,
+        "sensoryUniqueness": true,
+        "traditionalMexican": false
+      },
+      "evidence": {
+        "Q1_Traditional_Mexican": "No",
+        "Q3_Recommendation": "No",
+        "Q4_Gastronomic_Heritage": "No",
+        "Q5_Authenticity_Elaboration": "No",
+        "Q6_Commercial_Potential": "Yes",
+        "Q7_Culture_Preservation": "No",
+        "Q8_Sensory_Uniqueness": "Yes"
+      },
+      "id": "assessment_080",
+      "probability": 0.09803921568627454
+    },
+    {
+      "answers": {
+        "authenticElaboration": false,
+        "commercialPotential": true,
+        "culturePreservation": false,
+        "gastronomicHeritage": false,
+        "recommendation": false,
+        "sensoryUniqueness": true,
+        "traditionalMexican": true
+      },
+      "evidence": {
+        "Q1_Traditional_Mexican": "Yes",
+        "Q3_Recommendation": "No",
+        "Q4_Gastronomic_Heritage": "No",
+        "Q5_Authenticity_Elaboration": "No",
+        "Q6_Commercial_Potential": "Yes",
+        "Q7_Culture_Preservation": "No",
+        "Q8_Sensory_Uniqueness": "Yes"
+      },
+      "id": "assessment_081",
+      "probability": 0.09803921568627454
+    },
+    {
+      "answers": {
+        "authenticElaboration": false,
+        "commercialPotential": true,
+        "culturePreservation": false,
+        "gastronomicHeritage": false,
+        "recommendation": true,
+        "sensoryUniqueness": true,
+        "traditionalMexican": false
+      },
+      "evidence": {
+        "Q1_Traditional_Mexican": "No",
+        "Q3_Recommendation": "Yes",
+        "Q4_Gastronomic_Heritage": "No",
+        "Q5_Authenticity_Elaboration": "No",
+        "Q6_Commercial_Potential": "Yes",
+        "Q7_Culture_Preservation": "No",
+        "Q8_Sensory_Uniqueness": "Yes"
+      },
+      "id": "assessment_082",
+      "probability": 0.8135593220338984
+    },
+    {
+      "answers": {
+        "authenticElaboration": false,
+        "commercialPotential": true,
+        "culturePreservation": false,
+        "gastronomicHeritage": false,
+        "recommendation": true,
+        "sensoryUniqueness": true,
+        "traditionalMexican": true
+      },
+      "evidence": {
+        "Q1_Traditional_Mexican": "Yes",
+        "Q3_Recommendation": "Yes",
+        "Q4_Gastronomic_Heritage": "No",
+        "Q5_Authenticity_Elaboration": "No",
+        "Q6_Commercial_Potential": "Yes",
+        "Q7_Culture_Preservation": "No",
+        "Q8_Sensory_Uniqueness": "Yes"
+      },
+      "id": "assessment_083",
+      "probability": 0.8135593220338984
+    },
+    {
+      "answers": {
+        "authenticElaboration": false,
+        "commercialPotential": true,
+        "culturePreservation": false,
+        "gastronomicHeritage": true,
+        "recommendation": false,
+        "sensoryUniqueness": true,
+        "traditionalMexican": false
+      },
+      "evidence": {
+        "Q1_Traditional_Mexican": "No",
+        "Q3_Recommendation": "No",
+        "Q4_Gastronomic_Heritage": "Yes",
+        "Q5_Authenticity_Elaboration": "No",
+        "Q6_Commercial_Potential": "Yes",
+        "Q7_Culture_Preservation": "No",
+        "Q8_Sensory_Uniqueness": "Yes"
+      },
+      "id": "assessment_084",
+      "probability": 0.09803921568627454
+    },
+    {
+      "answers": {
+        "authenticElaboration": false,
+        "commercialPotential": true,
+        "culturePreservation": false,
+        "gastronomicHeritage": true,
+        "recommendation": false,
+        "sensoryUniqueness": true,
+        "traditionalMexican": true
+      },
+      "evidence": {
+        "Q1_Traditional_Mexican": "Yes",
+        "Q3_Recommendation": "No",
+        "Q4_Gastronomic_Heritage": "Yes",
+        "Q5_Authenticity_Elaboration": "No",
+        "Q6_Commercial_Potential": "Yes",
+        "Q7_Culture_Preservation": "No",
+        "Q8_Sensory_Uniqueness": "Yes"
+      },
+      "id": "assessment_085",
+      "probability": 0.09803921568627454
+    },
+    {
+      "answers": {
+        "authenticElaboration": false,
+        "commercialPotential": true,
+        "culturePreservation": false,
+        "gastronomicHeritage": true,
+        "recommendation": true,
+        "sensoryUniqueness": true,
+        "traditionalMexican": false
+      },
+      "evidence": {
+        "Q1_Traditional_Mexican": "No",
+        "Q3_Recommendation": "Yes",
+        "Q4_Gastronomic_Heritage": "Yes",
+        "Q5_Authenticity_Elaboration": "No",
+        "Q6_Commercial_Potential": "Yes",
+        "Q7_Culture_Preservation": "No",
+        "Q8_Sensory_Uniqueness": "Yes"
+      },
+      "id": "assessment_086",
+      "probability": 0.8135593220338984
+    },
+    {
+      "answers": {
+        "authenticElaboration": false,
+        "commercialPotential": true,
+        "culturePreservation": false,
+        "gastronomicHeritage": true,
+        "recommendation": true,
+        "sensoryUniqueness": true,
+        "traditionalMexican": true
+      },
+      "evidence": {
+        "Q1_Traditional_Mexican": "Yes",
+        "Q3_Recommendation": "Yes",
+        "Q4_Gastronomic_Heritage": "Yes",
+        "Q5_Authenticity_Elaboration": "No",
+        "Q6_Commercial_Potential": "Yes",
+        "Q7_Culture_Preservation": "No",
+        "Q8_Sensory_Uniqueness": "Yes"
+      },
+      "id": "assessment_087",
+      "probability": 0.8135593220338984
+    },
+    {
+      "answers": {
+        "authenticElaboration": true,
+        "commercialPotential": true,
+        "culturePreservation": false,
+        "gastronomicHeritage": false,
+        "recommendation": false,
+        "sensoryUniqueness": true,
+        "traditionalMexican": false
+      },
+      "evidence": {
+        "Q1_Traditional_Mexican": "No",
+        "Q3_Recommendation": "No",
+        "Q4_Gastronomic_Heritage": "No",
+        "Q5_Authenticity_Elaboration": "Yes",
+        "Q6_Commercial_Potential": "Yes",
+        "Q7_Culture_Preservation": "No",
+        "Q8_Sensory_Uniqueness": "Yes"
+      },
+      "id": "assessment_088",
+      "probability": 0.09803921568627454
+    },
+    {
+      "answers": {
+        "authenticElaboration": true,
+        "commercialPotential": true,
+        "culturePreservation": false,
+        "gastronomicHeritage": false,
+        "recommendation": false,
+        "sensoryUniqueness": true,
+        "traditionalMexican": true
+      },
+      "evidence": {
+        "Q1_Traditional_Mexican": "Yes",
+        "Q3_Recommendation": "No",
+        "Q4_Gastronomic_Heritage": "No",
+        "Q5_Authenticity_Elaboration": "Yes",
+        "Q6_Commercial_Potential": "Yes",
+        "Q7_Culture_Preservation": "No",
+        "Q8_Sensory_Uniqueness": "Yes"
+      },
+      "id": "assessment_089",
+      "probability": 0.09803921568627454
+    },
+    {
+      "answers": {
+        "authenticElaboration": true,
+        "commercialPotential": true,
+        "culturePreservation": false,
+        "gastronomicHeritage": false,
+        "recommendation": true,
+        "sensoryUniqueness": true,
+        "traditionalMexican": false
+      },
+      "evidence": {
+        "Q1_Traditional_Mexican": "No",
+        "Q3_Recommendation": "Yes",
+        "Q4_Gastronomic_Heritage": "No",
+        "Q5_Authenticity_Elaboration": "Yes",
+        "Q6_Commercial_Potential": "Yes",
+        "Q7_Culture_Preservation": "No",
+        "Q8_Sensory_Uniqueness": "Yes"
+      },
+      "id": "assessment_090",
+      "probability": 0.8135593220338984
+    },
+    {
+      "answers": {
+        "authenticElaboration": true,
+        "commercialPotential": true,
+        "culturePreservation": false,
+        "gastronomicHeritage": false,
+        "recommendation": true,
+        "sensoryUniqueness": true,
+        "traditionalMexican": true
+      },
+      "evidence": {
+        "Q1_Traditional_Mexican": "Yes",
+        "Q3_Recommendation": "Yes",
+        "Q4_Gastronomic_Heritage": "No",
+        "Q5_Authenticity_Elaboration": "Yes",
+        "Q6_Commercial_Potential": "Yes",
+        "Q7_Culture_Preservation": "No",
+        "Q8_Sensory_Uniqueness": "Yes"
+      },
+      "id": "assessment_091",
+      "probability": 0.8135593220338984
+    },
+    {
+      "answers": {
+        "authenticElaboration": true,
+        "commercialPotential": true,
+        "culturePreservation": false,
+        "gastronomicHeritage": true,
+        "recommendation": false,
+        "sensoryUniqueness": true,
+        "traditionalMexican": false
+      },
+      "evidence": {
+        "Q1_Traditional_Mexican": "No",
+        "Q3_Recommendation": "No",
+        "Q4_Gastronomic_Heritage": "Yes",
+        "Q5_Authenticity_Elaboration": "Yes",
+        "Q6_Commercial_Potential": "Yes",
+        "Q7_Culture_Preservation": "No",
+        "Q8_Sensory_Uniqueness": "Yes"
+      },
+      "id": "assessment_092",
+      "probability": 0.09803921568627454
+    },
+    {
+      "answers": {
+        "authenticElaboration": true,
+        "commercialPotential": true,
+        "culturePreservation": false,
+        "gastronomicHeritage": true,
+        "recommendation": false,
+        "sensoryUniqueness": true,
+        "traditionalMexican": true
+      },
+      "evidence": {
+        "Q1_Traditional_Mexican": "Yes",
+        "Q3_Recommendation": "No",
+        "Q4_Gastronomic_Heritage": "Yes",
+        "Q5_Authenticity_Elaboration": "Yes",
+        "Q6_Commercial_Potential": "Yes",
+        "Q7_Culture_Preservation": "No",
+        "Q8_Sensory_Uniqueness": "Yes"
+      },
+      "id": "assessment_093",
+      "probability": 0.09803921568627454
+    },
+    {
+      "answers": {
+        "authenticElaboration": true,
+        "commercialPotential": true,
+        "culturePreservation": false,
+        "gastronomicHeritage": true,
+        "recommendation": true,
+        "sensoryUniqueness": true,
+        "traditionalMexican": false
+      },
+      "evidence": {
+        "Q1_Traditional_Mexican": "No",
+        "Q3_Recommendation": "Yes",
+        "Q4_Gastronomic_Heritage": "Yes",
+        "Q5_Authenticity_Elaboration": "Yes",
+        "Q6_Commercial_Potential": "Yes",
+        "Q7_Culture_Preservation": "No",
+        "Q8_Sensory_Uniqueness": "Yes"
+      },
+      "id": "assessment_094",
+      "probability": 0.8135593220338984
+    },
+    {
+      "answers": {
+        "authenticElaboration": true,
+        "commercialPotential": true,
+        "culturePreservation": false,
+        "gastronomicHeritage": true,
+        "recommendation": true,
+        "sensoryUniqueness": true,
+        "traditionalMexican": true
+      },
+      "evidence": {
+        "Q1_Traditional_Mexican": "Yes",
+        "Q3_Recommendation": "Yes",
+        "Q4_Gastronomic_Heritage": "Yes",
+        "Q5_Authenticity_Elaboration": "Yes",
+        "Q6_Commercial_Potential": "Yes",
+        "Q7_Culture_Preservation": "No",
+        "Q8_Sensory_Uniqueness": "Yes"
+      },
+      "id": "assessment_095",
+      "probability": 0.8135593220338984
+    },
+    {
+      "answers": {
+        "authenticElaboration": false,
+        "commercialPotential": false,
+        "culturePreservation": true,
+        "gastronomicHeritage": false,
+        "recommendation": false,
+        "sensoryUniqueness": true,
+        "traditionalMexican": false
+      },
+      "evidence": {
+        "Q1_Traditional_Mexican": "No",
+        "Q3_Recommendation": "No",
+        "Q4_Gastronomic_Heritage": "No",
+        "Q5_Authenticity_Elaboration": "No",
+        "Q6_Commercial_Potential": "No",
+        "Q7_Culture_Preservation": "Yes",
+        "Q8_Sensory_Uniqueness": "Yes"
+      },
+      "id": "assessment_096",
+      "probability": 0.09803921568627454
+    },
+    {
+      "answers": {
+        "authenticElaboration": false,
+        "commercialPotential": false,
+        "culturePreservation": true,
+        "gastronomicHeritage": false,
+        "recommendation": false,
+        "sensoryUniqueness": true,
+        "traditionalMexican": true
+      },
+      "evidence": {
+        "Q1_Traditional_Mexican": "Yes",
+        "Q3_Recommendation": "No",
+        "Q4_Gastronomic_Heritage": "No",
+        "Q5_Authenticity_Elaboration": "No",
+        "Q6_Commercial_Potential": "No",
+        "Q7_Culture_Preservation": "Yes",
+        "Q8_Sensory_Uniqueness": "Yes"
+      },
+      "id": "assessment_097",
+      "probability": 0.09803921568627454
+    },
+    {
+      "answers": {
+        "authenticElaboration": false,
+        "commercialPotential": false,
+        "culturePreservation": true,
+        "gastronomicHeritage": false,
+        "recommendation": true,
+        "sensoryUniqueness": true,
+        "traditionalMexican": false
+      },
+      "evidence": {
+        "Q1_Traditional_Mexican": "No",
+        "Q3_Recommendation": "Yes",
+        "Q4_Gastronomic_Heritage": "No",
+        "Q5_Authenticity_Elaboration": "No",
+        "Q6_Commercial_Potential": "No",
+        "Q7_Culture_Preservation": "Yes",
+        "Q8_Sensory_Uniqueness": "Yes"
+      },
+      "id": "assessment_098",
+      "probability": 0.8135593220338984
+    },
+    {
+      "answers": {
+        "authenticElaboration": false,
+        "commercialPotential": false,
+        "culturePreservation": true,
+        "gastronomicHeritage": false,
+        "recommendation": true,
+        "sensoryUniqueness": true,
+        "traditionalMexican": true
+      },
+      "evidence": {
+        "Q1_Traditional_Mexican": "Yes",
+        "Q3_Recommendation": "Yes",
+        "Q4_Gastronomic_Heritage": "No",
+        "Q5_Authenticity_Elaboration": "No",
+        "Q6_Commercial_Potential": "No",
+        "Q7_Culture_Preservation": "Yes",
+        "Q8_Sensory_Uniqueness": "Yes"
+      },
+      "id": "assessment_099",
+      "probability": 0.8135593220338984
+    },
+    {
+      "answers": {
+        "authenticElaboration": false,
+        "commercialPotential": false,
+        "culturePreservation": true,
+        "gastronomicHeritage": true,
+        "recommendation": false,
+        "sensoryUniqueness": true,
+        "traditionalMexican": false
+      },
+      "evidence": {
+        "Q1_Traditional_Mexican": "No",
+        "Q3_Recommendation": "No",
+        "Q4_Gastronomic_Heritage": "Yes",
+        "Q5_Authenticity_Elaboration": "No",
+        "Q6_Commercial_Potential": "No",
+        "Q7_Culture_Preservation": "Yes",
+        "Q8_Sensory_Uniqueness": "Yes"
+      },
+      "id": "assessment_100",
+      "probability": 0.09803921568627454
+    },
+    {
+      "answers": {
+        "authenticElaboration": false,
+        "commercialPotential": false,
+        "culturePreservation": true,
+        "gastronomicHeritage": true,
+        "recommendation": false,
+        "sensoryUniqueness": true,
+        "traditionalMexican": true
+      },
+      "evidence": {
+        "Q1_Traditional_Mexican": "Yes",
+        "Q3_Recommendation": "No",
+        "Q4_Gastronomic_Heritage": "Yes",
+        "Q5_Authenticity_Elaboration": "No",
+        "Q6_Commercial_Potential": "No",
+        "Q7_Culture_Preservation": "Yes",
+        "Q8_Sensory_Uniqueness": "Yes"
+      },
+      "id": "assessment_101",
+      "probability": 0.09803921568627454
+    },
+    {
+      "answers": {
+        "authenticElaboration": false,
+        "commercialPotential": false,
+        "culturePreservation": true,
+        "gastronomicHeritage": true,
+        "recommendation": true,
+        "sensoryUniqueness": true,
+        "traditionalMexican": false
+      },
+      "evidence": {
+        "Q1_Traditional_Mexican": "No",
+        "Q3_Recommendation": "Yes",
+        "Q4_Gastronomic_Heritage": "Yes",
+        "Q5_Authenticity_Elaboration": "No",
+        "Q6_Commercial_Potential": "No",
+        "Q7_Culture_Preservation": "Yes",
+        "Q8_Sensory_Uniqueness": "Yes"
+      },
+      "id": "assessment_102",
+      "probability": 0.8135593220338984
+    },
+    {
+      "answers": {
+        "authenticElaboration": false,
+        "commercialPotential": false,
+        "culturePreservation": true,
+        "gastronomicHeritage": true,
+        "recommendation": true,
+        "sensoryUniqueness": true,
+        "traditionalMexican": true
+      },
+      "evidence": {
+        "Q1_Traditional_Mexican": "Yes",
+        "Q3_Recommendation": "Yes",
+        "Q4_Gastronomic_Heritage": "Yes",
+        "Q5_Authenticity_Elaboration": "No",
+        "Q6_Commercial_Potential": "No",
+        "Q7_Culture_Preservation": "Yes",
+        "Q8_Sensory_Uniqueness": "Yes"
+      },
+      "id": "assessment_103",
+      "probability": 0.8135593220338984
+    },
+    {
+      "answers": {
+        "authenticElaboration": true,
+        "commercialPotential": false,
+        "culturePreservation": true,
+        "gastronomicHeritage": false,
+        "recommendation": false,
+        "sensoryUniqueness": true,
+        "traditionalMexican": false
+      },
+      "evidence": {
+        "Q1_Traditional_Mexican": "No",
+        "Q3_Recommendation": "No",
+        "Q4_Gastronomic_Heritage": "No",
+        "Q5_Authenticity_Elaboration": "Yes",
+        "Q6_Commercial_Potential": "No",
+        "Q7_Culture_Preservation": "Yes",
+        "Q8_Sensory_Uniqueness": "Yes"
+      },
+      "id": "assessment_104",
+      "probability": 0.09803921568627454
+    },
+    {
+      "answers": {
+        "authenticElaboration": true,
+        "commercialPotential": false,
+        "culturePreservation": true,
+        "gastronomicHeritage": false,
+        "recommendation": false,
+        "sensoryUniqueness": true,
+        "traditionalMexican": true
+      },
+      "evidence": {
+        "Q1_Traditional_Mexican": "Yes",
+        "Q3_Recommendation": "No",
+        "Q4_Gastronomic_Heritage": "No",
+        "Q5_Authenticity_Elaboration": "Yes",
+        "Q6_Commercial_Potential": "No",
+        "Q7_Culture_Preservation": "Yes",
+        "Q8_Sensory_Uniqueness": "Yes"
+      },
+      "id": "assessment_105",
+      "probability": 0.09803921568627454
+    },
+    {
+      "answers": {
+        "authenticElaboration": true,
+        "commercialPotential": false,
+        "culturePreservation": true,
+        "gastronomicHeritage": false,
+        "recommendation": true,
+        "sensoryUniqueness": true,
+        "traditionalMexican": false
+      },
+      "evidence": {
+        "Q1_Traditional_Mexican": "No",
+        "Q3_Recommendation": "Yes",
+        "Q4_Gastronomic_Heritage": "No",
+        "Q5_Authenticity_Elaboration": "Yes",
+        "Q6_Commercial_Potential": "No",
+        "Q7_Culture_Preservation": "Yes",
+        "Q8_Sensory_Uniqueness": "Yes"
+      },
+      "id": "assessment_106",
+      "probability": 0.8135593220338984
+    },
+    {
+      "answers": {
+        "authenticElaboration": true,
+        "commercialPotential": false,
+        "culturePreservation": true,
+        "gastronomicHeritage": false,
+        "recommendation": true,
+        "sensoryUniqueness": true,
+        "traditionalMexican": true
+      },
+      "evidence": {
+        "Q1_Traditional_Mexican": "Yes",
+        "Q3_Recommendation": "Yes",
+        "Q4_Gastronomic_Heritage": "No",
+        "Q5_Authenticity_Elaboration": "Yes",
+        "Q6_Commercial_Potential": "No",
+        "Q7_Culture_Preservation": "Yes",
+        "Q8_Sensory_Uniqueness": "Yes"
+      },
+      "id": "assessment_107",
+      "probability": 0.8135593220338984
+    },
+    {
+      "answers": {
+        "authenticElaboration": true,
+        "commercialPotential": false,
+        "culturePreservation": true,
+        "gastronomicHeritage": true,
+        "recommendation": false,
+        "sensoryUniqueness": true,
+        "traditionalMexican": false
+      },
+      "evidence": {
+        "Q1_Traditional_Mexican": "No",
+        "Q3_Recommendation": "No",
+        "Q4_Gastronomic_Heritage": "Yes",
+        "Q5_Authenticity_Elaboration": "Yes",
+        "Q6_Commercial_Potential": "No",
+        "Q7_Culture_Preservation": "Yes",
+        "Q8_Sensory_Uniqueness": "Yes"
+      },
+      "id": "assessment_108",
+      "probability": 0.09803921568627454
+    },
+    {
+      "answers": {
+        "authenticElaboration": true,
+        "commercialPotential": false,
+        "culturePreservation": true,
+        "gastronomicHeritage": true,
+        "recommendation": false,
+        "sensoryUniqueness": true,
+        "traditionalMexican": true
+      },
+      "evidence": {
+        "Q1_Traditional_Mexican": "Yes",
+        "Q3_Recommendation": "No",
+        "Q4_Gastronomic_Heritage": "Yes",
+        "Q5_Authenticity_Elaboration": "Yes",
+        "Q6_Commercial_Potential": "No",
+        "Q7_Culture_Preservation": "Yes",
+        "Q8_Sensory_Uniqueness": "Yes"
+      },
+      "id": "assessment_109",
+      "probability": 0.09803921568627454
+    },
+    {
+      "answers": {
+        "authenticElaboration": true,
+        "commercialPotential": false,
+        "culturePreservation": true,
+        "gastronomicHeritage": true,
+        "recommendation": true,
+        "sensoryUniqueness": true,
+        "traditionalMexican": false
+      },
+      "evidence": {
+        "Q1_Traditional_Mexican": "No",
+        "Q3_Recommendation": "Yes",
+        "Q4_Gastronomic_Heritage": "Yes",
+        "Q5_Authenticity_Elaboration": "Yes",
+        "Q6_Commercial_Potential": "No",
+        "Q7_Culture_Preservation": "Yes",
+        "Q8_Sensory_Uniqueness": "Yes"
+      },
+      "id": "assessment_110",
+      "probability": 0.8135593220338984
+    },
+    {
+      "answers": {
+        "authenticElaboration": true,
+        "commercialPotential": false,
+        "culturePreservation": true,
+        "gastronomicHeritage": true,
+        "recommendation": true,
+        "sensoryUniqueness": true,
+        "traditionalMexican": true
+      },
+      "evidence": {
+        "Q1_Traditional_Mexican": "Yes",
+        "Q3_Recommendation": "Yes",
+        "Q4_Gastronomic_Heritage": "Yes",
+        "Q5_Authenticity_Elaboration": "Yes",
+        "Q6_Commercial_Potential": "No",
+        "Q7_Culture_Preservation": "Yes",
+        "Q8_Sensory_Uniqueness": "Yes"
+      },
+      "id": "assessment_111",
+      "probability": 0.8135593220338984
+    },
+    {
+      "answers": {
+        "authenticElaboration": false,
+        "commercialPotential": true,
+        "culturePreservation": true,
+        "gastronomicHeritage": false,
+        "recommendation": false,
+        "sensoryUniqueness": true,
+        "traditionalMexican": false
+      },
+      "evidence": {
+        "Q1_Traditional_Mexican": "No",
+        "Q3_Recommendation": "No",
+        "Q4_Gastronomic_Heritage": "No",
+        "Q5_Authenticity_Elaboration": "No",
+        "Q6_Commercial_Potential": "Yes",
+        "Q7_Culture_Preservation": "Yes",
+        "Q8_Sensory_Uniqueness": "Yes"
+      },
+      "id": "assessment_112",
+      "probability": 0.09803921568627454
+    },
+    {
+      "answers": {
+        "authenticElaboration": false,
+        "commercialPotential": true,
+        "culturePreservation": true,
+        "gastronomicHeritage": false,
+        "recommendation": false,
+        "sensoryUniqueness": true,
+        "traditionalMexican": true
+      },
+      "evidence": {
+        "Q1_Traditional_Mexican": "Yes",
+        "Q3_Recommendation": "No",
+        "Q4_Gastronomic_Heritage": "No",
+        "Q5_Authenticity_Elaboration": "No",
+        "Q6_Commercial_Potential": "Yes",
+        "Q7_Culture_Preservation": "Yes",
+        "Q8_Sensory_Uniqueness": "Yes"
+      },
+      "id": "assessment_113",
+      "probability": 0.09803921568627454
+    },
+    {
+      "answers": {
+        "authenticElaboration": false,
+        "commercialPotential": true,
+        "culturePreservation": true,
+        "gastronomicHeritage": false,
+        "recommendation": true,
+        "sensoryUniqueness": true,
+        "traditionalMexican": false
+      },
+      "evidence": {
+        "Q1_Traditional_Mexican": "No",
+        "Q3_Recommendation": "Yes",
+        "Q4_Gastronomic_Heritage": "No",
+        "Q5_Authenticity_Elaboration": "No",
+        "Q6_Commercial_Potential": "Yes",
+        "Q7_Culture_Preservation": "Yes",
+        "Q8_Sensory_Uniqueness": "Yes"
+      },
+      "id": "assessment_114",
+      "probability": 0.8135593220338984
+    },
+    {
+      "answers": {
+        "authenticElaboration": false,
+        "commercialPotential": true,
+        "culturePreservation": true,
+        "gastronomicHeritage": false,
+        "recommendation": true,
+        "sensoryUniqueness": true,
+        "traditionalMexican": true
+      },
+      "evidence": {
+        "Q1_Traditional_Mexican": "Yes",
+        "Q3_Recommendation": "Yes",
+        "Q4_Gastronomic_Heritage": "No",
+        "Q5_Authenticity_Elaboration": "No",
+        "Q6_Commercial_Potential": "Yes",
+        "Q7_Culture_Preservation": "Yes",
+        "Q8_Sensory_Uniqueness": "Yes"
+      },
+      "id": "assessment_115",
+      "probability": 0.8135593220338984
+    },
+    {
+      "answers": {
+        "authenticElaboration": false,
+        "commercialPotential": true,
+        "culturePreservation": true,
+        "gastronomicHeritage": true,
+        "recommendation": false,
+        "sensoryUniqueness": true,
+        "traditionalMexican": false
+      },
+      "evidence": {
+        "Q1_Traditional_Mexican": "No",
+        "Q3_Recommendation": "No",
+        "Q4_Gastronomic_Heritage": "Yes",
+        "Q5_Authenticity_Elaboration": "No",
+        "Q6_Commercial_Potential": "Yes",
+        "Q7_Culture_Preservation": "Yes",
+        "Q8_Sensory_Uniqueness": "Yes"
+      },
+      "id": "assessment_116",
+      "probability": 0.09803921568627454
+    },
+    {
+      "answers": {
+        "authenticElaboration": false,
+        "commercialPotential": true,
+        "culturePreservation": true,
+        "gastronomicHeritage": true,
+        "recommendation": false,
+        "sensoryUniqueness": true,
+        "traditionalMexican": true
+      },
+      "evidence": {
+        "Q1_Traditional_Mexican": "Yes",
+        "Q3_Recommendation": "No",
+        "Q4_Gastronomic_Heritage": "Yes",
+        "Q5_Authenticity_Elaboration": "No",
+        "Q6_Commercial_Potential": "Yes",
+        "Q7_Culture_Preservation": "Yes",
+        "Q8_Sensory_Uniqueness": "Yes"
+      },
+      "id": "assessment_117",
+      "probability": 0.09803921568627454
+    },
+    {
+      "answers": {
+        "authenticElaboration": false,
+        "commercialPotential": true,
+        "culturePreservation": true,
+        "gastronomicHeritage": true,
+        "recommendation": true,
+        "sensoryUniqueness": true,
+        "traditionalMexican": false
+      },
+      "evidence": {
+        "Q1_Traditional_Mexican": "No",
+        "Q3_Recommendation": "Yes",
+        "Q4_Gastronomic_Heritage": "Yes",
+        "Q5_Authenticity_Elaboration": "No",
+        "Q6_Commercial_Potential": "Yes",
+        "Q7_Culture_Preservation": "Yes",
+        "Q8_Sensory_Uniqueness": "Yes"
+      },
+      "id": "assessment_118",
+      "probability": 0.8135593220338984
+    },
+    {
+      "answers": {
+        "authenticElaboration": false,
+        "commercialPotential": true,
+        "culturePreservation": true,
+        "gastronomicHeritage": true,
+        "recommendation": true,
+        "sensoryUniqueness": true,
+        "traditionalMexican": true
+      },
+      "evidence": {
+        "Q1_Traditional_Mexican": "Yes",
+        "Q3_Recommendation": "Yes",
+        "Q4_Gastronomic_Heritage": "Yes",
+        "Q5_Authenticity_Elaboration": "No",
+        "Q6_Commercial_Potential": "Yes",
+        "Q7_Culture_Preservation": "Yes",
+        "Q8_Sensory_Uniqueness": "Yes"
+      },
+      "id": "assessment_119",
+      "probability": 0.8135593220338984
+    },
+    {
+      "answers": {
+        "authenticElaboration": true,
+        "commercialPotential": true,
+        "culturePreservation": true,
+        "gastronomicHeritage": false,
+        "recommendation": false,
+        "sensoryUniqueness": true,
+        "traditionalMexican": false
+      },
+      "evidence": {
+        "Q1_Traditional_Mexican": "No",
+        "Q3_Recommendation": "No",
+        "Q4_Gastronomic_Heritage": "No",
+        "Q5_Authenticity_Elaboration": "Yes",
+        "Q6_Commercial_Potential": "Yes",
+        "Q7_Culture_Preservation": "Yes",
+        "Q8_Sensory_Uniqueness": "Yes"
+      },
+      "id": "assessment_120",
+      "probability": 0.09803921568627454
+    },
+    {
+      "answers": {
+        "authenticElaboration": true,
+        "commercialPotential": true,
+        "culturePreservation": true,
+        "gastronomicHeritage": false,
+        "recommendation": false,
+        "sensoryUniqueness": true,
+        "traditionalMexican": true
+      },
+      "evidence": {
+        "Q1_Traditional_Mexican": "Yes",
+        "Q3_Recommendation": "No",
+        "Q4_Gastronomic_Heritage": "No",
+        "Q5_Authenticity_Elaboration": "Yes",
+        "Q6_Commercial_Potential": "Yes",
+        "Q7_Culture_Preservation": "Yes",
+        "Q8_Sensory_Uniqueness": "Yes"
+      },
+      "id": "assessment_121",
+      "probability": 0.09803921568627454
+    },
+    {
+      "answers": {
+        "authenticElaboration": true,
+        "commercialPotential": true,
+        "culturePreservation": true,
+        "gastronomicHeritage": false,
+        "recommendation": true,
+        "sensoryUniqueness": true,
+        "traditionalMexican": false
+      },
+      "evidence": {
+        "Q1_Traditional_Mexican": "No",
+        "Q3_Recommendation": "Yes",
+        "Q4_Gastronomic_Heritage": "No",
+        "Q5_Authenticity_Elaboration": "Yes",
+        "Q6_Commercial_Potential": "Yes",
+        "Q7_Culture_Preservation": "Yes",
+        "Q8_Sensory_Uniqueness": "Yes"
+      },
+      "id": "assessment_122",
+      "probability": 0.8135593220338984
+    },
+    {
+      "answers": {
+        "authenticElaboration": true,
+        "commercialPotential": true,
+        "culturePreservation": true,
+        "gastronomicHeritage": false,
+        "recommendation": true,
+        "sensoryUniqueness": true,
+        "traditionalMexican": true
+      },
+      "evidence": {
+        "Q1_Traditional_Mexican": "Yes",
+        "Q3_Recommendation": "Yes",
+        "Q4_Gastronomic_Heritage": "No",
+        "Q5_Authenticity_Elaboration": "Yes",
+        "Q6_Commercial_Potential": "Yes",
+        "Q7_Culture_Preservation": "Yes",
+        "Q8_Sensory_Uniqueness": "Yes"
+      },
+      "id": "assessment_123",
+      "probability": 0.8135593220338984
+    },
+    {
+      "answers": {
+        "authenticElaboration": true,
+        "commercialPotential": true,
+        "culturePreservation": true,
+        "gastronomicHeritage": true,
+        "recommendation": false,
+        "sensoryUniqueness": true,
+        "traditionalMexican": false
+      },
+      "evidence": {
+        "Q1_Traditional_Mexican": "No",
+        "Q3_Recommendation": "No",
+        "Q4_Gastronomic_Heritage": "Yes",
+        "Q5_Authenticity_Elaboration": "Yes",
+        "Q6_Commercial_Potential": "Yes",
+        "Q7_Culture_Preservation": "Yes",
+        "Q8_Sensory_Uniqueness": "Yes"
+      },
+      "id": "assessment_124",
+      "probability": 0.09803921568627454
+    },
+    {
+      "answers": {
+        "authenticElaboration": true,
+        "commercialPotential": true,
+        "culturePreservation": true,
+        "gastronomicHeritage": true,
+        "recommendation": false,
+        "sensoryUniqueness": true,
+        "traditionalMexican": true
+      },
+      "evidence": {
+        "Q1_Traditional_Mexican": "Yes",
+        "Q3_Recommendation": "No",
+        "Q4_Gastronomic_Heritage": "Yes",
+        "Q5_Authenticity_Elaboration": "Yes",
+        "Q6_Commercial_Potential": "Yes",
+        "Q7_Culture_Preservation": "Yes",
+        "Q8_Sensory_Uniqueness": "Yes"
+      },
+      "id": "assessment_125",
+      "probability": 0.09803921568627454
+    },
+    {
+      "answers": {
+        "authenticElaboration": true,
+        "commercialPotential": true,
+        "culturePreservation": true,
+        "gastronomicHeritage": true,
+        "recommendation": true,
+        "sensoryUniqueness": true,
+        "traditionalMexican": false
+      },
+      "evidence": {
+        "Q1_Traditional_Mexican": "No",
+        "Q3_Recommendation": "Yes",
+        "Q4_Gastronomic_Heritage": "Yes",
+        "Q5_Authenticity_Elaboration": "Yes",
+        "Q6_Commercial_Potential": "Yes",
+        "Q7_Culture_Preservation": "Yes",
+        "Q8_Sensory_Uniqueness": "Yes"
+      },
+      "id": "assessment_126",
+      "probability": 0.8135593220338984
+    },
+    {
+      "answers": {
+        "authenticElaboration": true,
+        "commercialPotential": true,
+        "culturePreservation": true,
+        "gastronomicHeritage": true,
+        "recommendation": true,
+        "sensoryUniqueness": true,
+        "traditionalMexican": true
+      },
+      "evidence": {
+        "Q1_Traditional_Mexican": "Yes",
+        "Q3_Recommendation": "Yes",
+        "Q4_Gastronomic_Heritage": "Yes",
+        "Q5_Authenticity_Elaboration": "Yes",
+        "Q6_Commercial_Potential": "Yes",
+        "Q7_Culture_Preservation": "Yes",
+        "Q8_Sensory_Uniqueness": "Yes"
+      },
+      "id": "assessment_127",
+      "probability": 0.8135593220338984
+    }
+  ],
+  "generator": "pgmpy VariableElimination",
+  "model_sha256": "8ecb6ae7cd8236aa3e7930287bb8ae51f4828cbe97baf138d63bb75388800f3b",
+  "model_version": "1.0.0",
+  "scientific_reference": {
+    "difference_percentage_points": -2.836686390532539,
+    "published_probability": 0.626,
+    "query": "P(Q2=Yes | Q8=Yes)",
+    "reconstructed_probability": 0.5976331360946746,
+    "status": "documented_difference_not_exact_recovery"
+  },
+  "tolerance": 1e-12
+}
